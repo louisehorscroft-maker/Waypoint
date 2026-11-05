@@ -1,13 +1,16 @@
 ---
 interface Props {
   title: string;
+  /** Who leads this step, shown as a "Led by" label under the title */
+  who?: string;
 }
 
-const { title } = Astro.props;
+const { title, who } = Astro.props;
 ---
 
 <li class="step">
   <h3 class="step__title">{title}</h3>
+  {who && <p class="step__who"><strong>Led by:</strong> {who}</p>}
   <div class="step__body">
     <slot />
   </div>
@@ -34,6 +37,10 @@ const { title } = Astro.props;
     background: var(--colour-brand);
     color: var(--colour-on-brand);
     font-weight: 700;
+  }
+
+  .step__who {
+    margin: 0 0 0.35rem;
   }
 
   .step__title {
