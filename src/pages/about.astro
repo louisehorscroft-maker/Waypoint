@@ -9,6 +9,7 @@ import StepList from '../components/StepList.astro';
 import Step from '../components/Step.astro';
 import IllustrativeExample from '../components/IllustrativeExample.astro';
 import PhotoFrame from '../components/PhotoFrame.astro';
+import Card from '../components/Card.astro';
 
 // Copy: rewritten from content-source/waypoint-content-v1.md, section "2 Discover Waypoint".
 // Wes's WEBSITE COPY is the framework; every fact here comes from it.
@@ -216,7 +217,85 @@ import PhotoFrame from '../components/PhotoFrame.astro';
     </div>
   </Section>
 
-  <Section id="meet-wes" title="Meet Wes" strapline="Director of Rugby, PE teacher and GB paddler.">
+  <Section
+    id="reporting"
+    title="Reporting"
+    strapline="Real evidence every week, not just “they had a good day”."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          This is what makes Waypoint different. Every school-funded place comes with a weekly written report for the
+          school and family. It shows what the young person actually did, the help they had and what to try next.
+        </p>
+        <p>
+          Schools get real evidence for their next decision, and families hear what their child has been up to,
+          including the things worth celebrating.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      <Card title="What they did" icon="clipboard">
+        The activity, and what the young person actually did or said.
+      </Card>
+      <Card title="The help they had" icon="heart">
+        The support that was planned, and the support that was actually given.
+      </Card>
+      <Card title="How they got on" icon="star">
+        How they responded, including things worth celebrating, like an idea they shared or something they built.
+      </Card>
+      <Card title="What's still tricky" icon="mountain">
+        Anything they still found hard, written down honestly rather than glossed over.
+      </Card>
+      <Card title="Their own view" icon="speech">
+        What the young person thought of their day, included wherever we can.
+      </Card>
+      <Card title="What to try next" icon="arrow">
+        One or two realistic next steps at Waypoint, and ideas the school might want to try.
+      </Card>
+    </CardGroup>
+    <div class="example">
+      <IllustrativeExample title="Inside a weekly update" label="Fictional example, Alex is not a real pupil">
+        <p>A short extract from one made-up Tuesday, to show the kind of detail a report gives.</p>
+        <ul class="update">
+          <li><strong>Agreed focus:</strong> Share an idea in a group task, and ask for help when needed.</li>
+          <li>
+            <strong>What happened:</strong> In a Giant Chain Reaction, Alex suggested changing the slope of a ramp after
+            the ball stopped. After an adult showed how to support the ramp and broke the job into steps, Alex helped
+            move it and tested the run again.
+          </li>
+          <li>
+            <strong>Help and limits:</strong> Alex joined in with a demonstration and step-by-step help from an adult.
+            We didn't see Alex do it alone, and Alex didn't ask for help this time, so we can't say there's progress on
+            that part yet.
+          </li>
+          <li><strong>Alex's view:</strong> Alex said testing the run was the best bit.</li>
+          <li>
+            <strong>Next at Waypoint:</strong> Keep the demonstration and small steps, and give Alex another chance to
+            share an idea or ask for help.
+          </li>
+          <li>
+            <strong>For the SENCo:</strong> A quick demonstration and the option to sketch an idea might be worth trying
+            in school. We haven't shown it will work in class, or that support can be reduced.
+          </li>
+        </ul>
+      </IllustrativeExample>
+    </div>
+    <div class="prose reviews">
+      <p>
+        Reports build up over the placement. There is a check-in after the first two sessions, then fuller reviews at
+        around weeks 4, 8 and 12. At each one, the school and Waypoint look at the evidence and the young person's
+        experience, and decide whether to carry on, change the support or plan the next step.
+      </p>
+    </div>
+    <div class="button-row">
+      <Button href="/for-schools/">How reporting works for schools</Button>
+    </div>
+  </Section>
+
+  <Section id="meet-wes" title="Meet Wes" strapline="Director of Rugby, PE teacher and GB paddler." drawingSide="left">
     <PhotoFrame
       slot="photo"
       src="/images/wes-horscroft-480.webp"
@@ -250,7 +329,6 @@ import PhotoFrame from '../components/PhotoFrame.astro';
     strapline="Indoors and outdoors in Shoreham-by-Sea."
     drawing="setting"
     drawingLabel="Line drawing of a building with a tree and the sun"
-    drawingSide="left"
   >
     <Fragment slot="intro">
       <div class="prose">
@@ -273,6 +351,7 @@ import PhotoFrame from '../components/PhotoFrame.astro';
     brand
     drawing="signpost"
     drawingLabel="Line drawing of a stick person looking up at a signpost"
+    drawingSide="left"
   >
     <Fragment slot="intro">
       <div class="prose">
@@ -303,6 +382,19 @@ import PhotoFrame from '../components/PhotoFrame.astro';
 
   .example :global(.step-list) {
     margin: 1.25rem 0;
+  }
+
+  .update {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .update li + li {
+    margin-top: 0.5rem;
+  }
+
+  .reviews {
+    margin-top: 2rem;
   }
 
   .route-links {

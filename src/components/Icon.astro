@@ -3,7 +3,17 @@
  * Small line icons in the same thin-line style as the logo. Decorative only,
  * so they are hidden from screen readers; the text next to them carries the meaning.
  */
-export type IconName = 'calendar' | 'people' | 'pin' | 'tree' | 'clipboard' | 'heart' | 'arrow';
+export type IconName =
+  | 'calendar'
+  | 'people'
+  | 'pin'
+  | 'tree'
+  | 'clipboard'
+  | 'heart'
+  | 'arrow'
+  | 'star'
+  | 'speech'
+  | 'mountain';
 
 interface Props {
   name: IconName;
@@ -71,6 +81,9 @@ const { name, size = 22 } = Astro.props;
   }
   {name === 'heart' && <path d="M12 20s-7.5-4.6-7.5-10.2A4.1 4.1 0 0 1 12 7.4a4.1 4.1 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z" />}
   {name === 'arrow' && <path d="M4.5 12h14M13 6.5l5.5 5.5-5.5 5.5" />}
+  {name === 'star' && <path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" />}
+  {name === 'speech' && <path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 19 16h-8l-4.5 4v-4H5a1.5 1.5 0 0 1-1.5-1.5v-8A1.5 1.5 0 0 1 5 5z" />}
+  {name === 'mountain' && <path d="M2.5 20 9 9l4 6 2.5-3.5L21.5 20z" />}
 </svg>
 
 <style>
