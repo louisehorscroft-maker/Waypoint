@@ -93,3 +93,31 @@ if (trainingGaps > 0) {
   }
   console.log('check-dist: all page titles and descriptions are within limits');
 }
+
+// Link check (fails the build): every internal link must point to a page that exists, and any
+// #section must exist on that page.
+{
+  const pagesByPath = new Map();
+  for (const file of await walk(DIST)) {
+    if (!file.endsWith('.html')) continue;
+    const path = '/' + file.slice(DIST.length + 1).replace(/index\.html$/, '');
+    pagesByPath.set(path, await readFile(file, 'utf8'));
+  }
+  const idsByPath = new Map(
+    [...pagesByPath].map(([path, html]) => [path, new Set([...html.matchAll(/ id="([^"]+)"/g)].map((m) => m[1]))]),
+  );
+  const brokenLinks = [];
+  for (const [path, html] of pagesByPath) {
+    for (const [, href] of html.matchAll(/<a [^>]*href="([^"]+)"/g)) {
+      if (/^(https?:|mailto:|tel:)/.test(href)) continue;
+      const [target, anchor] = href.startsWith('#') ? [path, href.slice(1)] : [href.split('#')[0].split('?')[0], href.split('#')[1]];
+      if (!pagesByPath.has(target) || (anchor && !idsByPath.get(target).has(anchor))) brokenLinks.push(`${path} -> ${href}`);
+    }
+  }
+  if (brokenLinks.length > 0) {
+    console.error('check-dist: broken internal links:');
+    for (const link of [...new Set(brokenLinks)]) console.error(`  - ${link}`);
+    process.exit(1);
+  }
+  console.log('check-dist: all internal links work');
+}
