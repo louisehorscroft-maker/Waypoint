@@ -22,7 +22,7 @@ Marketing site for Waypoint, built with Astro (TypeScript strict) and deployed t
 
 ## Pages
 
-Page structure follows the "Navigation and reading guide" in the content source. Every page opens with a `PageHero` band holding a keyword-led H1, a one-line strapline and a Get in touch button (not on the contact page). The page `<title>` matches the H1.
+Page structure follows the "Navigation and reading guide" in the content source. Every page opens with a `PageHero` band holding a keyword-led H1, a one-line strapline and a Get in touch button (not on the contact page).
 
 - `/`: Home (page 1), H1 "Alternative provision in Shoreham-by-Sea"
 - `/about/`: About (page 2, "Discover Waypoint" in the source, renamed About in the menu as the standard label), H1 "About Waypoint". Sections: What Waypoint is, Activities, Reporting (high up, as the differentiator, but short: intro and a link), Our approach, Learning (short, with a link), Is Waypoint a good fit. About stays a light overview; the detailed reporting and learning content lives on For Schools. No typical day (it lives on Parents and carers only, so it isn't repeated). No Meet Wes or Our setting (the venue line is folded into What Waypoint is)
@@ -55,6 +55,14 @@ The site uses only five text sizes, set as tokens in `global.css` (`--text-h1`, 
 - **Home education:** Never describe it as alternative provision or intervention. It is enrichment for home-educated young people.
 - **No "Discovery":** Wes has dropped the name Discovery (and "Home Education Discovery") used in the source. Just say home education, home education places or days for home-educated young people.
 - **Facts only:** Headings, straplines and copy must only state facts that are in the source. Waypoint is preparing to open, so never imply it is already operating.
+
+### Search titles, descriptions and sharing
+
+- **Titles and descriptions:** All live in `src/data/seo.ts`, one entry per page. Titles are 60 characters or fewer, keywords and location first (alternative provision, Shoreham-by-Sea, West Sussex, ages 8–16), with "| Waypoint" last. Descriptions are 120 to 155 characters, in house style and using facts only. Every one must be unique. The build fails if any break these rules. Add an entry for every new page.
+- **Never in search results:** The thank-you and 404 pages pass `noindex` to `BaseLayout`, which stays after launch.
+- **Social sharing:** Open Graph and Twitter tags are on every page. The share image is `public/images/waypoint-social.png` (1200 by 630).
+- **Organisation details:** Home has EducationalOrganization structured data (name, area served, founder). It has no address or contact details until they're verified.
+- **The live address:** Canonical links, `og:url`, the share image and the structured data URL only appear once `site` is set in `astro.config.mjs`. Set it at launch.
 
 Number ranges (8–16, 9:00am–2:30pm) and Shoreham-by-Sea never break across lines in H1s and straplines (handled by `KeepTogether`).
 
@@ -112,6 +120,10 @@ Fill in Wes's training and checks in `src/data/safeguarding.ts`, and add `href`s
 ### Contact details
 
 `src/data/contact.ts` holds placeholders until Wes supplies the real details: email `hello@example.com` (reserved, never delivers), mobile `07700 900123` (Ofcom's drama range, never connects) and Web3Forms key `YOUR_WEB3FORMS_ACCESS_KEY` (the form fails until a real key is set). Replace all three before launch. Create the key free at web3forms.com using the real email address; it is designed to be public. The build prints a warning while any placeholder is still in use.
+
+## Before launch: live address
+
+Set `site` in `astro.config.mjs` to the live domain, so canonical links and the social sharing image work.
 
 ## Pre-launch search engine blocking
 

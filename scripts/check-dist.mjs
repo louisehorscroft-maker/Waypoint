@@ -64,3 +64,32 @@ const trainingGaps = (safeguardingPage.match(/Details to be added\./g) ?? []).le
 if (trainingGaps > 0) {
   console.warn(`check-dist: WARNING ${trainingGaps} safeguarding training placeholders still in use. Update src/data/safeguarding.ts before launch.`);
 }
+
+// SEO check (fails the build): every indexable page has a unique title (60 characters or
+// fewer) and a unique description (120 to 155 characters). Edit them in src/data/seo.ts.
+{
+  const seoProblems = [];
+  const seenTitles = new Map();
+  const seenDescriptions = new Map();
+  const decode = (t) => t.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+  for (const file of await walk(DIST)) {
+    if (!file.endsWith('.html')) continue;
+    const html = await readFile(file, 'utf8');
+    if (/<meta name="robots" content="noindex">/.test(html)) continue; // thank-you and 404
+    const title = decode(html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '');
+    const description = decode(html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '');
+    if (!title || title.length > 60) seoProblems.push(`${file}: title is ${title.length} characters (max 60)`);
+    if (description.length < 120 || description.length > 155)
+      seoProblems.push(`${file}: description is ${description.length} characters (120 to 155)`);
+    if (seenTitles.has(title)) seoProblems.push(`${file}: same title as ${seenTitles.get(title)}`);
+    if (seenDescriptions.has(description)) seoProblems.push(`${file}: same description as ${seenDescriptions.get(description)}`);
+    seenTitles.set(title, file);
+    seenDescriptions.set(description, file);
+  }
+  if (seoProblems.length > 0) {
+    console.error('check-dist: SEO titles and descriptions need fixing (src/data/seo.ts):');
+    for (const problem of seoProblems) console.error(`  - ${problem}`);
+    process.exit(1);
+  }
+  console.log('check-dist: all page titles and descriptions are within limits');
+}

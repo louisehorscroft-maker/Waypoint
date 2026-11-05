@@ -2,17 +2,41 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { seo } from '../data/seo';
 
 interface Props {
+  /** Fallback when the page has no entry in src/data/seo.ts; shown as "<title> | Waypoint" */
   title: string;
   description?: string;
+  /** Keep this page out of search results permanently (thank-you and 404 pages) */
+  noindex?: boolean;
 }
 
-const {
-  title,
-  description = 'Waypoint is being developed as a small, part-time provision where young people learn through practical experiences and supportive relationships.',
-} = Astro.props;
-const pageTitle = `${title} | Waypoint`;
+const { title, description: fallbackDescription, noindex = false } = Astro.props;
+const path = Astro.url.pathname.replace(/\/?$/, '/');
+const entry = seo[path];
+const pageTitle = entry?.title ?? `${title} | Waypoint`;
+const description =
+  entry?.description ??
+  fallbackDescription ??
+  'Waypoint is being developed as a small, part-time provision where young people learn through practical experiences and supportive relationships.';
+
+// Absolute URLs need the live address: set `site` in astro.config.mjs at launch. Until then,
+// the canonical link, og:url and the social image are left out rather than pointing somewhere wrong.
+const site = Astro.site;
+const canonical = site ? new URL(path, site).toString() : undefined;
+const socialImage = site ? new URL('/images/waypoint-social.png', site).toString() : undefined;
+const isHome = path === '/';
+const organisation = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: 'Waypoint',
+  description:
+    'Small-group alternative provision being developed in Shoreham-by-Sea, West Sussex, for young people aged 8–16.',
+  areaServed: { '@type': 'Place', name: 'Shoreham-by-Sea, West Sussex' },
+  founder: { '@type': 'Person', name: 'Wes Horscroft' },
+  ...(site ? { url: site.toString(), logo: new URL('/images/waypoint-logo-blue.webp', site).toString() } : {}),
+};
 ---
 
 <!doctype html>
@@ -26,10 +50,31 @@ const pageTitle = `${title} | Waypoint`;
       REMOVE THIS TAG AT LAUNCH, together with public/robots.txt.
     */}
     <meta name="robots" content="noindex, nofollow" />
+    {/* Keep in place after launch: these pages should never appear in search results */}
+    {noindex && <meta name="robots" content="noindex" />}
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+
+    {/* Social sharing (WhatsApp, LinkedIn, Facebook, X and others) */}
+    <meta property="og:site_name" content="Waypoint" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialImage && <meta property="og:image:width" content="1200" />}
+    {socialImage && <meta property="og:image:height" content="630" />}
+    {
+      socialImage && (
+        <meta property="og:image:alt" content="Waypoint logo. Alternative provision in Shoreham-by-Sea, hands-on, small-group learning for ages 8–16." />
+      )
+    }
+    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+    {isHome && <script type="application/ld+json" set:html={JSON.stringify(organisation)} />}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
