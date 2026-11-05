@@ -221,6 +221,42 @@ const atAGlance = [
         or coming back after a supported pause. Every pupil's goals are their own.
       </p>
     </div>
+    <div class="example">
+      <IllustrativeExample title="How a project becomes learning" label="Illustrative example, not a real young person">
+        <p>
+          This shows how one project could work for one young person. It isn't a fixed programme or a real outcome.
+        </p>
+        <StepList>
+          <Step title="Starting point">
+            <p>
+              A young person who loves making things but finds it hard to share an idea in a group. We start by asking
+              about their experience and what helps.
+            </p>
+          </Step>
+          <Step title="Goal">
+            <p>Agree a way for them to get an idea across, by speaking, sketching, showing or another way that suits them.</p>
+          </Step>
+          <Step title="Activity">
+            <p>A Giant Chain Reaction, where the group has to work out how to get a ball from one part of the course to the next.</p>
+          </Step>
+          <Step title="Support">
+            <p>An adult might show how a connection works, break the task into smaller steps or help them show their design.</p>
+          </Step>
+          <Step title="What we notice">
+            <p>
+              What they actually contributed, the help they used and what they thought of it. A good group result alone
+              doesn't show what each person learned.
+            </p>
+          </Step>
+          <Step title="Next step">
+            <p>
+              Come back to a similar chance in a later session, keep the support that helped and see what happens. Next
+              time that might mean explaining a change or trying the idea in a different project.
+            </p>
+          </Step>
+        </StepList>
+      </IllustrativeExample>
+    </div>
   </Section>
 
   <Section
@@ -233,9 +269,8 @@ const atAGlance = [
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          This is where Waypoint stands out. Every school-funded place includes a weekly report for the school and
-          family, covering the task, what the pupil actually did or said, the support planned and given, how they
-          responded, what's still difficult and one or two realistic next steps.
+          This is where Waypoint stands out. Every school-funded place includes a weekly written report for the school
+          and family, so you have real evidence for your next decision, not just "they had a good day".
         </p>
         <p>
           We include the pupil's own view where we can, and keep our observations separate from what school and
@@ -244,6 +279,53 @@ const atAGlance = [
         </p>
       </div>
     </Fragment>
+    <CardGroup columns={3}>
+      <Card title="What they did" icon="clipboard">
+        The activity, and what the pupil actually did or said.
+      </Card>
+      <Card title="The help they had" icon="heart">
+        The support that was planned, and the support that was actually given.
+      </Card>
+      <Card title="How they got on" icon="star">
+        How they responded, including things worth celebrating, like an idea they shared or something they built.
+      </Card>
+      <Card title="What's still tricky" icon="mountain">
+        Anything they still found hard, written down honestly rather than glossed over.
+      </Card>
+      <Card title="Their own view" icon="speech">
+        What the pupil thought of their day, included wherever we can.
+      </Card>
+      <Card title="What to try next" icon="arrow">
+        One or two realistic next steps at Waypoint, and ideas the school might want to try.
+      </Card>
+    </CardGroup>
+    <div class="example">
+      <IllustrativeExample title="Inside a weekly update" label="Fictional example, Alex is not a real pupil">
+        <p>A short extract from one made-up day, to show the kind of detail a report gives.</p>
+        <ul class="update">
+          <li><strong>Agreed focus:</strong> Share an idea in a group task, and ask for help when needed.</li>
+          <li>
+            <strong>What happened:</strong> In a Giant Chain Reaction, Alex suggested changing the slope of a ramp after
+            the ball stopped. After an adult showed how to support the ramp and broke the job into steps, Alex helped
+            move it and tested the run again.
+          </li>
+          <li>
+            <strong>Help and limits:</strong> Alex joined in with a demonstration and step-by-step help from an adult.
+            We didn't see Alex do it alone, and Alex didn't ask for help this time, so we can't say there's progress on
+            that part yet.
+          </li>
+          <li><strong>Alex's view:</strong> Alex said testing the run was the best bit.</li>
+          <li>
+            <strong>Next at Waypoint:</strong> Keep the demonstration and small steps, and give Alex another chance to
+            share an idea or ask for help.
+          </li>
+          <li>
+            <strong>For the SENCo:</strong> A quick demonstration and the option to sketch an idea might be worth trying
+            in school. We haven't shown it will work in class, or that support can be reduced.
+          </li>
+        </ul>
+      </IllustrativeExample>
+    </div>
     <div class="prose more">
       <p>
         Before the first session we agree a named contact, who receives reports, attendance and safeguarding handover,
@@ -403,5 +485,14 @@ const atAGlance = [
 
   .jump-links a::after {
     content: ' \2193';
+  }
+
+  .update {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .update li + li {
+    margin-top: 0.5rem;
   }
 </style>

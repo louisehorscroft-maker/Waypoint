@@ -5,10 +5,6 @@ import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
 import CardGroup from '../components/CardGroup.astro';
 import ActivityCard from '../components/ActivityCard.astro';
-import StepList from '../components/StepList.astro';
-import Step from '../components/Step.astro';
-import IllustrativeExample from '../components/IllustrativeExample.astro';
-import Card from '../components/Card.astro';
 
 // Copy: rewritten from content-source/waypoint-content-v1.md, section "2 Discover Waypoint".
 // Wes's WEBSITE COPY is the framework; every fact here comes from it.
@@ -113,64 +109,10 @@ import Card from '../components/Card.astro';
           including the things worth celebrating.
         </p>
       </div>
+      <div class="button-row">
+        <Button href="/for-schools/#reporting">See what a report covers</Button>
+      </div>
     </Fragment>
-    <CardGroup columns={3}>
-      <Card title="What they did" icon="clipboard">
-        The activity, and what the young person actually did or said.
-      </Card>
-      <Card title="The help they had" icon="heart">
-        The support that was planned, and the support that was actually given.
-      </Card>
-      <Card title="How they got on" icon="star">
-        How they responded, including things worth celebrating, like an idea they shared or something they built.
-      </Card>
-      <Card title="What's still tricky" icon="mountain">
-        Anything they still found hard, written down honestly rather than glossed over.
-      </Card>
-      <Card title="Their own view" icon="speech">
-        What the young person thought of their day, included wherever we can.
-      </Card>
-      <Card title="What to try next" icon="arrow">
-        One or two realistic next steps at Waypoint, and ideas the school might want to try.
-      </Card>
-    </CardGroup>
-    <div class="example">
-      <IllustrativeExample title="Inside a weekly update" label="Fictional example, Alex is not a real pupil">
-        <p>A short extract from one made-up day, to show the kind of detail a report gives.</p>
-        <ul class="update">
-          <li><strong>Agreed focus:</strong> Share an idea in a group task, and ask for help when needed.</li>
-          <li>
-            <strong>What happened:</strong> In a Giant Chain Reaction, Alex suggested changing the slope of a ramp after
-            the ball stopped. After an adult showed how to support the ramp and broke the job into steps, Alex helped
-            move it and tested the run again.
-          </li>
-          <li>
-            <strong>Help and limits:</strong> Alex joined in with a demonstration and step-by-step help from an adult.
-            We didn't see Alex do it alone, and Alex didn't ask for help this time, so we can't say there's progress on
-            that part yet.
-          </li>
-          <li><strong>Alex's view:</strong> Alex said testing the run was the best bit.</li>
-          <li>
-            <strong>Next at Waypoint:</strong> Keep the demonstration and small steps, and give Alex another chance to
-            share an idea or ask for help.
-          </li>
-          <li>
-            <strong>For the SENCo:</strong> A quick demonstration and the option to sketch an idea might be worth trying
-            in school. We haven't shown it will work in class, or that support can be reduced.
-          </li>
-        </ul>
-      </IllustrativeExample>
-    </div>
-    <div class="prose reviews">
-      <p>
-        Reports build up over the placement. There is a check-in after the first two sessions, then fuller reviews at
-        around weeks 4, 8 and 12. At each one, the school and Waypoint look at the evidence and the young person's
-        experience, and decide whether to carry on, change the support or plan the next step.
-      </p>
-    </div>
-    <div class="button-row">
-      <Button href="/for-schools/">How reporting works for schools</Button>
-    </div>
   </Section>
 
   <Section
@@ -219,43 +161,8 @@ import Card from '../components/Card.astro';
           or asking for help all count.
         </p>
       </div>
+      <p class="more-link"><a href="/for-schools/#support-and-goals">How goals and learning work for schools</a></p>
     </Fragment>
-    <div class="example">
-      <IllustrativeExample title="How a project becomes learning" label="Illustrative example, not a real young person">
-        <p>
-          This shows how one project could work for one young person. It isn't a fixed programme or a real outcome.
-        </p>
-        <StepList>
-          <Step title="Starting point">
-            <p>
-              A young person who loves making things but finds it hard to share an idea in a group. We start by asking
-              about their experience and what helps.
-            </p>
-          </Step>
-          <Step title="Goal">
-            <p>Agree a way for them to get an idea across, by speaking, sketching, showing or another way that suits them.</p>
-          </Step>
-          <Step title="Activity">
-            <p>A Giant Chain Reaction, where the group has to work out how to get a ball from one part of the course to the next.</p>
-          </Step>
-          <Step title="Support">
-            <p>An adult might show how a connection works, break the task into smaller steps or help them show their design.</p>
-          </Step>
-          <Step title="What we notice">
-            <p>
-              What they actually contributed, the help they used and what they thought of it. A good group result alone
-              doesn't show what each person learned.
-            </p>
-          </Step>
-          <Step title="Next step">
-            <p>
-              Come back to a similar chance in a later session, keep the support that helped and see what happens. Next
-              time that might mean explaining a change or trying the idea in a different project.
-            </p>
-          </Step>
-        </StepList>
-      </IllustrativeExample>
-    </div>
   </Section>
 
   <Section
@@ -298,18 +205,6 @@ import Card from '../components/Card.astro';
     margin: 1.25rem 0;
   }
 
-  .update {
-    margin: 1rem 0 0;
-    padding-left: 1.25rem;
-  }
-
-  .update li + li {
-    margin-top: 0.5rem;
-  }
-
-  .reviews {
-    margin-top: 2rem;
-  }
 
   .route-links {
     display: flex;
@@ -322,6 +217,15 @@ import Card from '../components/Card.astro';
   }
 
   .route-links a::after {
+    content: ' \2192';
+  }
+
+  .more-link {
+    margin: 1rem 0 0;
+    font-weight: 600;
+  }
+
+  .more-link a::after {
     content: ' \2192';
   }
 </style>
