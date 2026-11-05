@@ -1,11 +1,180 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "8 Placement arrangements
+// and fees". Both prices are PROPOSED launch figures: no bookings, no tax claim, and never the
+// possible future £125 offer. Replace provisional wording once the commercial terms are final.
 ---
 
-<BaseLayout title="Fees and placement arrangements" description="How school-funded and home education places are arranged.">
-  <PageHero
-    title="Fees and placement arrangements"
-    strapline="How school-funded and home education places are arranged."
-  />
+<BaseLayout
+  title="Fees and placement arrangements"
+  description="Proposed prices and arrangements for school-funded and home education places at Waypoint in Shoreham-by-Sea."
+>
+  <PageHero title="Fees and placement arrangements" strapline="How school-funded and home education places are arranged." />
+
+  <Section
+    id="fees"
+    title="Fees"
+    strapline="Clear costs, agreed before anyone starts."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          We agree the purpose, dates, support and costs before a young person starts. The prices below are proposed
+          launch prices, and the final terms and availability are confirmed before any place is agreed.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={2}>
+      <Card title="School-funded places" icon="clipboard">
+        <strong>£100</strong> per young person per day. Proposed launch price.
+        <a href="#school-funded-places">What's included</a>
+      </Card>
+      <Card title="Home education places" icon="people">
+        <strong>£85</strong> per young person per day. Proposed launch price.
+        <a href="#home-education-places">What's included</a>
+      </Card>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="school-funded-places"
+    title="School-funded places"
+    strapline="What's included, and how booking works."
+    drawing="school"
+    drawingLabel="Line drawing of a school building with a clock and a flag"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          The proposed price is £100 per young person per day. It includes the small-group programme, individual goals,
+          support within the group, a weekly report and fuller reviews at agreed points.
+        </p>
+        <p>
+          One-to-one support or extra staffing isn't included automatically. If it's needed, we talk through what's
+          involved and what it costs before offering a place.
+        </p>
+      </div>
+    </Fragment>
+    <div class="prose more">
+      <h3>Booking</h3>
+      <p>
+        Places are booked over twelve delivery weeks. The written offer lists the actual dates and review points, so the
+        commitment is clear. A proposed place isn't a confirmed booking or start date.
+      </p>
+      <h3>Absence</h3>
+      <p>
+        The fee reserves the young person's place in the group, so booked sessions are still charged if they're absent,
+        under the agreed terms. Please tell us about absence as soon as you can, using the contacts you were given.
+      </p>
+      <h3>Invoicing</h3>
+      <p>
+        We plan to invoice schools each half-term in advance. Before the start, we agree the finance contact, any
+        purchase order and the payment terms, and plan invoice dates around finance office closures such as Easter and
+        summer.
+      </p>
+      <h3>Ending a placement early</h3>
+      <p>
+        We need written notice. Our proposed arrangement is payment to the end of the current half-term, or for at least
+        two further chargeable weeks, whichever is later. The final terms set out the exact dates and are agreed before
+        booking.
+      </p>
+    </div>
+    <div class="button-row">
+      <Button href="/how-referrals-work/#school-funded-places">How referrals work</Button>
+      <Button href="/contact/?purpose=placement" variant="secondary">Ask a question</Button>
+    </div>
+  </Section>
+
+  <Section
+    id="home-education-places"
+    title="Home education places"
+    strapline="Terms agreed before any booking."
+    drawing="campfire"
+    drawingLabel="Line drawing of stick people sitting and standing round a campfire"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          The proposed price is £85 per young person per day, for practical projects and shared learning alongside other
+          young people. We talk through support needs and whether the group suits your child before anything is booked.
+        </p>
+        <p>
+          Before bookings open, we'll set out the commitment, payment and cancellation terms, how we'll keep you updated
+          and whether parents stay. The school-funded terms above don't apply, and we're not taking bookings yet.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/home-education/">Home education at Waypoint</Button>
+        <Button href="/contact/?purpose=home-education" variant="secondary">Ask a question</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="before-you-book"
+    title="Before you book"
+    strapline="Everything in writing first."
+    drawing="setting"
+    drawingLabel="Line drawing of a building with a tree and the sun"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Before you accept a place, we'll tell you where to come, the booked dates and times, who handles transport and
+          handover, and what to bring, including clothing, equipment, food and drink. You'll also have a contact for any
+          questions. Please mention any access, health or support needs when we talk about the placement.
+        </p>
+        <p>
+          The written offer sets out the total cost, what's included, any agreed extra charges and what happens if
+          Waypoint has to cancel a session.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="ask-about-costs"
+    title="Ask about costs"
+    strapline="We'll explain what's still being confirmed."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Schools can ask about school-funded places, and home-educating families can ask about home education places.
+          We'll explain the proposed prices and which costs or terms are still being confirmed. Asking doesn't reserve a
+          place.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/?purpose=general" variant="accent">Ask a question</Button>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .more {
+    margin-top: 1.5rem;
+  }
+
+  .more h3 {
+    margin-top: 1.75rem;
+  }
+
+  .more h3:first-child {
+    margin-top: 0;
+  }
+</style>
