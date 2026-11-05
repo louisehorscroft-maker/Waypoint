@@ -19,12 +19,14 @@ const year = new Date().getFullYear();
           }
         </ul>
       </nav>
-      <p class="site-footer__about">Alternative provision in Shoreham-by-Sea for young people aged 8–16 from {nearbyText}.</p>
-      <p class="site-footer__copyright">&copy; {year} Waypoint</p>
     </div>
     <a href="/" class="site-footer__logo">
       <img src="/images/waypoint-logo-cream.webp" alt="Waypoint home" width="300" height="132" loading="lazy" />
     </a>
+    <div class="site-footer__bottom">
+      <p class="site-footer__about">Alternative provision in Shoreham-by-Sea for young people aged 8–16 from {nearbyText}.</p>
+      <p class="site-footer__copyright">&copy; {year} Waypoint</p>
+    </div>
   </div>
 </footer>
 
@@ -49,7 +51,7 @@ const year = new Date().getFullYear();
 
   .site-footer__main {
     flex: 1 1 18rem;
-    max-width: 60rem;
+    max-width: 66rem;
   }
 
   .site-footer__logo {
@@ -105,9 +107,13 @@ const year = new Date().getFullYear();
     outline-color: var(--colour-on-brand);
   }
 
+  /* Full-width row under the links and logo, so the areas line fits on one line on desktop */
+  .site-footer__bottom {
+    flex-basis: 100%;
+  }
+
   .site-footer__about {
     margin: 0 0 0.75rem;
-    max-width: 40rem;
   }
 
   .site-footer__copyright {
