@@ -1,11 +1,322 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import InfoPanel from '../components/InfoPanel.astro';
+import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
+import StepList from '../components/StepList.astro';
+import Step from '../components/Step.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "7 For Local Authorities".
+// Wes's build notes: one direct-entry page for commissioners and Virtual School leads. Value
+// first, then facts, suitability, evidence, communication, assurance and enquiry. Don't repeat
+// the SENCo detail or overclaim: no invented numbers, contracts, frameworks or approvals.
+
+const atAGlance = [
+  { label: 'Planned day', value: 'Tuesday, 9:00am–2:30pm', icon: 'calendar' as const },
+  {
+    label: 'Format',
+    value: 'One day a week, part-time, for ages 8–16, depending on individual suitability',
+    icon: 'people' as const,
+  },
+  {
+    label: 'Programme',
+    value: 'Supervised practical making, creative projects, teamwork, problem-solving and land-based outdoor learning',
+    icon: 'tree' as const,
+  },
+  {
+    label: 'Led by',
+    value: 'Wes Horscroft, founder, Director of Rugby and PE teacher since 2007',
+    icon: 'star' as const,
+  },
+  {
+    label: 'Reporting',
+    value: 'Weekly reports, a check after two sessions and reviews around weeks 4, 8 and 12',
+    icon: 'clipboard' as const,
+  },
+  { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
+];
 ---
 
-<BaseLayout title="Alternative provision for local authorities" description="A one-day placement that supports the wider plan, with evidence for the next commissioning decision.">
+<BaseLayout
+  title="Alternative provision for local authorities"
+  description="Part-time alternative provision in Shoreham-by-Sea for ages 8–16, with agreed goals, weekly evidence and named contacts for commissioners and Virtual Schools."
+>
   <PageHero
     title="Alternative provision for local authorities"
     strapline="A one-day placement that supports the wider plan, with evidence for the next commissioning decision."
   />
+
+  <Section
+    id="overview"
+    title="For local authorities"
+    strapline="A worthwhile Tuesday that adds to a young person's wider plan."
+    drawing="meeting"
+    drawingLabel="Line drawing of two adults and a young person talking round a table"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Waypoint is a small-group, part-time alternative provision being developed in Shoreham-by-Sea for young
+          people aged 8–16. The one-day programme combines practical projects, creative challenges and land-based
+          outdoor learning, each with an agreed educational purpose.
+        </p>
+        <p>
+          We welcome early conversations with education and inclusion teams, commissioners and Virtual Schools. We
+          start with what a Tuesday at Waypoint would add to the young person's education, and how we'll all know it's
+          working.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="what-a-placement-adds"
+    title="What a placement adds"
+    strapline="What a well-planned Tuesday brings."
+    drawing="building"
+    drawingLabel="Line drawing of two stick people carrying a plank, with a toolbox"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>Every placement is planned around a clear purpose that fits alongside the rest of the young person's education.</p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      <Card title="A day worth taking part in" icon="star">
+        Building, creating, testing and solving practical problems with other young people, guided by an experienced
+        educator.
+      </Card>
+      <Card title="A clear role in the wider plan" icon="arrow">
+        A small number of meaningful goals agreed with the professionals, family and young person. One day supports
+        the wider plan; it doesn't replace the rest of their education.
+      </Card>
+      <Card title="Evidence for your decisions" icon="clipboard">
+        A record of what the young person did, the support used, what's still uncertain and possible next steps, not
+        just a list of activities.
+      </Card>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="at-a-glance"
+    title="At a glance"
+    strapline="Tuesdays in Shoreham-by-Sea, for ages 8–16."
+    drawing="map-pin"
+    drawingLabel="Line drawing of a dotted path leading to a map pin by the sea"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Waypoint is preparing to open. The venue, group size, staffing, start dates and any commissioning or
+          procurement requirements will be confirmed before a place is agreed. This page is an invitation to talk about
+          the planned service, not a sign of any framework, endorsement or contract.
+        </p>
+      </div>
+    </Fragment>
+    <div class="panel">
+      <InfoPanel facts={atAGlance} />
+    </div>
+  </Section>
+
+  <Section
+    id="suitability"
+    title="Suitability"
+    strapline="Right for the young person, and right for the group."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          We only agree placements we're confident we can deliver well. Each one starts with a conversation about the
+          young person's strengths, interests and views, their current support, needs and risks, and the actual group,
+          venue and staff available.
+        </p>
+        <p>
+          We build on what's already known from education and support plans, and from whoever coordinates their
+          provision, so you won't be asked to start a new assessment.
+        </p>
+        <p>
+          One-to-one staffing and specialist support aren't part of the standard small-group offer. If a young person
+          needs more than we can safely provide, we'll say so straight away. Any extra support would need to be agreed,
+          including safeguarding, staffing and cost.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="evidence"
+    title="Evidence and reporting"
+    strapline="A factual record for your next decision."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          This is where Waypoint stands out. Our school-funded offer includes a weekly evidence-led report, an early
+          check after two sessions and fuller reviews around weeks 4, 8 and 12. Where an authority commissions directly,
+          the report recipients, frequency, format and review dates are agreed for that placement.
+        </p>
+        <p>
+          Reports keep what actually happened separate from an adult's interpretation, record the support that was
+          needed and set out practical next steps.
+        </p>
+      </div>
+    </Fragment>
+    <div class="prose more">
+      <h3>Reviews that lead to decisions</h3>
+      <p>Each review asks the questions that matter.</p>
+      <ul>
+        <li>Is the placement worthwhile?</li>
+        <li>Does the support need to change?</li>
+        <li>Is more information needed?</li>
+        <li>Is a planned next step the right move?</li>
+      </ul>
+      <p>
+        We share a factual record to inform that conversation, and decisions about the young person's wider education
+        stay with the people responsible for it. You can see a fictional worked example on
+        our <a href="/for-schools/#reporting">For Schools page</a>.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    id="communication"
+    title="Communication"
+    strapline="Named contacts, agreed before the start."
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Before the first session we agree named contacts for the school or placement coordinator, the commissioning
+          authority and, where relevant, the Virtual School. Attendance reporting, who receives information, safeguarding
+          handover, the reporting day and review dates are all written into the placement arrangements.
+        </p>
+        <p>
+          Any attendance, safety or welfare concern goes through the agreed contact straight away. Changes in the young
+          person's needs, support or purpose are discussed when they happen, not left for the next review.
+        </p>
+      </div>
+    </Fragment>
+    <div class="prose more">
+      <h3>For Virtual Schools</h3>
+      <p>
+        We welcome Virtual School leads. We take account of Virtual School involvement and existing education
+        arrangements, agree who is responsible for each part of the young person's provision and are clear that
+        Waypoint is one part of their education, not all of it.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    id="provider-information"
+    title="Provider information"
+    strapline="Ask us for what you need."
+    drawing="school"
+    drawingLabel="Line drawing of a school building with a clock and a flag"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          We're happy to talk you through leadership, safeguarding, recruitment, premises, insurance and placement
+          arrangements. We'll share the current evidence on request and be clear about anything still awaiting
+          approval.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/policies/">View provider information</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="arranging-a-placement"
+    title="Arranging a placement"
+    strapline="From first conversation to first Tuesday."
+    drawing="day"
+    drawingLabel="Line drawing of the sun's path across the sky, with five stops along the way"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>Getting a placement agreed is straightforward, and Wes is with you at every step.</p>
+      </div>
+    </Fragment>
+    <div class="steps">
+      <StepList>
+        <Step title="Talk about the service" who="You, with Wes">
+          <p>A conversation about Waypoint as a provider and the scope of the service.</p>
+        </Step>
+        <Step title="Consider the young person" who="Wes, with you">
+          <p>
+            If a placement looks promising, we look at suitability together, and you share the young person's
+            information through an agreed secure route.
+          </p>
+        </Step>
+        <Step title="Agree the details" who="You and Waypoint">
+          <p>
+            Goals, support, attendance, named contacts, fees, funding authorisation, the purchasing or contract route
+            and reviews are agreed before a start is confirmed.
+          </p>
+        </Step>
+        <Step title="First Tuesday" who="Waypoint">
+          <p>
+            We get everything ready, normally within five working days of having all the essential information and
+            approvals, and the young person starts.
+          </p>
+        </Step>
+      </StepList>
+    </div>
+    <div class="button-row">
+      <Button href="/how-referrals-work/">How referrals work</Button>
+      <Button href="/fees/" variant="secondary">Fees and arrangements</Button>
+    </div>
+  </Section>
+
+  <Section
+    id="talk-to-us"
+    title="Talk to us"
+    strapline="Tell us what you're looking for."
+    brand
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Whether it's a provider conversation, a place for a particular young person or the requirements of a
+          commissioning route, get in touch and Wes will talk it through. You can start with a general enquiry, with no
+          need to share identifiable records, and we'll explain the next step.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/?purpose=local-authority" variant="accent">Ask about commissioning</Button>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .panel,
+  .steps {
+    margin-top: 2rem;
+  }
+
+  .steps {
+    max-width: 46rem;
+  }
+
+  .more {
+    margin-top: 1.5rem;
+  }
+</style>
