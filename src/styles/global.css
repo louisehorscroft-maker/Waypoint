@@ -7,7 +7,9 @@
   --colour-brand: #1f4e5f;
   --colour-brand-dark: #163a47;
   --colour-border: #dde3e5;
-  --max-width: 68rem;
+  --colour-focus: #c25e00;
+  --header-height: 4rem;
+  --max-width: 75rem;
   --radius: 0.5rem;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
@@ -20,6 +22,13 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Keep anchor targets clear of the sticky header */
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+:focus-visible {
+  outline: 3px solid var(--colour-focus);
+  outline-offset: 2px;
 }
 
 body {
@@ -86,6 +95,12 @@ p {
   padding: 3rem 0;
 }
 
+@media (max-width: 29.99rem) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 .section--alt {
   background: var(--colour-surface);
 }
@@ -96,20 +111,34 @@ p {
   max-width: 40rem;
 }
 
+/* Card grids. Use .grid--3 for groups of three or six, .grid--2 for four (2x2) */
 .grid {
   display: grid;
   gap: 1.25rem;
   grid-template-columns: 1fr;
 }
 
+@media (min-width: 40rem) {
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (min-width: 48rem) {
-  .grid {
+  .grid--3 {
     grid-template-columns: repeat(3, 1fr);
   }
 
   .section {
     padding: 4.5rem 0;
   }
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
 .card {
@@ -123,20 +152,6 @@ p {
   margin-bottom: 0;
 }
 
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  border-radius: var(--radius);
-  background: var(--colour-brand);
-  color: #ffffff;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.button:hover {
-  background: var(--colour-brand-dark);
-  color: #ffffff;
-}
 
 .skip-link {
   position: absolute;

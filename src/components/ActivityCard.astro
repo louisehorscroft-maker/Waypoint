@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  /**
+   * Real photograph only. No stock or AI-generated images of people,
+   * sessions or venues. When no image is supplied the slot is not rendered.
+   */
+  image?: { src: string; alt: string };
+}
+
+const { title, image } = Astro.props;
+---
+
+<article class="activity-card">
+  {image && <img class="activity-card__image" src={image.src} alt={image.alt} loading="lazy" />}
+  <div class="activity-card__body">
+    <h3>{title}</h3>
+    <p><slot /></p>
+  </div>
+</article>
+
+<style>
+  .activity-card {
+    background: var(--colour-bg);
+    border: 1px solid var(--colour-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .activity-card__image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  .activity-card__body {
+    padding: 1.5rem;
+  }
+
+  .activity-card__body p {
+    margin: 0;
+  }
+</style>

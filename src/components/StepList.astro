@@ -1,0 +1,18 @@
+---
+/** Numbered stages. Fill with <Step> components. */
+---
+
+<ol class="step-list">
+  <slot />
+</ol>
+
+<style>
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: step;
+    display: grid;
+    gap: 1.25rem;
+  }
+</style>

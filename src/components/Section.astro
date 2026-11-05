@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'section'> {
+  /** Anchor id, used for in-page links such as /contact#visits */
+  id?: string;
+  /** Optional section heading, rendered as an h2 */
+  title?: string;
+  /** Alternate background */
+  alt?: boolean;
+}
+
+const { id, title, alt = false, class: className, ...rest } = Astro.props;
+const headingId = id && title ? `${id}-heading` : undefined;
+---
+
+<section
+  id={id}
+  class:list={['section', { 'section--alt': alt }, className]}
+  aria-labelledby={headingId}
+  {...rest}
+>
+  <div class="container">
+    {title && <h2 id={headingId}>{title}</h2>}
+    <slot />
+  </div>
+</section>

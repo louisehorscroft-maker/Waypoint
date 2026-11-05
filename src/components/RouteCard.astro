@@ -1,0 +1,63 @@
+---
+interface Props {
+  /** Route title, shown as the card heading and link text */
+  title: string;
+  href: string;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { title, href, headingLevel: Heading = 'h3' } = Astro.props;
+---
+
+<article class="route-card">
+  <Heading class="route-card__title">
+    <a href={href}>{title}</a>
+  </Heading>
+  <p><slot /></p>
+</article>
+
+<style>
+  .route-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--colour-bg);
+    border: 1px solid var(--colour-border);
+    border-top: 4px solid var(--colour-brand);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  .route-card:hover {
+    border-color: var(--colour-brand);
+  }
+
+  .route-card__title a {
+    color: var(--colour-brand);
+    text-decoration: none;
+  }
+
+  .route-card__title a::after {
+    /* Whole card is clickable, the heading link remains the accessible name */
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .route-card__title a:hover {
+    text-decoration: underline;
+  }
+
+  .route-card:focus-within {
+    outline: 3px solid var(--colour-focus);
+    outline-offset: 2px;
+  }
+
+  .route-card__title a:focus-visible {
+    outline: none;
+  }
+
+  .route-card p {
+    margin: 0;
+  }
+</style>

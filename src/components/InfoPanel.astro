@@ -1,0 +1,70 @@
+---
+interface Fact {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  title?: string;
+  /** Labelled facts, shown as a definition list */
+  facts?: Fact[];
+}
+
+const { title, facts = [] } = Astro.props;
+---
+
+<aside class="info-panel" aria-label={title}>
+  {title && <h3 class="info-panel__title">{title}</h3>}
+  {
+    facts.length > 0 && (
+      <dl class="info-panel__facts">
+        {facts.map((fact) => (
+          <div class="info-panel__fact">
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+    )
+  }
+  <slot />
+</aside>
+
+<style>
+  .info-panel {
+    background: var(--colour-surface);
+    border-left: 4px solid var(--colour-brand);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  .info-panel__facts {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0 0 1rem;
+  }
+
+  .info-panel__facts:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-panel__fact dt {
+    font-weight: 700;
+  }
+
+  .info-panel__fact dd {
+    margin: 0;
+  }
+
+  @media (min-width: 40rem) {
+    .info-panel__fact {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .info-panel :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>

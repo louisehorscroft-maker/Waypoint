@@ -12,11 +12,44 @@ Marketing site for Waypoint, built with Astro (TypeScript strict) and deployed t
 ## Structure
 
 - `src/layouts/BaseLayout.astro`: Base layout with header, footer and meta tags
-- `src/components/`: Shared components (`Header.astro`, `Footer.astro`)
-- `src/pages/`: One file per page (Home, About, Services, Contact, 404)
+- `src/data/navigation.ts`: Main menu and footer links, the single place to change navigation
+- `src/pages/`: One file per page, see the page list below
+- `src/components/`: Shared components, see the component list below
 - `src/styles/global.css`: Global styles, light mode only
 - `content-source/`: Source copy from Wes (original .docx and the markdown conversion). Never part of the built site
 - `scripts/check-dist.mjs`: Runs after every build and fails it if source files, internal section labels or Google Drive/Notion links appear in `dist/`
+
+## Pages
+
+Page structure follows the "Navigation and reading guide" in the content source. Each page's H1 is the first WEBSITE COPY heading for that page, in sentence case.
+
+- `/`: Home (page 1)
+- `/discover-waypoint/`: Discover Waypoint (page 2)
+- `/for-schools/`: For schools (page 3)
+- `/for-local-authorities/`: For local authorities (page 7)
+- `/parents-and-carers/`: Parents and carers (page 4)
+- `/home-education/`: Home education (page 6)
+- `/for-young-people/`: For young people (page 5)
+- `/fees/`: Placement arrangements and fees (page 8)
+- `/how-referrals-work/`: How referrals work (page 9)
+- `/policies/`: Policies and provider information (page 10)
+- `/contact/`: Get in touch (page 11)
+
+Footer links point at these anchors, which must exist once the content is added: `/contact/#visits`, `/policies/#raising-a-concern` and `/policies/#accessing-information`. Complaints and Privacy notice link to `/policies/` until approved documents exist.
+
+## Components
+
+Use these components rather than one-off markup.
+
+- `Header` and `Footer`: Site chrome. The header is sticky, with a keyboard-accessible Schools & Professionals dropdown, a mobile menu below 75rem and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
+- `Section`: Page section with an optional anchor `id`, optional `title` (h2) and `alt` background. Anchors clear the sticky header automatically.
+- `Button`: Link styled as a button, `variant="primary"` or `"secondary"`. Never render a button without a real destination.
+- `RouteCard`: Audience route card with a heading link and one paragraph. Put four in `.grid.grid--2` (2x2) and three or six in `.grid.grid--3`.
+- `InfoPanel`: Facts panel. Pass `facts` as label and value pairs, or slot in content.
+- `ActivityCard`: Activity card with one paragraph. The optional `image` is for real photographs only, and the image slot is not rendered without one.
+- `FaqItem`: Accessible expand and collapse question, built on `<details>`.
+- `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.
+- `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`.
 
 ## Pre-launch search engine blocking
 

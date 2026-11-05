@@ -1,11 +1,24 @@
 ---
+import { footerNav } from '../data/navigation';
+
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="container site-footer__inner">
-    <p>&copy; {year} Waypoint. All rights reserved.</p>
-    <p><a href="/contact/">Get in touch</a></p>
+  <div class="container">
+    <a href="/" class="site-footer__logo">Waypoint</a>
+    <nav aria-label="Footer">
+      <ul class="site-footer__links">
+        {
+          footerNav.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <p class="site-footer__copyright">&copy; {year} Waypoint</p>
   </div>
 </footer>
 
@@ -15,18 +28,48 @@ const year = new Date().getFullYear();
     background: var(--colour-surface);
     color: var(--colour-muted);
     font-size: 0.9375rem;
+    padding: 2.5rem 0 2rem;
   }
 
-  .site-footer__inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .site-footer__logo {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--colour-brand);
+    text-decoration: none;
+  }
+
+  .site-footer__links {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 0.5rem 1.5rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
   }
 
-  .site-footer p {
+  @media (min-width: 36rem) {
+    .site-footer__links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 56rem) {
+    .site-footer__links {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .site-footer__links a {
+    color: var(--colour-text);
+  }
+
+  .site-footer__links a:hover {
+    color: var(--colour-brand);
+  }
+
+  .site-footer__copyright {
     margin: 0;
   }
 </style>

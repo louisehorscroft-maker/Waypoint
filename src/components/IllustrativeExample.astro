@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+  /** Visible label marking the example as illustrative, for example "Fictional example" */
+  label: string;
+}
+
+const { title, label } = Astro.props;
+const id = `example-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+---
+
+{/*
+  The label sits inside the box and is never hidden at any screen size, so it
+  always stays attached to the example it describes.
+*/}
+<section class="example" aria-labelledby={`${id}-title`} aria-describedby={`${id}-label`}>
+  <p class="example__label" id={`${id}-label`}>{label}</p>
+  <h3 class="example__title" id={`${id}-title`}>{title}</h3>
+  <div class="example__body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .example {
+    border: 2px dashed var(--colour-brand);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    background: var(--colour-bg);
+  }
+
+  .example__label {
+    display: inline-block;
+    margin: 0 0 0.75rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 999px;
+    background: var(--colour-brand);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
+  .example__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>
