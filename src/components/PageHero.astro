@@ -13,14 +13,21 @@ interface Props {
 
 const { title, strapline, hideCta = false } = Astro.props;
 
-// Keep number ranges such as 8–16 on one line
-const keepRanges = (text: string) => text.replace(/(\d)–(\d)/g, '$1\u2060–\u2060$2');
+// Keep number ranges such as 8–16 and the place name Shoreham-by-Sea on one line,
+// without changing the text itself (so search engines see the real words)
+const NO_BREAK = /(\d+–\d+|Shoreham-by-Sea)/;
+const parts = (text: string) =>
+  text.split(NO_BREAK).filter(Boolean).map((part) => ({ text: part, nowrap: NO_BREAK.test(part) }));
 ---
 
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
-    <h1 id="page-title" class="page-hero__title">{title}</h1>
-    <p class="page-hero__strapline">{keepRanges(strapline)}</p>
+    <h1 id="page-title" class="page-hero__title">
+      {parts(title).map((part) => (part.nowrap ? <span class="nowrap">{part.text}</span> : part.text))}
+    </h1>
+    <p class="page-hero__strapline">
+      {parts(strapline).map((part) => (part.nowrap ? <span class="nowrap">{part.text}</span> : part.text))}
+    </p>
     {
       !hideCta && (
         <div class="page-hero__cta">
@@ -35,10 +42,48 @@ const keepRanges = (text: string) => text.replace(/(\d)–(\d)/g, '$1\u2060–\u
 
 <style>
   .page-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     background: var(--colour-brand);
     color: var(--colour-on-brand);
     padding: 2.5rem 0;
     border-bottom: 6px solid var(--colour-accent);
+  }
+
+  /* Faded Waypoint mark (logo image only, no wordmark) set at a diagonal.
+     Decorative, so it is a CSS background and hidden from screen readers. */
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    right: -12rem;
+    width: 46rem;
+    aspect-ratio: 1490 / 400;
+    background: url('/images/waypoint-mark-cream.webp') no-repeat center / contain;
+    opacity: 0.1;
+    transform: translateY(-50%) rotate(-18deg);
+    pointer-events: none;
+  }
+
+  @media (min-width: 48rem) {
+    .page-hero::before {
+      opacity: 0.14;
+      right: -6rem;
+      width: 56rem;
+    }
+  }
+
+  @media (min-width: 90rem) {
+    .page-hero::before {
+      right: 2rem;
+      width: 62rem;
+    }
+  }
+
+  .nowrap {
+    white-space: nowrap;
   }
 
   .page-hero__title {

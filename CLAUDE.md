@@ -16,7 +16,7 @@ Marketing site for Waypoint, built with Astro (TypeScript strict) and deployed t
 - `src/pages/`: One file per page, see the page list below
 - `src/components/`: Shared components, see the component list below
 - `src/styles/global.css`: Global styles, light mode only
-- `public/images/`: Logos (`waypoint-logo-green.webp` in the header, top left, and `waypoint-logo-cream.webp` in the footer, hard right on the same row as the footer links)
+- `public/images/`: Logos and the cream logo mark used faded in the page hero (`waypoint-mark-cream.webp`, cropped from the cream logo and enlarged). Logos (`waypoint-logo-green.webp` in the header, top left, and `waypoint-logo-cream.webp` in the footer, hard right on the same row as the footer links)
 - `content-source/`: Source copy from Wes (original .docx and the markdown conversion). Never part of the built site
 - `scripts/check-dist.mjs`: Runs after every build and fails it if source files, internal section labels or Google Drive/Notion links appear in `dist/`
 
@@ -62,7 +62,7 @@ Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use th
 
 Use these components rather than one-off markup.
 
-- `PageHero`: Forest green band at the top of every page, with a mustard line along its bottom edge (no line between the menu and the band), with the H1, strapline and a mustard Get in touch button. Pass `hideCta` on the contact page.
+- `PageHero`: Forest green band at the top of every page, with a mustard line along its bottom edge (no line between the menu and the band) and the faded logo mark at a diagonal behind the text, with the H1, strapline and a mustard Get in touch button. Pass `hideCta` on the contact page.
 - `Header` and `Footer`: Site chrome. The header is sticky and full-width, with a large logo hard left as the standout element, the menu and Get in touch hard right, a keyboard-accessible Schools & Professionals dropdown, a burger menu below 90rem (1440px), so smaller laptops show the logo, Get in touch and the menu button and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
 - `Section`: Page section with an optional anchor `id`, optional `title` (h2) and `alt` background. Each one has a full-width mustard line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
 - `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (mustard, for forest green backgrounds). Never render a button without a real destination.
