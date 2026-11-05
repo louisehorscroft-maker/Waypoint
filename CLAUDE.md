@@ -124,7 +124,8 @@ These rules apply to all content and copy on the site.
 Facts supplied by Lou (not in the content source), which may be used alongside it:
 
 - Wes Horscroft, founder of Waypoint
-- Director of Rugby at Newman, where he set up the ACE Academy
+- Director of Rugby at Cardinal Newman Catholic School in Hove, where he set up the Newman Rugby Academy and gained it RFU ACE status (Lou: "incredible" achievement; sell it)
+- RFU ACE (Academy, Colleges and Education) is England Rugby's programme for talented Year 12 and 13 players aiming at the elite game, bridging academy and professional rugby. The Newman Rugby Academy plays in the RFU ACE League (partner club Harlequins in the 2025/26 listings). Don't claim counts or rankings (for example "one of only X") without a source
 - A long background in PE teaching and sports coaching
 - Raced for Great Britain at the IVF Va'a World Sprint Championships in Hawaii in 2024 (outrigger canoe racing)
 
