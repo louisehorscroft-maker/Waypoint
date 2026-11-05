@@ -114,7 +114,7 @@ const keyFacts = [
       </p>
     </div>
     <div class="drawings">
-      <Illustration name="basecamp" label="Line drawing of a rope-and-tarp basecamp shelter between two trees" />
+      <Illustration name="campfire" label="Line drawing of stick people sitting and standing round a campfire" />
       <Illustration name="chain-reaction" label="Line drawing of a ball rolling down a ramp into a row of dominoes" />
       <Illustration name="survival-village" label="Line drawing of a small village of huts, a tipi with a flag and a campfire" />
     </div>
@@ -124,8 +124,7 @@ const keyFacts = [
   </Section>
 
   <Section id="learning" title="Learning at Waypoint" strapline="The fun matters. So does the learning.">
-    <div class="learning">
-      <div class="prose">
+    <div class="prose">
       <p>
         When young people have something meaningful to make or solve, different strengths, interests and ways of
         contributing come through. Our aim is to give every young person engaging experiences, thoughtful guidance
@@ -141,10 +140,6 @@ const keyFacts = [
         Creative, practical enrichment alongside other home-educated young people, with arrangements discussed
         before any place is agreed.
       </p>
-      </div>
-      <div class="learning__drawing">
-        <Illustration name="campfire" label="Line drawing of stick people sitting and standing round a campfire" />
-      </div>
     </div>
   </Section>
 
@@ -220,27 +215,6 @@ const keyFacts = [
     .drawings {
       gap: 2.5rem;
       padding: 1.5rem 2.5rem;
-    }
-  }
-
-  /* Campfire drawing beside the learning text from tablet up */
-  .learning {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .learning__drawing {
-    max-width: 26rem;
-    padding: 1.25rem;
-    border-radius: var(--radius);
-    background: var(--box-bg);
-  }
-
-  @media (min-width: 48rem) {
-    .learning {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
-      gap: 3rem;
     }
   }
 
