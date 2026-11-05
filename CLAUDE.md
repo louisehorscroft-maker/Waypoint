@@ -62,7 +62,7 @@ The site uses only five text sizes, set as tokens in `global.css` (`--text-h1`, 
 - **Never in search results:** The thank-you and 404 pages pass `noindex` to `BaseLayout`, which stays after launch.
 - **Social sharing:** Open Graph and Twitter tags are on every page. The share image is `public/images/waypoint-social.png` (1200 by 630).
 - **Organisation details:** Home has EducationalOrganization structured data (name, area served, founder). It has no address or contact details until they're verified.
-- **The live address:** Canonical links, `og:url`, the share image and the structured data URL only appear once `site` is set in `astro.config.mjs`. Set it at launch.
+- **The live address:** Canonical links, `og:url`, the share image and the structured data URL use `site` in `astro.config.mjs` (https://waypoint-ap.co.uk).
 
 Number ranges (8–16, 9:00am–2:30pm) and Shoreham-by-Sea never break across lines in H1s and straplines (handled by `KeepTogether`).
 
@@ -121,9 +121,9 @@ Fill in Wes's training and checks in `src/data/safeguarding.ts`, and add `href`s
 
 `src/data/contact.ts` holds placeholders until Wes supplies the real details: email `hello@example.com` (reserved, never delivers), mobile `07700 900123` (Ofcom's drama range, never connects) and Web3Forms key `YOUR_WEB3FORMS_ACCESS_KEY` (the form fails until a real key is set). Replace all three before launch. Create the key free at web3forms.com using the real email address; it is designed to be public. The build prints a warning while any placeholder is still in use.
 
-## Before launch: live address
+## Live address
 
-Set `site` in `astro.config.mjs` to the live domain, so canonical links and the social sharing image work.
+The domain is waypoint-ap.co.uk, set as `site` in `astro.config.mjs` (without www). If the live site uses www, change `site` to match. At launch, connect the domain to the Worker in Cloudflare (Workers & Pages, then waypoint, then Settings, then Domains & Routes).
 
 ## Pre-launch search engine blocking
 
