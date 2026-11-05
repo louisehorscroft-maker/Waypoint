@@ -38,6 +38,7 @@ Page structure follows the "Navigation and reading guide" in the content source.
 - `/complaints/`: Complaints and concerns (linked from the footer). A simple page using only what the source's "Raising a concern" copy says: making a complaint (contact details from `src/data/contact.ts`), concerns about safety (contact us straight away; 999 if a child is in immediate danger; link to the young people's trusted-adult answers), if it's about your usual contact, and Need help. Wes's complaints procedure, safeguarding contact and alternative route are not approved yet: never invent them, and link the approved procedure and verified contacts here once they exist
 - `/privacy/`: Website privacy notice (footer, contact form and Policies link here). Written to match what the site actually does: enquiry form via Web3Forms, hosting on Cloudflare, no cookies, analytics or third-party fonts and scripts (checked in a browser). If you add analytics, cookies, embeds or another service, update this page. Needs Wes's or legal sign-off before launch, plus the real email address and legal entity name
 - `/accessibility/`: Accessibility statement (footer link). Every claim on it was tested in November 2026: axe (WCAG 2.2 AA and best practice) on all pages at 1440px and 375px found no issues, plus keyboard, skip link, reduced motion and 400% zoom checks. Re-run the checks and update the date whenever pages, components or colours change, and keep the site free of cookies, pop-ups and autoplay, as the page says
+- `/safeguarding/`: Safeguarding (footer link). In an emergency (999), worried about a young person (contact us, or go direct if it's about your usual contact), other places to get help (West Sussex Integrated Front Door 01403 229900, Emergency Duty Team 0330 222 6664, NSPCC 0808 800 5000, Childline 0800 1111, checked on official sites in November 2026: re-check before launch and yearly), for young people (trusted-adult route), how we keep young people safe, questions. Wes's Designated Safeguarding Lead and verified contacts aren't approved yet: add them in #who-to-contact once they are, never invent them
 - `/thank-you/`: Branded thank-you page shown after a successful enquiry, with the SUCCESS MESSAGE word for word. Not in the menu
 
 ## Headings, type sizes and SEO
@@ -57,7 +58,7 @@ The site uses only five text sizes, set as tokens in `global.css` (`--text-h1`, 
 
 Number ranges (8–16, 9:00am–2:30pm) and Shoreham-by-Sea never break across lines in H1s and straplines (handled by `KeepTogether`).
 
-Footer links point at these anchors, which must exist once the content is added: `/contact/#visits` and `/policies/#raising-a-concern`. Accessibility information links to `/accessibility/`. Complaints links to `/complaints/` and the Privacy notice to `/privacy/`.
+Footer links point at these anchors, which must exist once the content is added: `/contact/#visits` and `/policies/#raising-a-concern`. Safeguarding links to `/safeguarding/` and Accessibility information to `/accessibility/`. Complaints links to `/complaints/` and the Privacy notice to `/privacy/`.
 
 ## Colour scheme
 

@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
+import Icon from '../components/Icon.astro';
+import { contact } from '../data/contact';
+
+// Safeguarding page. Based on the source (sections 5, 10 and the footer notes): keep a clear
+// trusted-adult route, safer recruitment and attendance escalation. Wes's Designated Safeguarding
+// Lead, verified safeguarding contact and alternative route are NOT approved yet: add them in
+// #who-to-contact once they are, and never invent them. External numbers were checked in
+// November 2026 on westsussex.gov.uk; re-check them before launch and at least yearly.
+---
+
+<BaseLayout
+  title="Safeguarding"
+  description="How Waypoint keeps young people safe, and who to contact if you're worried about a child in Shoreham-by-Sea or West Sussex."
+>
+  <PageHero title="Safeguarding" strapline="Keeping young people safe comes first." />
+
+  <Section
+    id="in-an-emergency"
+    title="In an emergency"
+    strapline="If a child is in immediate danger, call 999."
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If you think a child is at risk of harm right now, call the police on 999. Don't wait to contact us first.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="who-to-contact"
+    title="Worried about a young person?"
+    strapline="Tell us straight away."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If you're worried about the safety or wellbeing of a young person at Waypoint, contact us straight away and say
+          it's a safeguarding concern, so it's dealt with first.
+        </p>
+      </div>
+      <ul class="contact-list">
+        <li>
+          <Icon name="phone" />
+          <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+        </li>
+        <li>
+          <Icon name="mail" />
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </li>
+      </ul>
+      <div class="prose more">
+        <p>
+          If your concern is about the person you'd normally contact, you don't have to go to them first. You can contact
+          West Sussex children's services directly, using the numbers below.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="other-help"
+    title="Other places to get help"
+    strapline="You can always go straight to them."
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Anyone can report a concern about a child directly to these services. You don't need to tell Waypoint first.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      <Card title="West Sussex children's services" icon="phone">
+        The Integrated Front Door on <a href="tel:+441403229900">01403 229900</a> in office hours, or the Emergency Duty
+        Team on <a href="tel:+443302226664">0330 222 6664</a> out of hours.
+        <a href="https://www.westsussex.gov.uk/education-children-and-families/keeping-children-safe/raise-a-concern-about-a-child/">More information</a>
+      </Card>
+      <Card title="NSPCC helpline" icon="heart">
+        Advice for any adult worried about a child, on <a href="tel:+448088005000">0808 800 5000</a> or at
+        <a href="https://www.nspcc.org.uk/">nspcc.org.uk</a>.
+      </Card>
+      <Card title="Childline" icon="speech">
+        For young people to talk about anything, free and confidential, on <a href="tel:08001111">0800 1111</a> or at
+        <a href="https://www.childline.org.uk/">childline.org.uk</a>.
+      </Card>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="for-young-people"
+    title="For young people"
+    strapline="You can always talk to someone."
+    drawing="meeting"
+    drawingLabel="Line drawing of two adults and a young person talking round a table"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If something is worrying you, you can talk to Wes, a parent or carer, someone at school or another adult you
+          trust. You can ask someone to help you explain. If the worry is about someone at Waypoint, tell a trusted adult
+          outside Waypoint. You don't have to speak to that person first.
+        </p>
+      </div>
+      <p class="more-link"><a href="/for-young-people/#good-questions">Questions young people ask</a></p>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="how-we-keep-young-people-safe"
+    title="How we keep young people safe"
+    strapline="Safety is built into every day."
+    drawing="school"
+    drawingLabel="Line drawing of a school building with a clock and a flag"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>Keeping young people safe is part of how everything at Waypoint is planned.</p>
+        <ul class="labelled">
+          <li>
+            <strong>Safer recruitment:</strong> Identity checks, employment history, references, role-specific checks,
+            recorded clearance and induction for everyone who works with young people.
+          </li>
+          <li>
+            <strong>Attendance:</strong> Arrivals are recorded, the school is told if a pupil doesn't arrive, and any
+            safeguarding concern is escalated.
+          </li>
+          <li>
+            <strong>Supervision:</strong> Adults lead every activity, with clear expectations and boundaries.
+          </li>
+          <li>
+            <strong>Handover:</strong> Arrival, collection and safeguarding handover are agreed before any placement
+            starts.
+          </li>
+        </ul>
+        <p>Our safeguarding and child protection policy is available on request.</p>
+      </div>
+      <div class="button-row">
+        <Button href="/policies/" variant="secondary">Policies and provider information</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="get-in-touch"
+    title="Questions"
+    strapline="Ask us about safeguarding."
+    brand
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Schools, commissioners and families are welcome to ask about our safeguarding arrangements. For a complaint about
+          the service, see our <a href="/complaints/">complaints and concerns</a> page.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/" variant="accent">Get in touch</Button>
+      </div>
+    </Fragment>
+  </Section>
+</BaseLayout>
+
+<style>
+  .contact-list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .more {
+    margin-top: 1.25rem;
+  }
+
+  .labelled {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .labelled li + li {
+    margin-top: 0.5rem;
+  }
+
+  /* Keep phone numbers on one line */
+  :global(a[href^='tel:']) {
+    white-space: nowrap;
+  }
+
+  .more-link {
+    margin: 1rem 0 0;
+    font-weight: 600;
+  }
+
+  .more-link a::after {
+    content: ' \2192';
+  }
+</style>

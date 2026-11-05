@@ -36,7 +36,7 @@ export const footerNav: NavLink[] = [
   { label: 'Fees and arrangements', href: '/fees/' },
   { label: 'How referrals work', href: '/how-referrals-work/' },
   { label: 'Policies and provider information', href: '/policies/' },
-  { label: 'Safeguarding', href: '/policies/#raising-a-concern' },
+  { label: 'Safeguarding', href: '/safeguarding/' },
   { label: 'Complaints', href: '/complaints/' },
   { label: 'Privacy notice', href: '/privacy/' },
   { label: 'Accessibility information', href: '/accessibility/' },
