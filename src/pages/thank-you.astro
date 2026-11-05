@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+
+// Branded landing page shown only after the contact form has actually been sent.
+// Wording is the SUCCESS MESSAGE from the content source, word for word.
+---
+
+<BaseLayout title="Thank you" description="Your enquiry has been sent.">
+  <PageHero title="Thank you" strapline="Your enquiry has been sent." hideCta />
+
+  <Section
+    id="what-happens-next"
+    title="What happens next"
+    strapline="We'll be in touch."
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          We will respond using the contact details you provided. If we need further information, we will explain the
+          next step.
+        </p>
+        <p>A place or visit is confirmed only once the arrangements have been agreed.</p>
+      </div>
+      <div class="button-row">
+        <Button href="/">Back to home</Button>
+        <Button href="/about/" variant="secondary">About Waypoint</Button>
+      </div>
+    </Fragment>
+  </Section>
+</BaseLayout>

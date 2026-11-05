@@ -1,0 +1,260 @@
+---
+import { contact, roles } from '../data/contact';
+
+// Field labels, the button, the note below the form and the failure message are
+// FORM WORDING and FAILURE MESSAGE from the content source, kept word for word
+// (except the example placeholder, which no longer mentions Discovery).
+---
+
+<form
+  class="contact-form"
+  id="contact-form"
+  action="https://api.web3forms.com/submit"
+  method="post"
+  data-contact-form
+  novalidate
+>
+  <input type="hidden" name="access_key" value={contact.web3formsKey} />
+  <input type="hidden" name="subject" value="New enquiry from the Waypoint website" />
+  <input type="hidden" name="from_name" value="Waypoint website" />
+  <input type="hidden" name="redirect" value="" data-redirect />
+  {/* Spam trap: hidden from people, bots fill it in and the submission is rejected */}
+  <input type="checkbox" name="botcheck" class="contact-form__trap" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="field">
+    <label for="cf-name">Your name <span class="field__req">(required)</span></label>
+    <input id="cf-name" name="name" type="text" autocomplete="name" required />
+  </div>
+
+  <div class="field">
+    <label for="cf-email">Email address <span class="field__req">(required)</span></label>
+    <input id="cf-email" name="email" type="email" autocomplete="email" required />
+  </div>
+
+  <div class="field">
+    <label for="cf-phone">Phone number <span class="field__opt">(optional)</span></label>
+    <p class="field__hint" id="cf-phone-hint">If you would prefer a call.</p>
+    <input id="cf-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="cf-phone-hint" />
+  </div>
+
+  <div class="field">
+    <label for="cf-role">I am contacting you as <span class="field__req">(required)</span></label>
+    <select id="cf-role" name="role" required data-role>
+      <option value="">Please choose</option>
+      {roles.map((role) => <option value={role.value} data-professional={role.professional ? 'true' : 'false'}>{role.value}</option>)}
+    </select>
+  </div>
+
+  <div class="field" data-organisation hidden>
+    <label for="cf-organisation">School or organisation <span class="field__opt">(optional)</span></label>
+    <input id="cf-organisation" name="organisation" type="text" autocomplete="organization" />
+  </div>
+
+  <div class="field">
+    <label for="cf-message">What would you like to know? <span class="field__req">(required)</span></label>
+    <textarea id="cf-message" name="message" rows="5" required placeholder="For example, 'Can we discuss a pupil?'"></textarea>
+  </div>
+
+  <div class="contact-form__error" role="alert" tabindex="-1" data-error hidden>
+    <p><strong>Your enquiry could not be sent.</strong></p>
+    <p>Your message is still here. Please try again, or use the email address shown on this page.</p>
+  </div>
+
+  <p class="contact-form__invalid" role="alert" data-invalid hidden>
+    Please fill in your name, email address, who you are contacting us as and your message.
+  </p>
+
+  <button type="submit" class="contact-form__submit" data-submit>Send enquiry</button>
+
+  <p class="contact-form__privacy">
+    We will use the information you provide to respond to your enquiry.
+    Read our <a href="/policies/">Privacy notice</a> for details of how we handle personal information.
+  </p>
+</form>
+
+<script>
+  import { purposeToRole } from '../data/contact';
+
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+
+  if (form) {
+    const role = form.querySelector<HTMLSelectElement>('[data-role]');
+    const organisation = form.querySelector<HTMLElement>('[data-organisation]');
+    const error = form.querySelector<HTMLElement>('[data-error]');
+    const invalid = form.querySelector<HTMLElement>('[data-invalid]');
+    const submit = form.querySelector<HTMLButtonElement>('[data-submit]');
+    const redirect = form.querySelector<HTMLInputElement>('[data-redirect]');
+    const thankYou = new URL('/thank-you/', window.location.origin).toString();
+
+    // Without JavaScript the service redirects here after sending
+    if (redirect) redirect.value = thankYou;
+
+    // Show "School or organisation" only for professional roles
+    const updateOrganisation = () => {
+      const selected = role?.selectedOptions[0];
+      if (organisation) organisation.hidden = selected?.dataset.professional !== 'true';
+    };
+
+    // Preselect the role from the button the visitor came from, e.g. /contact/?purpose=placement
+    const purpose = new URLSearchParams(window.location.search).get('purpose');
+    if (role && purpose && purposeToRole[purpose]) role.value = purposeToRole[purpose];
+    updateOrganisation();
+    role?.addEventListener('change', updateOrganisation);
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (error) error.hidden = true;
+
+      if (!form.checkValidity()) {
+        if (invalid) invalid.hidden = false;
+        form.querySelector<HTMLElement>(':invalid')?.focus();
+        return;
+      }
+      if (invalid) invalid.hidden = true;
+
+      const label = submit?.textContent ?? 'Send enquiry';
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = 'Sending…';
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const result = (await response.json().catch(() => ({}))) as { success?: boolean };
+        // Only confirm once the service says the email has been sent
+        if (response.ok && result.success) {
+          window.location.href = thankYou;
+          return;
+        }
+        throw new Error('Not sent');
+      } catch {
+        // Keep everything the visitor typed, and explain what to do
+        if (error) {
+          error.hidden = false;
+          error.focus();
+        }
+      } finally {
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = label;
+        }
+      }
+    });
+  }
+</script>
+
+<style>
+  .contact-form {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .field[hidden] {
+    display: none;
+  }
+
+  .field label {
+    font-weight: 700;
+    color: var(--colour-brand);
+  }
+
+  .field__req,
+  .field__opt,
+  .field__hint {
+    font-weight: 400;
+    color: var(--colour-muted);
+  }
+
+  .field__hint {
+    margin: 0;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid #9fb6cf;
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--colour-text);
+    font: inherit;
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    outline: 3px solid var(--colour-focus);
+    outline-offset: 1px;
+    border-color: var(--colour-brand);
+  }
+
+  .contact-form__trap {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .contact-form__error,
+  .contact-form__invalid {
+    margin: 0;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--colour-accent);
+    border-radius: var(--radius);
+    background: var(--white);
+  }
+
+  .contact-form__error p {
+    margin: 0;
+  }
+
+  .contact-form__error p + p {
+    margin-top: 0.35rem;
+  }
+
+  .contact-form__error[hidden],
+  .contact-form__invalid[hidden] {
+    display: none;
+  }
+
+  .contact-form__submit {
+    justify-self: start;
+    min-height: 2.75rem;
+    padding: 0.625rem 1.5rem;
+    border: 2px solid var(--colour-brand);
+    border-radius: var(--radius);
+    background: var(--colour-brand);
+    color: var(--colour-on-brand);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .contact-form__submit:hover {
+    background: var(--colour-brand-dark);
+    border-color: var(--colour-brand-dark);
+  }
+
+  .contact-form__submit:disabled {
+    opacity: 0.7;
+    cursor: progress;
+  }
+
+  .contact-form__privacy {
+    margin: 0;
+    color: var(--colour-muted);
+  }
+</style>

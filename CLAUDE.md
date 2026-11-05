@@ -34,7 +34,8 @@ Page structure follows the "Navigation and reading guide" in the content source.
 - `/fees/`: Placement arrangements and fees (page 8), H1 "Fees and placement arrangements"
 - `/how-referrals-work/`: How referrals work (page 9), H1 "How alternative provision referrals work"
 - `/policies/`: Policies and provider information (page 10), H1 "Policies and provider information"
-- `/contact/`: Get in touch (page 11), H1 "Contact Waypoint"
+- `/contact/`: Get in touch (page 11), H1 "Contact Waypoint". Sections: Get in touch (call or email panel, plus the enquiry form), Visits (#visits, the footer anchor), Making a referral, Existing placements. The form (`ContactForm`) sends through Web3Forms in the background: it keeps the visitor's text and shows the FAILURE MESSAGE if sending fails, and only goes to the thank-you page once the service confirms the email was sent. `?purpose=` preselects the role, and "School or organisation" only shows for professional roles. FORM WORDING is word for word, except that the example placeholder no longer mentions Discovery
+- `/thank-you/`: Branded thank-you page shown after a successful enquiry, with the SUCCESS MESSAGE word for word. Not in the menu
 
 ## Headings, type sizes and SEO
 
@@ -99,6 +100,10 @@ Use these components rather than one-off markup.
 ## Deploying
 
 Cloudflare Workers Builds deploys every push to `main` automatically (free plan, one build at a time). Push only to `main`, and group small changes into fewer commits to keep the build queue short. If builds sit in "Queued" with nothing running, it's a Cloudflare-side stall: a fresh push or Retry in the dashboard usually restarts it, and `npm run deploy` from a local copy deploys directly without the queue.
+
+## Before launch: contact details
+
+`src/data/contact.ts` holds placeholders until Wes supplies the real details: email `hello@example.com` (reserved, never delivers), mobile `07700 900123` (Ofcom's drama range, never connects) and Web3Forms key `YOUR_WEB3FORMS_ACCESS_KEY` (the form fails until a real key is set). Replace all three before launch. Create the key free at web3forms.com using the real email address; it is designed to be public. The build prints a warning while any placeholder is still in use.
 
 ## Pre-launch search engine blocking
 

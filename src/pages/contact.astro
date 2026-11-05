@@ -1,12 +1,185 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Icon from '../components/Icon.astro';
+import { contact } from '../data/contact';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "11 Get in touch".
+// FORM WORDING and FAILURE MESSAGE live word for word in ContactForm; the SUCCESS MESSAGE is
+// on /thank-you/. Contact details and the form key come from src/data/contact.ts.
 ---
 
-<BaseLayout title="Contact Waypoint" description="Start with a conversation.">
-  <PageHero
-    title="Contact Waypoint"
-    strapline="Start with a conversation."
-    hideCta
-  />
+<BaseLayout
+  title="Contact Waypoint"
+  description="Get in touch with Waypoint, alternative provision in Shoreham-by-Sea. Call, email or send us a message."
+>
+  <PageHero title="Contact Waypoint" strapline="Start with a conversation." hideCta />
+
+  <Section
+    id="get-in-touch"
+    title="Get in touch"
+    strapline="Call, email or send us a message."
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Whether you're a SENCo considering a pupil, a school leader looking at Waypoint, a parent exploring options, a
+          home-educating family or a commissioner asking about the service, you're welcome to start with a question.
+        </p>
+        <p>
+          You don't need a referral pack or a decision. Getting in touch starts a conversation. It doesn't book a place,
+          confirm a visit or ask you to commit to anything.
+        </p>
+      </div>
+    </Fragment>
+
+    <div class="contact-layout">
+      <aside class="contact-details" aria-labelledby="contact-details-heading">
+        <h3 id="contact-details-heading">Call or email</h3>
+        <p>Speak to Wes, or drop us an email.</p>
+        <ul class="contact-details__list">
+          <li>
+            <Icon name="phone" />
+            <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+          </li>
+          <li>
+            <Icon name="mail" />
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          </li>
+        </ul>
+        <p class="contact-details__note">
+          This isn't for urgent concerns. For an existing placement, use the contacts you were given when it began.
+        </p>
+      </aside>
+
+      <div class="form-card">
+        <h3>Send an enquiry</h3>
+        <p>
+          Keep your message brief. Please do not include a child's full name, medical records or other sensitive
+          details in this first message. If we need more detail later, we'll explain how to share it securely.
+        </p>
+        <ContactForm />
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    id="visits"
+    title="Visits"
+    strapline="Come and see us."
+    drawing="setting"
+    drawingLabel="Line drawing of a building with a tree and the sun"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Visits are arranged in advance. We'll confirm the time, location, directions and what to do when you arrive.
+          Asking for a visit doesn't confirm one until we've agreed the details together.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="making-a-referral"
+    title="Making a referral"
+    strapline="See how it works first."
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Our referral guide explains each stage and the information we'll need. You're welcome to ask questions before
+          you start.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/how-referrals-work/">How referrals work</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="existing-placements"
+    title="Existing placements"
+    strapline="Use the contacts you were given."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          For absence, changes to collection or concerns about an existing placement, please use the contact
+          arrangements we gave you when the placement began.
+        </p>
+        <p>The enquiry form isn't monitored all the time, so please don't use it for anything urgent.</p>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .contact-layout {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 56rem) {
+    .contact-layout {
+      grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .contact-details,
+  .form-card {
+    border-radius: var(--radius);
+    background: var(--box-bg);
+    padding: 1.5rem;
+  }
+
+  .contact-details {
+    border-left: 4px solid var(--colour-accent);
+  }
+
+  .form-card {
+    border-top: 4px solid var(--colour-accent);
+  }
+
+  @media (min-width: 48rem) {
+    .form-card {
+      padding: 2rem;
+    }
+  }
+
+  .contact-details__list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contact-details__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-details__note {
+    margin: 0;
+    color: var(--colour-muted);
+  }
+</style>

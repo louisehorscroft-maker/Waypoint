@@ -48,3 +48,12 @@ if (problems.length > 0) {
   process.exit(1);
 }
 console.log('check-dist: no internal content found in dist/');
+
+// Pre-launch reminder (warning only): placeholder contact details still in use
+const contactPage = await readFile(join(DIST, 'contact', 'index.html'), 'utf8').catch(() => '');
+const placeholders = ['hello@example.com', '07700 900123', 'YOUR_WEB3FORMS_ACCESS_KEY'].filter((p) =>
+  contactPage.includes(p),
+);
+if (placeholders.length > 0) {
+  console.warn(`check-dist: WARNING placeholder contact details still in use (${placeholders.join(', ')}). Update src/data/contact.ts before launch.`);
+}
