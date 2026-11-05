@@ -1,0 +1,95 @@
+---
+/**
+ * Fun frame for real photos: the photo sits on an offset forest green block, the same
+ * idea as the Paddlesport site. Use `side="left"` to mirror the block when the
+ * photo sits on the right of the text.
+ */
+interface Props {
+  src: string;
+  alt: string;
+  srcset?: string;
+  sizes?: string;
+  width: number;
+  height: number;
+  /** Which side the offset block comes out from */
+  side?: 'right' | 'left';
+  /** Crop shape; omit to keep the photo's own proportions */
+  ratio?: string;
+  /** Which part of the photo to keep when cropped, e.g. '50% 20%' */
+  position?: string;
+  eager?: boolean;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  srcset,
+  sizes,
+  width,
+  height,
+  side = 'right',
+  ratio,
+  position,
+  eager = false,
+  class: className,
+} = Astro.props;
+
+const style = [ratio && `aspect-ratio: ${ratio}`, position && `object-position: ${position}`]
+  .filter(Boolean)
+  .join('; ');
+---
+
+<div class:list={['photo-frame', `photo-frame--${side}`, className]}>
+  <img
+    class="photo-frame__photo"
+    src={src}
+    srcset={srcset}
+    sizes={sizes}
+    width={width}
+    height={height}
+    alt={alt}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    style={style || undefined}
+  />
+</div>
+
+<style>
+  .photo-frame {
+    --offset: 14px;
+    position: relative;
+    margin: 0 var(--offset) var(--offset) 0;
+  }
+
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: var(--offset) calc(var(--offset) * -1) calc(var(--offset) * -1) var(--offset);
+    background: var(--colour-brand);
+    border-radius: 12px;
+  }
+
+  .photo-frame--left {
+    margin: 0 0 var(--offset) var(--offset);
+  }
+
+  .photo-frame--left::before {
+    inset: var(--offset) var(--offset) calc(var(--offset) * -1) calc(var(--offset) * -1);
+  }
+
+  .photo-frame__photo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  @media (min-width: 48rem) {
+    .photo-frame {
+      --offset: 18px;
+    }
+  }
+</style>

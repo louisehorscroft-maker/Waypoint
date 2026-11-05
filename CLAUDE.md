@@ -75,6 +75,7 @@ Use these components rather than one-off markup.
 - `CardGroup`: Mist panel that holds every group of boxes, with `columns={2}` (four boxes, 2x2) or `columns={3}` (three or six) and an optional `footer` slot for a link under the boxes. Always use it for groups of cards,.
 - `RouteCard`: Audience route card with a heading link and one paragraph. Always inside a `CardGroup`.
 - `InfoPanel`: Facts panel, mist with a forest green left edge. Each fact can take an `icon`. Pass `facts` as label and value pairs, or slot in content.
+- `PhotoFrame`: Use for every real photo. The photo sits on an offset forest green block with rounded corners (the same idea as the Paddlesport site). `side="left"` mirrors the block for photos on the right of the text; `ratio` and `position` control the crop.
 - `ActivityCard`: Activity card with one paragraph, always inside a `CardGroup`. The optional `image` is for real photographs only, and the image slot is not rendered without one.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.

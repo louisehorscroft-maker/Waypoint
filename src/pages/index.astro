@@ -7,6 +7,7 @@ import RouteCard from '../components/RouteCard.astro';
 import PageHero from '../components/PageHero.astro';
 import CardGroup from '../components/CardGroup.astro';
 import Illustration from '../components/Illustration.astro';
+import PhotoFrame from '../components/PhotoFrame.astro';
 
 // Copy: content-source/waypoint-content-v1.md, section "1 Home", WEBSITE COPY.
 
@@ -142,15 +143,16 @@ const essentials = [
 
   <Section id="meet-wes" title="Meet Wes, founder of Waypoint">
     <div class="meet-wes">
-      <img
+      <PhotoFrame
         class="meet-wes__photo"
         src={wesImage.src}
         srcset={wesImage.srcset}
         sizes="(min-width: 48rem) 18rem, 14rem"
         alt={wesImage.alt}
-        width="480"
-        height="588"
-        loading="lazy"
+        width={480}
+        height={588}
+        ratio="4 / 5"
+        position="50% 30%"
       />
       <div class="prose">
       <p>
@@ -256,13 +258,8 @@ const essentials = [
     align-items: center;
   }
 
-  .meet-wes__photo {
+  .meet-wes :global(.meet-wes__photo) {
     width: 14rem;
-    height: auto;
-    aspect-ratio: 480 / 588;
-    object-fit: cover;
-    border-radius: var(--radius);
-    border-bottom: 4px solid var(--colour-brand);
   }
 
   @media (min-width: 48rem) {
@@ -271,8 +268,8 @@ const essentials = [
       gap: 2.5rem;
     }
 
-    .meet-wes__photo {
-      width: 100%;
+    .meet-wes :global(.meet-wes__photo) {
+      width: auto;
     }
   }
 </style>
