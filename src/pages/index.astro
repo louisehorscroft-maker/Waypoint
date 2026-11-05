@@ -19,8 +19,12 @@ type ImageSlot = { src: string; alt: string } | undefined;
  * climbing presented as first-term provision.
  */
 const heroImage = undefined as ImageSlot;
-/** Meet Wes: a real photograph of Wes only. */
-const wesImage = undefined as ImageSlot;
+/** Meet Wes: a real photograph of Wes only (supplied by Lou, placeholder until a final photo). */
+const wesImage = {
+  src: '/images/wes-horscroft-480.webp',
+  srcset: '/images/wes-horscroft-480.webp 480w, /images/wes-horscroft-960.webp 960w',
+  alt: 'Wes Horscroft, founder of Waypoint',
+};
 
 const essentials = [
   { label: 'Planned day', value: 'Tuesday, 9:00am–2:30pm', icon: 'calendar' as const },
@@ -137,8 +141,18 @@ const essentials = [
   </Section>
 
   <Section id="meet-wes" title="Meet Wes, founder of Waypoint">
-    <div class:list={['prose', { 'with-image': wesImage }]}>
-      {wesImage && <img class="with-image__photo" src={wesImage.src} alt={wesImage.alt} loading="lazy" />}
+    <div class="meet-wes">
+      <img
+        class="meet-wes__photo"
+        src={wesImage.src}
+        srcset={wesImage.srcset}
+        sizes="(min-width: 48rem) 18rem, 14rem"
+        alt={wesImage.alt}
+        width="480"
+        height="588"
+        loading="lazy"
+      />
+      <div class="prose">
       <p>
         Waypoint is founded by Wes Horscroft, an experienced PE teacher and sports coach who enjoys helping young
         people bring ideas to life, build practical skills and see what they can contribute.
@@ -147,6 +161,7 @@ const essentials = [
         His approach combines encouragement, clear expectations and curiosity about each young person. Waypoint is
         not a sports club, designing, making, collaborating and trying something new all count.
       </p>
+      </div>
     </div>
   </Section>
 
@@ -234,11 +249,30 @@ const essentials = [
     margin-bottom: 0;
   }
 
-  .with-image__photo {
-    width: 12rem;
-    aspect-ratio: 1;
+  /* Photo above the text on phones, beside it from tablet up */
+  .meet-wes {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .meet-wes__photo {
+    width: 14rem;
+    height: auto;
+    aspect-ratio: 480 / 588;
     object-fit: cover;
     border-radius: var(--radius);
-    margin-bottom: 1.25rem;
+    border-bottom: 4px solid var(--colour-brand);
+  }
+
+  @media (min-width: 48rem) {
+    .meet-wes {
+      grid-template-columns: 18rem 1fr;
+      gap: 2.5rem;
+    }
+
+    .meet-wes__photo {
+      width: 100%;
+    }
   }
 </style>
