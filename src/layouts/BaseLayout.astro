@@ -18,6 +18,11 @@ const pageTitle = title === 'Home' ? 'Waypoint' : `${title} | Waypoint`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
+    {/*
+      PRE-LAUNCH ONLY: hides the site from search engines during the build.
+      REMOVE THIS TAG AT LAUNCH, together with public/robots.txt.
+    */}
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />

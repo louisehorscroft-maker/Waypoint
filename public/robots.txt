@@ -1,0 +1,5 @@
+# PRE-LAUNCH ONLY: blocks all search engines while the site is being built.
+# REMOVE THIS FILE AT LAUNCH, together with the noindex meta robots tag in
+# src/layouts/BaseLayout.astro.
+User-agent: *
+Disallow: /
