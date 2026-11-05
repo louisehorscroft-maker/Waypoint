@@ -6,15 +6,20 @@ interface Fact {
 
 interface Props {
   title?: string;
+  /** Use h2 when the panel is a top-level page section */
+  headingLevel?: 'h2' | 'h3';
+  /** Anchor id for in-page links */
+  id?: string;
   /** Labelled facts, shown as a definition list */
   facts?: Fact[];
 }
 
-const { title, facts = [] } = Astro.props;
+const { title, headingLevel: Heading = 'h3', id, facts = [] } = Astro.props;
+const headingId = title ? `${id ?? 'info-panel'}-heading` : undefined;
 ---
 
-<aside class="info-panel" aria-label={title}>
-  {title && <h3 class="info-panel__title">{title}</h3>}
+<section class="info-panel" id={id} aria-labelledby={headingId}>
+  {title && <Heading class="info-panel__title" id={headingId}>{title}</Heading>}
   {
     facts.length > 0 && (
       <dl class="info-panel__facts">
@@ -28,7 +33,7 @@ const { title, facts = [] } = Astro.props;
     )
   }
   <slot />
-</aside>
+</section>
 
 <style>
   .info-panel {

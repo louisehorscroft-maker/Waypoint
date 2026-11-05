@@ -1,10 +1,213 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import InfoPanel from '../components/InfoPanel.astro';
+import RouteCard from '../components/RouteCard.astro';
+
+// Copy: content-source/waypoint-content-v1.md, section "1 Home", WEBSITE COPY.
+
+type ImageSlot = { src: string; alt: string } | undefined;
+
+/**
+ * Image slots stay hidden until real photographs are supplied.
+ * Hero: truthful practical-project imagery only (adult-created examples where
+ * available), never stock, AI-generated or learner images, and no paddling or
+ * climbing presented as first-term provision.
+ */
+const heroImage = undefined as ImageSlot;
+/** Meet Wes: a real photograph of Wes only. */
+const wesImage = undefined as ImageSlot;
+
+const essentials = [
+  { label: 'Planned day', value: 'Tuesday, 9:00am–2:30pm' },
+  { label: 'Ages', value: '8–16, subject to individual group suitability' },
+  { label: 'Location', value: 'Shoreham-by-Sea' },
+  {
+    label: 'First term',
+    value: 'Practical indoor and land-based outdoor learning; no paddling, water activities or climbing',
+  },
+];
 ---
 
-<BaseLayout title="Home">
-  <Section id="intro">
-    <h1>Big ideas. Real experiences. Something to be proud of.</h1>
+<BaseLayout
+  title="Home"
+  description="Waypoint is developing hands-on days where young people can create, explore, solve problems and work together."
+>
+  <section id="intro" class="hero" aria-labelledby="intro-heading">
+    <div class:list={['container', 'hero__inner', { 'hero__inner--with-image': heroImage }]}>
+      <div class="hero__text">
+        <h1 id="intro-heading">Big ideas. Real experiences. Something to be proud of.</h1>
+        <p class="lead">
+          Imagine a team building a basecamp, setting off a giant chain reaction or inventing a whole village.
+          Waypoint is developing hands-on days where young people can create, explore, solve problems and work
+          together.
+        </p>
+        <p>
+          Planned for Shoreham-by-Sea and young people aged 8–16, Waypoint offers two developing routes within a
+          small-group, part-time learning experience, school-funded Intervention and Home Education Discovery.
+          Both start with worthwhile activities, encouragement and room for different strengths. Individual
+          suitability is considered before any place is offered.
+        </p>
+        <div class="button-row">
+          <Button href="/discover-waypoint/">Discover Waypoint</Button>
+        </div>
+      </div>
+      {heroImage && <img class="hero__image" src={heroImage.src} alt={heroImage.alt} />}
+    </div>
+  </section>
+
+  <div class="container essentials">
+    <InfoPanel id="essentials" title="The essentials" headingLevel="h2" facts={essentials}>
+      <p>
+        Waypoint is preparing to open. You can explore the planned offer and ask questions now; we will confirm
+        the venue, opening date, practical arrangements and available places before any start is agreed.
+      </p>
+    </InfoPanel>
+  </div>
+
+  <Section id="find-your-way" title="Find your way to Waypoint" alt>
+    <div class="grid grid--2">
+      <RouteCard title="Schools and SENCos" href="/for-schools/">
+        Explore the school-funded offer, individual suitability, purposeful learning and reporting. School leaders
+        assess Waypoint as a provider; SENCos and inclusion leads consider individual pupils.
+      </RouteCard>
+      <RouteCard title="Parents and carers" href="/parents-and-carers/">
+        Picture an enjoyable day, meet Wes and see the two ways to explore a place, through school or Home
+        Education Discovery.
+      </RouteCard>
+      <RouteCard title="Home Education Discovery" href="/home-education/">
+        Explore practical enrichment, group projects and creative challenges. Families can enquire directly without
+        a school referral.
+      </RouteCard>
+      <RouteCard title="For young people" href="/for-young-people/">
+        Check out the projects, meet Wes and see what your first day could look like.
+      </RouteCard>
+    </div>
+    <p class="secondary-route">
+      <a href="/for-local-authorities/">For Local Authorities</a>
+    </p>
+  </Section>
+
+  <Section id="activities" title="What could you make happen?">
+    <div class="prose">
+      <p>
+        Picture a basecamp built from ropes and materials, a ball rolling through a giant chain reaction or a group
+        creating a Survival Village. You could dream up an idea, draw the plan, build, test or spot what could work
+        better.
+      </p>
+      <p>
+        These projects are designed to be enjoyable in their own right. Along the way, young people can practise
+        practical skills, teamwork, communication and problem-solving. These are examples from our developing
+        activity bank, not a fixed weekly timetable.
+      </p>
+    </div>
+    <div class="button-row">
+      <Button href="/discover-waypoint/#activities">Explore the activities</Button>
+    </div>
+  </Section>
+
+  <Section id="learning" title="The fun matters. So does the learning." alt>
+    <div class="prose">
+      <p>
+        When young people have something meaningful to make or solve, we see different strengths, interests and
+        ways of contributing. Our aim is to offer engaging experiences, thoughtful guidance and opportunities for
+        each young person to play a part.
+      </p>
+      <p>
+        For school-funded pupils, we plan to agree individual goals with school and family and share useful
+        observations about participation, support and next steps. Discovery offers home-educated young people
+        creative, practical enrichment alongside others, with arrangements discussed before booking.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="meet-wes" title="Meet Wes">
+    <div class:list={['prose', { 'with-image': wesImage }]}>
+      {wesImage && <img class="with-image__photo" src={wesImage.src} alt={wesImage.alt} loading="lazy" />}
+      <p>
+        Waypoint is founded by Wes Horscroft, an experienced PE teacher and sports coach who enjoys helping young
+        people bring ideas to life, build practical skills and see what they can contribute.
+      </p>
+      <p>
+        His approach combines encouragement, clear expectations and curiosity about each young person. Waypoint is
+        not a sports club, designing, making, collaborating and trying something new all count.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="start-with-a-conversation" title="Start with a conversation" alt class="cta">
+    <div class="prose">
+      <p>
+        Whether you're a SENCo considering a pupil, a parent exploring opportunities or a home educator curious
+        about Discovery, you're welcome to start with a question. We'll explain the planned offer, help you find
+        the right route and be clear about arrangements still being finalised.
+      </p>
+    </div>
+    <div class="button-row">
+      <Button href="/contact/">Get in touch</Button>
+    </div>
   </Section>
 </BaseLayout>
+
+<style>
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+
+  .hero__inner {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero__text {
+    max-width: 46rem;
+  }
+
+  .hero__image {
+    width: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (min-width: 56rem) {
+    .hero {
+      padding: 4.5rem 0 3rem;
+    }
+
+    .hero__inner--with-image {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+
+  .essentials {
+    padding-bottom: 3rem;
+  }
+
+  .secondary-route {
+    margin: 1.5rem 0 0;
+    font-weight: 600;
+  }
+
+  .secondary-route a::after {
+    content: ' \2192';
+  }
+
+  .prose {
+    max-width: 46rem;
+  }
+
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+
+  .with-image__photo {
+    width: 12rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+  }
+</style>
