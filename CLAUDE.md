@@ -35,6 +35,7 @@ Page structure follows the "Navigation and reading guide" in the content source.
 - `/how-referrals-work/`: How referrals work (page 9), H1 "How alternative provision referrals work". Sections: Referrals (two route cards linking to the sections below), School-funded places (six steps with Led by, including the list of information that may be needed), Home education (ask directly, no referral), Parents and carers (if your child is at school), Ask a question. No live referral form, upload or download; detailed records go through a secure route agreed later
 - `/policies/`: Policies and provider information (page 10), H1 "Policies and provider information"
 - `/contact/`: Get in touch (page 11), H1 "Contact Waypoint". Sections: Get in touch (call or email panel, plus the enquiry form), Visits (#visits, the footer anchor), Making a referral, Existing placements. The form (`ContactForm`) sends through Web3Forms in the background: it keeps the visitor's text and shows the FAILURE MESSAGE if sending fails, and only goes to the thank-you page once the service confirms the email was sent. `?purpose=` preselects the role, and "School or organisation" only shows for professional roles. FORM WORDING is word for word, except that the example placeholder no longer mentions Discovery
+- `/complaints/`: Complaints and concerns (linked from the footer). A simple page using only what the source's "Raising a concern" copy says: making a complaint (contact details from `src/data/contact.ts`), concerns about safety (contact us straight away; 999 if a child is in immediate danger; link to the young people's trusted-adult answers), if it's about your usual contact, and Need help. Wes's complaints procedure, safeguarding contact and alternative route are not approved yet: never invent them, and link the approved procedure and verified contacts here once they exist
 - `/thank-you/`: Branded thank-you page shown after a successful enquiry, with the SUCCESS MESSAGE word for word. Not in the menu
 
 ## Headings, type sizes and SEO
@@ -54,7 +55,7 @@ The site uses only five text sizes, set as tokens in `global.css` (`--text-h1`, 
 
 Number ranges (8–16, 9:00am–2:30pm) and Shoreham-by-Sea never break across lines in H1s and straplines (handled by `KeepTogether`).
 
-Footer links point at these anchors, which must exist once the content is added: `/contact/#visits`, `/policies/#raising-a-concern` and `/policies/#accessing-information`. Complaints and Privacy notice link to `/policies/` until approved documents exist.
+Footer links point at these anchors, which must exist once the content is added: `/contact/#visits`, `/policies/#raising-a-concern` and `/policies/#accessing-information`. The Privacy notice links to `/policies/` until an approved notice exists. Complaints links to `/complaints/`.
 
 ## Colour scheme
 

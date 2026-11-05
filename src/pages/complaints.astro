@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+import { contact } from '../data/contact';
+
+// Copy: based on "Raising a concern" in content-source/waypoint-content-v1.md (section 10).
+// Wes's complaints procedure, safeguarding contact and alternative route are NOT approved yet,
+// so none of them are published here. When the approved procedure exists, link it in the
+// "about-your-usual-contact" section and add the verified safeguarding contact. Never invent them.
+---
+
+<BaseLayout
+  title="Complaints and concerns"
+  description="How to make a complaint or raise a concern about Waypoint, including concerns about a young person's safety."
+>
+  <PageHero title="Complaints and concerns" strapline="How to raise a concern or make a complaint." />
+
+  <Section
+    id="making-a-complaint"
+    title="Making a complaint"
+    strapline="Tell us what's gone wrong."
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If you're unhappy with any part of Waypoint's service, please tell us. Call or email with what happened, and
+          we'll explain the next steps.
+        </p>
+      </div>
+      <ul class="contact-list">
+        <li>
+          <Icon name="phone" />
+          <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+        </li>
+        <li>
+          <Icon name="mail" />
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </li>
+      </ul>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="safety-concerns"
+    title="Concerns about safety"
+    strapline="A young person's safety comes first."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If you're worried about a young person's safety, contact us straight away and tell us it's a safeguarding
+          concern, so it's dealt with first. If a child is in immediate danger, call 999.
+        </p>
+        <p>
+          Young people can find out who they can talk to on our <a href="/for-young-people/#good-questions">page for
+          young people</a>.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="about-your-usual-contact"
+    title="If it's about your usual contact"
+    strapline="You don't have to go to them first."
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If your concern is about the person you'd normally contact, you don't have to raise it with them. Our
+          complaints procedure sets out an alternative route, so the concern can be looked at by someone else.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="get-help"
+    title="Need help?"
+    strapline="We can explain things another way."
+    brand
+    drawing="meeting"
+    drawingLabel="Line drawing of two adults and a young person talking round a table"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If anything about raising a concern is unclear, or you'd like information explained differently, please get in
+          touch.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/" variant="accent">Get in touch</Button>
+      </div>
+    </Fragment>
+  </Section>
+</BaseLayout>
+
+<style>
+  .contact-list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+</style>
