@@ -172,7 +172,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     });
 
     // Reset the mobile menu when moving to the desktop layout
-    const desktop = window.matchMedia('(min-width: 80rem)');
+    const desktop = window.matchMedia('(min-width: 75rem)');
     desktop.addEventListener('change', () => setMenu(false));
   }
 </script>
@@ -187,9 +187,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     border-bottom: 1px solid var(--colour-border);
   }
 
-  /* Full-width bar so the logo sits as far left as possible */
   .site-header__inner {
-    max-width: none;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -207,7 +205,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
 
   .logo img {
     width: auto;
-    height: 3.5rem;
+    height: 3rem;
   }
 
   .site-header :global(.site-header__cta) {
@@ -342,7 +340,6 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     background: none;
     color: var(--colour-brand);
     font: inherit;
-    font-size: 1.125rem;
     font-weight: 500;
     text-align: left;
     text-decoration: none;
@@ -387,22 +384,14 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
   }
 
   /* Desktop */
-  @media (min-width: 80rem) {
+  @media (min-width: 75rem) {
     .site-header__inner {
       flex-wrap: nowrap;
-      gap: 2rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      gap: 1.5rem;
     }
 
     .logo {
       margin-right: 0;
-    }
-
-    /* Menu sits next to the logo; Get in touch is pushed to the right */
-    .site-header :global(.site-header__cta) {
-      margin-left: auto;
-      font-size: 1.125rem;
     }
 
     .menu-toggle,
@@ -415,6 +404,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
       display: block;
       order: 1;
       flex-basis: auto;
+      margin-left: auto;
     }
 
     .site-header :global(.site-header__cta) {
@@ -424,7 +414,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     .site-nav__list {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
       padding: 0;
     }
 
