@@ -1,11 +1,251 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import InfoPanel from '../components/InfoPanel.astro';
+import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
+import IllustrativeExample from '../components/IllustrativeExample.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "6 Home Education".
+// Wes's build notes: Discovery is a valuable, enjoyable ADDITION to home education. Never
+// imply intervention, school-style targets or a behaviour programme, and never call it
+// alternative provision. No bookings until terms are settled; no named day of the week.
+
+const atAGlance = [
+  { label: 'Planned hours', value: '9:00am–2:30pm', icon: 'calendar' as const },
+  { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
+  { label: 'Ages', value: '8–16, with group suitability agreed individually', icon: 'people' as const },
+  { label: 'Format', value: 'Adult-guided small-group projects, indoors and on land outdoors', icon: 'tree' as const },
+];
 ---
 
-<BaseLayout title="Home education group in Shoreham-by-Sea" description="Discovery, a day of hands-on group projects and creative challenges for home-educated young people.">
+<BaseLayout
+  title="Home education group in Shoreham-by-Sea"
+  description="Waypoint Discovery: hands-on group projects and creative challenges in Shoreham-by-Sea for home-educated young people aged 8–16."
+>
   <PageHero
     title="Home education group in Shoreham-by-Sea"
     strapline="Discovery, a day of hands-on group projects and creative challenges for home-educated young people."
   />
+
+  <Section
+    id="discovery"
+    title="Waypoint Discovery"
+    strapline="Making, inventing and exploring, with other young people."
+    drawing="campfire"
+    drawingLabel="Line drawing of stick people sitting and standing round a campfire"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Discovery is our planned practical-learning day for home-educated young people aged 8–16 in Shoreham-by-Sea.
+          It's a chance to make, invent, explore and see what happens when different ideas come together.
+        </p>
+        <p>
+          Imagine a group designing a basecamp, inventing a Survival Village or creating characters for their own video
+          game. Projects are guided by an experienced educator, and the young people bring their own ideas, skills and
+          enthusiasm.
+        </p>
+        <p>
+          Home education comes in many forms. Discovery adds something different alongside the learning your family
+          already enjoys, like group challenges, ideas from other young people and the brilliant feeling of seeing a
+          project come together.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="at-a-glance"
+    title="At a glance"
+    strapline="Small groups in Shoreham-by-Sea, for ages 8–16."
+    drawing="map-pin"
+    drawingLabel="Line drawing of a dotted path leading to a map pin by the sea"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Waypoint is preparing to open. Before offering places, we'll confirm the venue and access, the group, whether
+          parents stay, what to bring and how we'll keep you updated about your child's day.
+        </p>
+      </div>
+    </Fragment>
+    <div class="panel">
+      <InfoPanel facts={atAGlance} />
+    </div>
+  </Section>
+
+  <Section
+    id="why-discovery"
+    title="Why Discovery"
+    strapline="What a day of Discovery adds."
+    drawing="basecamp"
+    drawingLabel="Line drawing of a tent with a flag between two pine trees"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>It's designed to add to your home education, not replace any of it.</p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      <Card title="Projects that work better together" icon="people">
+        Building something bigger, testing several ideas and sharing the jobs gives young people a real reason to
+        listen, negotiate, solve problems and contribute.
+      </Card>
+      <Card title="Real learning inside the fun" icon="star">
+        A good challenge naturally involves measuring, designing, explaining a choice or finding a better way. It's
+        enjoyable first, and the learning gives it depth.
+      </Card>
+      <Card title="Led by adults, shaped by ideas" icon="speech">
+        Wes brings years of teaching and coaching. Adults plan the projects and set the boundaries, and young people
+        help shape the designs. Some projects run across several sessions.
+      </Card>
+    </CardGroup>
+    <div class="example">
+      <IllustrativeExample title="Picture a Discovery project" label="Example of a possible day, not a fixed activity or real outcome">
+        <p>
+          A group is challenged to build a temporary basecamp. One young person sketches a layout, another works out how
+          to fasten the materials, and others test the structure and suggest improvements. They have to combine their
+          ideas to make it work.
+        </p>
+      </IllustrativeExample>
+    </div>
+  </Section>
+
+  <Section
+    id="the-group"
+    title="The group"
+    strapline="Built around the young people in it."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Tell us what your child loves doing, what they'd be excited to try and anything that helps them feel
+          comfortable in a group. We'd like to hear their ideas as well as yours.
+        </p>
+        <p>
+          Before offering a place, we think about ages, the proposed group, how everyone will get on, any access or
+          support needs and the adults available. We'll explain the group arrangements before you decide, and a
+          Discovery place doesn't always mean a group made up only of home-educated young people.
+        </p>
+        <p>
+          Different strengths are welcome. Your child doesn't need to be sporty or to have done a project like this
+          before.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="the-day"
+    title="The day"
+    strapline="A plan, with plenty of room for ideas."
+    drawing="day"
+    drawingLabel="Line drawing of the sun's path across the sky, with five stops along the way"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Each day starts with a friendly welcome and an introduction to the challenge, then time to make and test
+          things, breaks and lunch, and a chance to look back at what the group created. The rhythm is familiar, but the
+          activity isn't the same every time.
+        </p>
+        <p>
+          Young people help decide how a design develops and suggest new ideas. Adults lead the day and make sure
+          expectations and safety are clear.
+        </p>
+      </div>
+      <p class="more-link"><a href="/parents-and-carers/#a-day-at-waypoint">What a day looks like</a></p>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="costs"
+    title="Costs and booking"
+    strapline="Clear terms before anything is booked."
+    drawing="setting"
+    drawingLabel="Line drawing of a building with a tree and the sun"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Our fees page shows the proposed Discovery price and what still needs to be confirmed. Before taking any
+          bookings, we'll agree the commitment, the total cost, what's included and the payment and cancellation rules.
+          School-funded terms don't automatically apply to Discovery.
+        </p>
+        <p>We're not taking bookings yet, and an enquiry is never treated as one.</p>
+      </div>
+      <div class="button-row">
+        <Button href="/fees/" variant="secondary">See the proposed price</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="ask-about-discovery"
+    title="Ask about Discovery"
+    strapline="Tell us what your child enjoys."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Tell us a little about your child and the kind of shared experience you'd love them to have. No school
+          referral is needed. We'll talk through the programme, whether it suits your child, the likely group and what
+          still needs confirming. There's no obligation, and asking doesn't guarantee a place.
+        </p>
+        <p>
+          Please keep your first message general and don't send any personal records. If we need more later, we'll
+          explain how to share it safely.
+        </p>
+      </div>
+      <ul class="route-links">
+        <li><a href="/about/#activities">See the activities</a></li>
+        <li><a href="/for-young-people/">Information for your child</a></li>
+      </ul>
+      <div class="button-row">
+        <Button href="/contact/?purpose=home-education" variant="accent">Ask about Discovery</Button>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .panel,
+  .example {
+    margin-top: 2rem;
+  }
+
+  .example {
+    max-width: 46rem;
+  }
+
+  .more-link {
+    margin: 1rem 0 0;
+    font-weight: 600;
+  }
+
+  .more-link a::after,
+  .route-links a::after {
+    content: ' \2192';
+  }
+
+  .route-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+</style>
