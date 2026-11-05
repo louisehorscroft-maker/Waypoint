@@ -14,7 +14,7 @@ export const isNavGroup = (item: NavItem): item is NavGroup => 'children' in ite
 
 /** Main menu, from the "Navigation and reading guide" in the content source. */
 export const mainNav: NavItem[] = [
-  { label: 'Discover Waypoint', href: '/discover-waypoint/' },
+  { label: 'About', href: '/about/' },
   {
     label: 'Schools & Professionals',
     children: [

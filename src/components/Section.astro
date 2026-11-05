@@ -35,6 +35,9 @@ const {
   ...rest
 } = Astro.props;
 const headingId = id && title ? `${id}-heading` : undefined;
+/** A real photo (a PhotoFrame in slot="photo") can sit opposite the heading instead of a drawing */
+const hasPhoto = Astro.slots.has('photo');
+const hasArt = Boolean(drawing) || hasPhoto;
 ---
 
 <section
@@ -44,7 +47,7 @@ const headingId = id && title ? `${id}-heading` : undefined;
   {...rest}
 >
   <div class="container">
-    <div class:list={['section-head', { 'section-head--drawing': drawing, 'section-head--left': drawingSide === 'left' }]}>
+    <div class:list={['section-head', { 'section-head--drawing': hasArt, 'section-head--left': drawingSide === 'left' }]}>
       <div class="section-head__text">
         {title && <h2 id={headingId}>{title}</h2>}
         {strapline && <p class="section-strapline"><KeepTogether text={strapline} /></p>}
@@ -54,6 +57,13 @@ const headingId = id && title ? `${id}-heading` : undefined;
         drawing && (
           <div class="section-head__art">
             <Illustration name={drawing} label={drawingLabel} />
+          </div>
+        )
+      }
+      {
+        !drawing && hasPhoto && (
+          <div class="section-head__photo">
+            <slot name="photo" />
           </div>
         )
       }
@@ -89,6 +99,11 @@ const headingId = id && title ? `${id}-heading` : undefined;
     height: calc(100% - 2rem);
   }
 
+  .section-head__photo {
+    max-width: 16rem;
+    align-self: center;
+  }
+
   :global(.section--brand) .section-head__art {
     background: transparent;
   }
@@ -109,8 +124,14 @@ const headingId = id && title ? `${id}-heading` : undefined;
       grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
     }
 
-    .section-head--left .section-head__art {
+    .section-head--left .section-head__art,
+    .section-head--left .section-head__photo {
       order: -1;
+    }
+
+    .section-head__photo {
+      max-width: 18rem;
+      justify-self: center;
     }
 
     .section-head__art {

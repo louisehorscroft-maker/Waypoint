@@ -15,7 +15,12 @@ export type IllustrationName =
   | 'signpost'
   | 'idea'
   | 'report'
-  | 'chat';
+  | 'chat'
+  | 'game-studio'
+  | 'day'
+  | 'helping'
+  | 'steps'
+  | 'setting';
 
 interface Props {
   name: IllustrationName;
@@ -186,6 +191,75 @@ const { name, label } = Astro.props;
         <rect x="120" y="30" width="56" height="26" rx="9" />
         <path d="M150 56l4 10-14-10" />
         <path d="M130 44c5-5 9-5 13 0s9 5 13 0" />
+      </>
+    )
+  }
+  {
+    name === 'game-studio' && (
+      <>
+        {/* A screen showing a simple platform game, with two stick people */}
+        <rect x="56" y="26" width="88" height="62" rx="4" />
+        <path d="M100 88v16M84 104h32" />
+        <path d="M66 76h24M100 64h20M126 52h10" />
+        <circle cx="74" cy="68" r="4" />
+        <path d="M131 34l2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z" />
+        <circle cx="26" cy="80" r="7" />
+        <path d="M26 87v19M26 106l-7 16M26 106l7 16M26 93l22-10M26 93l-9 10" />
+        <circle cx="174" cy="80" r="7" />
+        <path d="M174 87v19M174 106l-7 16M174 106l7 16M174 93l-22-10M174 93l9 10" />
+      </>
+    )
+  }
+  {
+    name === 'day' && (
+      <>
+        {/* The sun's path across the day, with stops along the way */}
+        <path d="M20 122Q100 10 180 122" stroke-dasharray="0.5 9" />
+        <circle cx="100" cy="32" r="10" />
+        <path d="M100 14v-5M100 55v-5M82 32h-5M123 32h-5M87 19l-3-3M113 19l3-3M87 45l-3 3M113 45l3 3" />
+        <circle cx="36" cy="102" r="4" fill="currentColor" />
+        <circle cx="68" cy="75" r="4" fill="currentColor" />
+        <circle cx="100" cy="66" r="4" fill="currentColor" />
+        <circle cx="132" cy="75" r="4" fill="currentColor" />
+        <circle cx="166" cy="102" r="4" fill="currentColor" />
+      </>
+    )
+  }
+  {
+    name === 'helping' && (
+      <>
+        {/* An adult showing a young person how to stack blocks */}
+        <circle cx="62" cy="44" r="8" />
+        <path d="M62 52v38M62 90l-9 32M62 90l9 32M62 62l22 18M62 62l-12 16" />
+        <circle cx="140" cy="76" r="7" />
+        <path d="M140 83v19M140 102l-7 20M140 102l7 20M140 90l-18 6M140 90l9 10" />
+        <rect x="90" y="108" width="20" height="14" rx="1" />
+        <rect x="93" y="94" width="14" height="14" rx="1" />
+        <rect x="95" y="80" width="10" height="14" rx="1" />
+      </>
+    )
+  }
+  {
+    name === 'steps' && (
+      <>
+        {/* A winding route up to a flag: progress isn't a straight line */}
+        <path d="M18 120h26v-16h18l10 10h18V82h22l-8 14h16V62h26" />
+        <path d="M148 62V36l16 6-16 6" />
+      </>
+    )
+  }
+  {
+    name === 'setting' && (
+      <>
+        {/* A building with trees and the sun */}
+        <path d="M30 122V78l38-26 38 26v44" />
+        <path d="M58 122v-24h20v24" />
+        <rect x="40" y="84" width="12" height="10" rx="1" />
+        <rect x="84" y="84" width="12" height="10" rx="1" />
+        <path d="M146 58l-10 20h6l-12 22h8l-10 16h36l-10-16h8l-12-22h6z" />
+        <path d="M146 116v6" />
+        <circle cx="176" cy="34" r="8" />
+        <path d="M176 20v-4M176 52v-4M162 34h-4M194 34h-4" />
       </>
     )
   }

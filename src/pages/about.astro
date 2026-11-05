@@ -1,0 +1,319 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import CardGroup from '../components/CardGroup.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+import StepList from '../components/StepList.astro';
+import Step from '../components/Step.astro';
+import IllustrativeExample from '../components/IllustrativeExample.astro';
+import PhotoFrame from '../components/PhotoFrame.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "2 Discover Waypoint".
+// Wes's WEBSITE COPY is the framework; every fact here comes from it.
+// Order follows his build notes: activities, the day, support, learning, people, place.
+---
+
+<BaseLayout
+  title="About Waypoint"
+  description="Waypoint is a small, part-time alternative provision being developed in Shoreham-by-Sea, where young people aged 8–16 learn through practical projects."
+>
+  <PageHero
+    title="About Waypoint"
+    strapline="Small-group, part-time alternative provision in Shoreham-by-Sea for ages 8–16."
+  />
+
+  <Section
+    id="what-it-is"
+    title="What Waypoint is"
+    strapline="Learning by doing, in a small group."
+    drawing="building"
+    drawingLabel="Line drawing of two stick people carrying a plank, with a toolbox"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Waypoint is a small, part-time provision being developed in Shoreham-by-Sea. Young people aged 8–16 learn
+          through practical projects, with adults who take the time to get to know them.
+        </p>
+        <p>
+          Places come either through a school or, for home-educated young people, through Discovery. Either way, we
+          look at the young person, the group and the support available before offering a place.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section id="activities" title="Activities" strapline="Building, testing and making things together.">
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Here are four examples from our activity bank. They are not a fixed timetable. We choose activities to suit
+          the group, their interests and any individual goals, and the first term is all land-based.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={2}>
+      <ActivityCard
+        title="Build the Basecamp"
+        drawing="basecamp"
+        drawingLabel="Line drawing of a tent with a flag between two pine trees"
+      >
+        Plan and build a temporary base with tarpaulins and ropes. Work out what makes it useful, test ideas and
+        improve the design, measuring, explaining choices and sharing the jobs along the way.
+      </ActivityCard>
+      <ActivityCard
+        title="The Giant Chain Reaction"
+        drawing="chain-reaction"
+        drawingLabel="Line drawing of a ball rolling down a ramp into a row of dominoes"
+      >
+        Link ramps, balls, tubes and everyday bits into one long sequence. See where it stops, work out why and try
+        another way. Listening and solving problems matter as much as the result.
+      </ActivityCard>
+      <ActivityCard
+        title="Survival Village"
+        drawing="survival-village"
+        drawingLabel="Line drawing of a small village of huts, a tipi with a flag and a campfire"
+      >
+        Invent a settlement, plan the shelters and decide how to use limited materials. The group has to agree what
+        matters most, split the jobs and change the plan when it needs to.
+      </ActivityCard>
+      <ActivityCard
+        title="Waypoint Game Studio"
+        drawing="game-studio"
+        drawingLabel="Line drawing of two stick people pointing at a screen showing a simple game"
+      >
+        Come up with characters, rules and levels for a game. The young people lead the ideas, and an adult uses
+        digital tools to turn them into a simple game the group can test and improve.
+      </ActivityCard>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="typical-day"
+    title="A typical day"
+    strapline="The same shape every Tuesday."
+    drawing="day"
+    drawingLabel="Line drawing of the sun's path across the sky, with five stops along the way"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Every day follows the same pattern, so young people know what's coming. We plan to share a simple outline
+          in advance, and the activities can still change to suit the group and the conditions on the day.
+        </p>
+      </div>
+    </Fragment>
+    <div class="day-steps">
+      <StepList>
+        <Step title="Arrive and settle">
+          <p>A welcome, time to catch up with others and an explanation of the plan for the day.</p>
+        </Step>
+        <Step title="Get started">
+          <p>Start an activity with a demonstration or a small first step.</p>
+        </Step>
+        <Step title="Breaks and lunch">
+          <p>Time to rest, eat and chat.</p>
+        </Step>
+        <Step title="Carry on with the project">
+          <p>Keep going, improve an idea or try something new.</p>
+        </Step>
+        <Step title="Finish together">
+          <p>Look back at something from the day and get ready to go home.</p>
+        </Step>
+      </StepList>
+    </div>
+  </Section>
+
+  <Section
+    id="our-approach"
+    title="Our approach"
+    strapline="Help to join in, and to keep going."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Some young people understand a task best when they see it shown. Others need one step at a time, an adult
+          alongside them or a short break.
+        </p>
+        <p>
+          We look at what's getting in the way and help them join in, or come back to the activity, with clear
+          boundaries and supervision throughout. The aim is a challenge they can manage, and a bit more
+          responsibility over time.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="learning"
+    title="Learning"
+    strapline="What young people get out of it."
+    drawing="steps"
+    drawingLabel="Line drawing of a winding route up to a flag"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Practical projects mean reading instructions, measuring, explaining ideas, agreeing with others and solving
+          problems. We record what a young person actually did, and whether they had help, because doing something
+          with support and doing it alone tell us different things.
+        </p>
+        <p>
+          For school-funded places, individual goals link what happens on the day to the weekly report. For Discovery,
+          the focus is on enjoying practical projects alongside other home-educated young people.
+        </p>
+        <p>
+          Progress isn't always a straight line. Coming up with an idea, trying a new skill, working with someone new
+          or asking for help all count.
+        </p>
+      </div>
+    </Fragment>
+    <div class="example">
+      <IllustrativeExample title="How a project becomes learning" label="Illustrative example, not a real young person">
+        <p>
+          This shows how one project could work for one young person. It isn't a fixed programme or a real outcome.
+        </p>
+        <StepList>
+          <Step title="Starting point">
+            <p>
+              A young person who loves making things but finds it hard to share an idea in a group. We start by asking
+              about their experience and what helps.
+            </p>
+          </Step>
+          <Step title="Goal">
+            <p>Agree a way for them to get an idea across, by speaking, sketching, showing or another way that suits them.</p>
+          </Step>
+          <Step title="Activity">
+            <p>A Giant Chain Reaction, where the group has to work out how to get a ball from one part of the course to the next.</p>
+          </Step>
+          <Step title="Support">
+            <p>An adult might show how a connection works, break the task into smaller steps or help them show their design.</p>
+          </Step>
+          <Step title="What we notice">
+            <p>
+              What they actually contributed, the help they used and what they thought of it. A good group result alone
+              doesn't show what each person learned.
+            </p>
+          </Step>
+          <Step title="Next step">
+            <p>
+              Come back to a similar chance in a later session, keep the support that helped and see what happens. Next
+              time that might mean explaining a change or trying the idea in a different project.
+            </p>
+          </Step>
+        </StepList>
+        <p>
+          We talk through what we've noticed with the school and family where it helps. Something working at Waypoint
+          is a starting point for that conversation, not proof it will work everywhere.
+        </p>
+      </IllustrativeExample>
+    </div>
+  </Section>
+
+  <Section id="meet-wes" title="Meet Wes" strapline="PE teacher and sports coach.">
+    <PhotoFrame
+      slot="photo"
+      src="/images/wes-horscroft-480.webp"
+      srcset="/images/wes-horscroft-480.webp 480w, /images/wes-horscroft-960.webp 960w"
+      sizes="(min-width: 48rem) 18rem, 16rem"
+      alt="Wes Horscroft, founder of Waypoint"
+      width={480}
+      height={588}
+      ratio="4 / 5"
+      position="50% 30%"
+    />
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Wes Horscroft has a long background in PE teaching and sports coaching, helping young people learn new
+          skills, work with others and take on a challenge.
+        </p>
+        <p>
+          At Waypoint he brings that experience to all kinds of practical learning. You don't need to be sporty to
+          join in.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="our-setting"
+    title="Our setting"
+    strapline="Indoors and outdoors in Shoreham-by-Sea."
+    drawing="setting"
+    drawingLabel="Line drawing of a building with a tree and the sun"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Waypoint is being developed in Shoreham-by-Sea, with space for indoor practical work and land-based outdoor
+          learning.
+        </p>
+        <p>
+          Before any placement starts, we'll share the confirmed venue, facilities and arrival arrangements. Visits are
+          arranged in advance.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="good-fit"
+    title="Is Waypoint a good fit?"
+    strapline="Talk to us first."
+    brand
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          We talk through each young person's strengths, needs and circumstances before offering a place. Find the
+          information for your situation, or ask us a question.
+        </p>
+      </div>
+      <ul class="route-links">
+        <li><a href="/for-schools/">For schools</a></li>
+        <li><a href="/parents-and-carers/">Parents and carers</a></li>
+        <li><a href="/home-education/">Home education</a></li>
+        <li><a href="/for-young-people/">For young people</a></li>
+      </ul>
+      <div class="button-row">
+        <Button href="/contact/" variant="accent">Get in touch</Button>
+      </div>
+    </Fragment>
+  </Section>
+</BaseLayout>
+
+<style>
+  .day-steps,
+  .example {
+    margin-top: 2rem;
+    max-width: 46rem;
+  }
+
+  .example :global(.step-list) {
+    margin: 1.25rem 0;
+  }
+
+  .route-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+
+  .route-links a::after {
+    content: ' \2192';
+  }
+</style>
