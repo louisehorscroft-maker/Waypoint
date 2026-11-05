@@ -77,6 +77,11 @@ const hasArt = Boolean(drawing) || hasPhoto;
     margin-bottom: 0;
   }
 
+  /* A strapline with no intro after it keeps its usual gap before the content below */
+  .section-head__text > :global(.section-strapline:last-child) {
+    margin-bottom: 1rem;
+  }
+
   /* Drawing box below the text on phones, kept compact */
   .section-head--drawing {
     display: grid;
