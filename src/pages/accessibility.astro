@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+import { contact } from '../data/contact';
+
+// Accessibility statement for this website. Every claim was checked in November 2026: axe
+// (WCAG 2.2 AA plus best practice) on all pages at desktop and phone widths found no issues;
+// keyboard, skip link, reduced motion and 400% zoom (360px) were checked by hand. Re-test and
+// update the date whenever pages, components or colours change.
+---
+
+<BaseLayout
+  title="Accessibility"
+  description="How the Waypoint website is made accessible, how it was tested, and how to get information another way."
+>
+  <PageHero title="Accessibility" strapline="How we make this website easy for everyone to use." />
+
+  <Section
+    id="using-this-website"
+    title="Using this website"
+    strapline="Built so everyone can use it."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>We want as many people as possible to be able to use this website. You should be able to do the following.</p>
+        <ul>
+          <li>Zoom in up to 400% without the text spilling off the screen</li>
+          <li>Get around using just a keyboard, starting with a "Skip to content" link</li>
+          <li>Use a screen reader, with a description for every drawing and photo</li>
+          <li>Read plain English with strong colour contrast</li>
+          <li>Use it on a phone, tablet or computer</li>
+          <li>Turn on "reduce motion" in your device settings to stop animations</li>
+        </ul>
+        <p>There are no cookies, time limits, pop-ups or videos that play by themselves.</p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="how-accessible"
+    title="How accessible it is"
+    strapline="Tested against WCAG 2.2 AA."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA. In November 2026 we tested
+          every page with an automated accessibility checker at desktop and phone sizes, and checked keyboard use, zoom
+          and reduced motion by hand. No issues were found.
+        </p>
+        <p>
+          Automated tools can't catch everything, so if something doesn't work for you, please tell us and we'll fix it.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="information-another-way"
+    title="Information another way"
+    strapline="Just ask, and we'll help."
+    drawing="meeting"
+    drawingLabel="Line drawing of two adults and a young person talking round a table"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If a page or document is difficult to access, or you'd like information explained differently, please get in
+          touch. We're happy to talk things through by phone.
+        </p>
+      </div>
+      <ul class="contact-list">
+        <li>
+          <Icon name="phone" />
+          <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+        </li>
+        <li>
+          <Icon name="mail" />
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </li>
+      </ul>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="visiting"
+    title="Visiting Waypoint"
+    strapline="Tell us about any access needs."
+    drawing="setting"
+    drawingLabel="Line drawing of a building with a tree and the sun"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Before any placement starts, we'll share the confirmed venue, facilities and arrival arrangements. Please tell us
+          about any access, health or support needs when we talk about a placement or arrange a visit.
+        </p>
+      </div>
+      <p class="more-link"><a href="/contact/#visits">Arranging a visit</a></p>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="report-a-problem"
+    title="Report a problem"
+    strapline="Tell us if something doesn't work."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If you find a problem with this website, or something isn't accessible to you, let us know the page and what
+          happened, and we'll put it right.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/" variant="accent">Get in touch</Button>
+      </div>
+    </Fragment>
+  </Section>
+</BaseLayout>
+
+<style>
+  .contact-list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .more-link {
+    margin: 1rem 0 0;
+    font-weight: 600;
+  }
+
+  .more-link a::after {
+    content: ' \2192';
+  }
+</style>

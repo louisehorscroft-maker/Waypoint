@@ -39,5 +39,5 @@ export const footerNav: NavLink[] = [
   { label: 'Safeguarding', href: '/policies/#raising-a-concern' },
   { label: 'Complaints', href: '/complaints/' },
   { label: 'Privacy notice', href: '/privacy/' },
-  { label: 'Accessibility information', href: '/policies/#accessing-information' },
+  { label: 'Accessibility information', href: '/accessibility/' },
 ];

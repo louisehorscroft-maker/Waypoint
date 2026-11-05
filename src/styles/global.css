@@ -251,3 +251,15 @@ p {
   background: var(--colour-bg);
   padding: 0.5rem 0.75rem;
 }
+
+/* Respect the "reduce motion" setting: no animations or smooth scrolling */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
