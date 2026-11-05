@@ -32,4 +32,5 @@ export const purposeToRole: Record<string, string> = {
   'local-authority': 'Local authority or Virtual School professional',
   'home-education': 'Home-educating parent or carer',
   general: 'Parent or carer',
+  provider: 'Headteacher or school leader',
 };

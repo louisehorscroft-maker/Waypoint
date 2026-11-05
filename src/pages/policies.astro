@@ -1,11 +1,174 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "10 Policies and provider
+// information". No policy is approved yet, so nothing is linked as a document: link only current
+// approved documents, matching their real titles, once they exist. Never link drafts.
+// #raising-a-concern and #accessing-information are footer anchors.
 ---
 
-<BaseLayout title="Policies and provider information" description="Information for families, schools and commissioners, and how to raise a concern.">
+<BaseLayout
+  title="Policies and provider information"
+  description="Waypoint's policies, information for schools and commissioners, and how to raise a concern."
+>
   <PageHero
     title="Policies and provider information"
     strapline="Information for families, schools and commissioners, and how to raise a concern."
   />
+
+  <Section
+    id="policies"
+    title="Policies"
+    strapline="How Waypoint works, and how we look after information."
+    drawing="school"
+    drawingLabel="Line drawing of a school building with a clock and a flag"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Here you can find out how Waypoint operates, how we handle information and how to raise a concern. Families
+          are welcome to use this page, and schools and commissioners can ask us for information for their provider
+          assessment.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="for-families"
+    title="For families"
+    strapline="The policies that matter to you."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Our policies cover the areas below. Ask us and we'll share the current version of each, and tell you about
+          anything still being finalised. Every document shows its version and when it's next reviewed.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      <Card title="Safeguarding and child protection" icon="heart">
+        How we keep young people safe and what we do if we're worried about one.
+      </Card>
+      <Card title="Supporting behaviour and taking part" icon="people">
+        How we help young people join in, with clear expectations and boundaries.
+      </Card>
+      <Card title="Attendance and absence" icon="calendar">
+        How arrivals are recorded and what happens if a young person doesn't arrive.
+      </Card>
+      <Card title="Complaints and concerns" icon="speech">
+        How to raise a concern or make a complaint. See our <a href="/complaints/">complaints and concerns</a> page.
+      </Card>
+      <Card title="Privacy and personal information" icon="clipboard">
+        How we collect, use and look after personal information.
+      </Card>
+      <Card title="Help with a document" icon="star">
+        If a document is hard to read or use, we can <a href="#accessing-information">explain it another way</a>.
+      </Card>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="for-schools-and-commissioners"
+    title="For schools and commissioners"
+    strapline="What you can ask us about."
+    drawing="meeting"
+    drawingLabel="Line drawing of two adults and a young person talking round a table"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Before considering a pupil, schools and commissioners can talk to us about leadership, staff suitability,
+          risk management and placement arrangements. These are the areas people most often ask about.
+        </p>
+        <ul class="labelled">
+          <li>
+            <strong>Safer recruitment:</strong> Identity checks, employment history, references, role-specific checks,
+            recorded clearance and induction.
+          </li>
+          <li>
+            <strong>Attendance:</strong> How arrivals are recorded, how the school is told if a pupil doesn't arrive and
+            how a safeguarding concern is escalated.
+          </li>
+          <li>
+            <strong>Reporting:</strong> Individual goals, useful observations and agreed reviews behind every weekly
+            report.
+          </li>
+        </ul>
+        <p>
+          Some information is shared directly rather than published online. We'll tell you which documents are current
+          and approved, and what's still being finalised.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/?purpose=provider">Request provider information</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="raising-a-concern"
+    title="Raising a concern"
+    strapline="Safety always comes first."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If you're worried about a young person's safety, contact us straight away and tell us it's a safeguarding
+          concern. If a child is in immediate danger, call 999.
+        </p>
+        <p>
+          For a complaint about the service, our complaints and concerns page explains what to do. If the concern is
+          about the person you'd normally contact, you don't have to go to them first.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/complaints/">Complaints and concerns</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="accessing-information"
+    title="Accessing information"
+    strapline="We can explain things another way."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If a document is difficult to access, or you'd like information explained differently, please get in touch
+          and we'll help.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/" variant="accent">Get in touch</Button>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .labelled {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .labelled li + li {
+    margin-top: 0.5rem;
+  }
+</style>
