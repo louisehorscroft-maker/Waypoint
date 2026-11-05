@@ -1,11 +1,213 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import CardGroup from '../components/CardGroup.astro';
+import RouteCard from '../components/RouteCard.astro';
+import StepList from '../components/StepList.astro';
+import Step from '../components/Step.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "9 How referrals work".
+// Wes's build notes: separate a first enquiry from an agreed offer and confirmed start. No live
+// referral form, upload or download; detailed records go through a secure route agreed later.
 ---
 
-<BaseLayout title="How alternative provision referrals work" description="From a first enquiry to an agreed placement, step by step.">
+<BaseLayout
+  title="How alternative provision referrals work"
+  description="How referrals to Waypoint work, from a first question to an agreed placement, for schools, local authorities and home-educating families."
+>
   <PageHero
     title="How alternative provision referrals work"
     strapline="From a first enquiry to an agreed placement, step by step."
   />
+
+  <Section
+    id="referrals"
+    title="Referrals"
+    strapline="It all starts with a question."
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          You don't need a completed referral pack to get in touch. There are two routes, depending on whether a school
+          is arranging the place or your family home educates.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={2}>
+      <RouteCard title="School-funded places" href="#school-funded-places">
+        Your headteacher or senior team looks at Waypoint as a provider first. Then your SENCo or inclusion lead talks
+        to us about the pupil.
+      </RouteCard>
+      <RouteCard title="Home education" href="#home-education">
+        Home-educating families can ask us directly, with no referral or school approval needed.
+      </RouteCard>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="school-funded-places"
+    title="School-funded places"
+    strapline="Six steps, from first question to review."
+    drawing="meeting"
+    drawingLabel="Line drawing of two adults and a young person talking round a table"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Nothing is confirmed until it's been agreed in writing, and an enquiry or a referral doesn't guarantee a
+          place.
+        </p>
+      </div>
+    </Fragment>
+    <div class="steps">
+      <StepList>
+        <Step title="First enquiry" who="A school, local authority or parent">
+          <p>
+            Ask us about Waypoint and what a place could be for. Keep the first message general and don't send any
+            details that identify a young person. We'll explain the next step.
+          </p>
+        </Step>
+        <Step title="Talking about suitability" who="Wes, with the school">
+          <p>
+            We look at the young person's strengths, interests, support needs and any risks, and what the placement
+            should achieve, alongside the group, setting and staff available.
+          </p>
+        </Step>
+        <Step title="Sharing information" who="The school, through an agreed secure route">
+          <p>
+            We use the documents you already have rather than asking you to rewrite them. Depending on the young person,
+            we may need the following.
+          </p>
+          <ul class="info-list">
+            <li>The reason for the referral and what it should achieve</li>
+            <li>Relevant education, support and risk plans</li>
+            <li>Communication, sensory and emotional support information</li>
+            <li>Medical needs, allergies and medication arrangements</li>
+            <li>The young person's views and what helps them</li>
+            <li>Family, school and emergency contacts</li>
+            <li>Arrival, collection and transport arrangements</li>
+          </ul>
+          <p>We'll say exactly what's needed and point out any gaps that affect suitability or safety.</p>
+        </Step>
+        <Step title="Agreeing the offer" who="Waypoint and the school">
+          <p>
+            If the place is suitable and available, we agree dates, goals, support, communication, reviews, fees and
+            funding. The school also authorises the placement and funding, and finance and purchasing are agreed before a
+            start date is confirmed.
+          </p>
+        </Step>
+        <Step title="Getting ready to start" who="Waypoint">
+          <p>
+            We normally need five working days once we have complete information, and an earlier start is sometimes
+            possible. We confirm the start date directly. Before the first day we talk about the young person's
+            interests and the support that helps, agree arrival, handover and collection, and arrange any visit in
+            advance.
+          </p>
+        </Step>
+        <Step title="Reviews" who="Waypoint, with the school and family">
+          <p>
+            We review how the young person is taking part, their goals, the support and their own experience. If their
+            needs or circumstances change, we review sooner.
+          </p>
+        </Step>
+      </StepList>
+    </div>
+    <div class="button-row">
+      <Button href="/contact/?purpose=placement">Discuss a pupil</Button>
+      <Button href="/for-schools/" variant="secondary">More for schools</Button>
+    </div>
+  </Section>
+
+  <Section
+    id="home-education"
+    title="Home education"
+    strapline="Just ask us directly."
+    drawing="campfire"
+    drawingLabel="Line drawing of stick people sitting and standing round a campfire"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If you home educate, you don't need a referral. Tell us about the projects your child might enjoy and what
+          you're looking for. We'll talk through the group, the proposed fees, availability and arrangements before
+          anything is booked. The school-funded steps above don't automatically apply.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/?purpose=home-education">Ask about home education</Button>
+        <Button href="/home-education/" variant="secondary">Home education at Waypoint</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="parents"
+    title="Parents and carers"
+    strapline="If your child is at school."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          You're always welcome to ask us a general question. To explore a school-funded place, your child's SENCo or
+          inclusion lead takes it forward once the school is happy with Waypoint as a provider and the funding is
+          agreed.
+        </p>
+      </div>
+      <p class="more-link"><a href="/parents-and-carers/">Information for parents and carers</a></p>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="ask-a-question"
+    title="Ask a question"
+    strapline="No referral pack needed."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Asking a question isn't a referral or a booking. Keep your first message general, and we'll explain the next
+          step.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/?purpose=general" variant="accent">Ask a question</Button>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .steps {
+    margin-top: 2rem;
+    max-width: 46rem;
+  }
+
+  .info-list {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .info-list li + li {
+    margin-top: 0.25rem;
+  }
+
+  .more-link {
+    margin: 1rem 0 0;
+    font-weight: 600;
+  }
+
+  .more-link a::after {
+    content: ' \2192';
+  }
+</style>
