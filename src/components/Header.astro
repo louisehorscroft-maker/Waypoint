@@ -180,7 +180,8 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--colour-bg);
+    /* Sage bar with forest green text; mustard marks hover and the current page */
+    background: var(--colour-surface);
     border-bottom: 1px solid var(--colour-border);
   }
 
@@ -218,10 +219,10 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     gap: 0.5rem;
     min-height: 2.5rem;
     padding: 0.5rem 0.75rem;
-    border: 2px solid var(--colour-border);
+    border: 2px solid var(--colour-brand);
     border-radius: var(--radius);
     background: var(--colour-bg);
-    color: var(--colour-text);
+    color: var(--colour-brand);
     font: inherit;
     font-weight: 600;
     cursor: pointer;
@@ -329,7 +330,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     padding: 0.75rem 0;
     border: 0;
     background: none;
-    color: var(--colour-text);
+    color: var(--colour-brand);
     font: inherit;
     font-weight: 500;
     text-align: left;
@@ -338,7 +339,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
   }
 
   .site-nav__item + .site-nav__item {
-    border-top: 1px solid var(--colour-border);
+    border-top: 1px solid rgb(47 93 80 / 0.2);
   }
 
   .site-nav__link:hover,
@@ -346,13 +347,11 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
   .site-nav__link[aria-current='page'],
   .site-nav__sublink[aria-current='page'],
   .site-nav__link.is-active {
-    color: var(--colour-brand);
-  }
-
-  .site-nav__link[aria-current='page'],
-  .site-nav__sublink[aria-current='page'] {
+    color: var(--colour-brand-dark);
     text-decoration: underline;
-    text-underline-offset: 0.3em;
+    text-decoration-color: var(--colour-accent);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.4em;
   }
 
   .site-nav__chevron {

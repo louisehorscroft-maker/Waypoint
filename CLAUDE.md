@@ -54,7 +54,7 @@ Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use th
 - **Forest green #2F5D50:** Brand colour, hero band, primary buttons, links and footer
 - **Mustard #E3A72F:** Accent only, for borders, the hero band edge and the accent button. Never use it as text on cream or sage, as the contrast is too low
 - **Cream #FAF6EE:** Page background, card background and text on forest green
-- **Sage #DCE6DA:** Alternate section and panel background
+- **Sage #DCE6DA:** Menu bar, alternate section and panel background. Menu text is forest green, with a mustard underline for hover and the current page (mustard text on sage is unreadable, 1.66:1)
 - **Charcoal #232B28:** Body text, text on mustard and focus outlines
 
 ## Components
