@@ -21,29 +21,50 @@ Marketing site for Waypoint, built with Astro (TypeScript strict) and deployed t
 
 ## Pages
 
-Page structure follows the "Navigation and reading guide" in the content source. Each page's H1 is the first WEBSITE COPY heading for that page, in sentence case.
+Page structure follows the "Navigation and reading guide" in the content source. Every page opens with a `PageHero` band holding a keyword-led H1, a one-line strapline and a Get in touch button (not on the contact page). The page `<title>` matches the H1.
 
-- `/`: Home (page 1)
-- `/discover-waypoint/`: Discover Waypoint (page 2)
-- `/for-schools/`: For schools (page 3)
-- `/for-local-authorities/`: For local authorities (page 7)
-- `/parents-and-carers/`: Parents and carers (page 4)
-- `/home-education/`: Home education (page 6)
-- `/for-young-people/`: For young people (page 5)
-- `/fees/`: Placement arrangements and fees (page 8)
-- `/how-referrals-work/`: How referrals work (page 9)
-- `/policies/`: Policies and provider information (page 10)
-- `/contact/`: Get in touch (page 11)
+- `/`: Home (page 1), H1 "Alternative provision in Shoreham-by-Sea"
+- `/discover-waypoint/`: Discover Waypoint (page 2), H1 "Practical, hands-on alternative provision"
+- `/for-schools/`: For schools (page 3), H1 "Alternative provision for schools and SENCos"
+- `/for-local-authorities/`: For local authorities (page 7), H1 "Alternative provision for local authorities"
+- `/parents-and-carers/`: Parents and carers (page 4), H1 "Part-time alternative provision for your child"
+- `/home-education/`: Home education (page 6), H1 "Home education group in Shoreham-by-Sea"
+- `/for-young-people/`: For young people (page 5), H1 "Hands-on projects for young people"
+- `/fees/`: Placement arrangements and fees (page 8), H1 "Fees and placement arrangements"
+- `/how-referrals-work/`: How referrals work (page 9), H1 "How alternative provision referrals work"
+- `/policies/`: Policies and provider information (page 10), H1 "Policies and provider information"
+- `/contact/`: Get in touch (page 11), H1 "Contact Waypoint"
+
+## Headings and SEO
+
+H1s and H2s are written for search as well as for readers, so they may differ from the headings in the content source. Body copy stays word for word.
+
+- **H1:** Keyword-led and short, in the `PageHero` band. Say what Waypoint is (alternative provision), who it is for, and where (Shoreham-by-Sea) where it fits.
+- **First H2:** Carries the page's big headline from the source, for example "Big ideas. Real experiences. Something to be proud of." on Home, followed by the intro copy.
+- **Other H2s:** Short, descriptive and keyword-friendly, for example "Hands-on projects and activities" rather than "What could you make happen?".
+- **Home Education:** Never describe Discovery as alternative provision or intervention. It is enrichment for home-educated young people.
+- **Facts only:** Headings and straplines must only state facts that are in the source. Waypoint is preparing to open, so never imply it is already operating.
 
 Footer links point at these anchors, which must exist once the content is added: `/contact/#visits`, `/policies/#raising-a-concern` and `/policies/#accessing-information`. Complaints and Privacy notice link to `/policies/` until approved documents exist.
+
+## Colour scheme
+
+Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use the role variables (`--colour-brand`, `--colour-accent` and so on) rather than hex values.
+
+- **Forest green #2F5D50:** Brand colour, hero band, primary buttons, links and footer
+- **Mustard #E3A72F:** Accent only, for borders, the hero band edge and the accent button. Never use it as text on cream or sage, as the contrast is too low
+- **Cream #FAF6EE:** Page background, card background and text on forest green
+- **Sage #DCE6DA:** Alternate section and panel background
+- **Charcoal #232B28:** Body text, text on mustard and focus outlines
 
 ## Components
 
 Use these components rather than one-off markup.
 
+- `PageHero`: Forest green band at the top of every page with the H1, strapline and a mustard Get in touch button. Pass `hideCta` on the contact page.
 - `Header` and `Footer`: Site chrome. The header is sticky, with a keyboard-accessible Schools & Professionals dropdown, a mobile menu below 75rem and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
 - `Section`: Page section with an optional anchor `id`, optional `title` (h2) and `alt` background. Anchors clear the sticky header automatically.
-- `Button`: Link styled as a button, `variant="primary"` or `"secondary"`. Never render a button without a real destination.
+- `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (mustard, for forest green backgrounds). Never render a button without a real destination.
 - `RouteCard`: Audience route card with a heading link and one paragraph. Put four in `.grid.grid--2` (2x2) and three or six in `.grid.grid--3`.
 - `InfoPanel`: Facts panel. Pass `facts` as label and value pairs, or slot in content.
 - `ActivityCard`: Activity card with one paragraph. The optional `image` is for real photographs only, and the image slot is not rendered without one.

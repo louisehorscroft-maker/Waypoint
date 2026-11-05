@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/Section.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
-<BaseLayout title="Get in touch">
-  <Section id="intro">
-    <h1>Start with a conversation</h1>
-  </Section>
+<BaseLayout title="Contact Waypoint" description="Start with a conversation.">
+  <PageHero
+    title="Contact Waypoint"
+    strapline="Start with a conversation."
+    hideCta
+  />
 </BaseLayout>

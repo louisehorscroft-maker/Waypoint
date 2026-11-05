@@ -4,6 +4,7 @@ import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
 import InfoPanel from '../components/InfoPanel.astro';
 import RouteCard from '../components/RouteCard.astro';
+import PageHero from '../components/PageHero.astro';
 
 // Copy: content-source/waypoint-content-v1.md, section "1 Home", WEBSITE COPY.
 
@@ -31,13 +32,18 @@ const essentials = [
 ---
 
 <BaseLayout
-  title="Home"
+  title="Alternative provision in Shoreham-by-Sea"
   description="Waypoint is developing hands-on days where young people can create, explore, solve problems and work together."
 >
+  <PageHero
+    title="Alternative provision in Shoreham-by-Sea"
+    strapline="Hands-on, small-group learning days for young people aged 8–16."
+  />
+
   <section id="intro" class="hero" aria-labelledby="intro-heading">
     <div class:list={['container', 'hero__inner', { 'hero__inner--with-image': heroImage }]}>
       <div class="hero__text">
-        <h1 id="intro-heading">Big ideas. Real experiences. Something to be proud of.</h1>
+        <h2 id="intro-heading" class="hero__headline">Big ideas. Real experiences. Something to be proud of.</h2>
         <p class="lead">
           Imagine a team building a basecamp, setting off a giant chain reaction or inventing a whole village.
           Waypoint is developing hands-on days where young people can create, explore, solve problems and work
@@ -58,7 +64,7 @@ const essentials = [
   </section>
 
   <div class="container essentials">
-    <InfoPanel id="essentials" title="The essentials" headingLevel="h2" facts={essentials}>
+    <InfoPanel id="essentials" title="Days, ages and location" headingLevel="h2" facts={essentials}>
       <p>
         Waypoint is preparing to open. You can explore the planned offer and ask questions now; we will confirm
         the venue, opening date, practical arrangements and available places before any start is agreed.
@@ -66,7 +72,7 @@ const essentials = [
     </InfoPanel>
   </div>
 
-  <Section id="find-your-way" title="Find your way to Waypoint" alt>
+  <Section id="find-your-way" title="Who Waypoint is for" alt>
     <div class="grid grid--2">
       <RouteCard title="Schools and SENCos" href="/for-schools/">
         Explore the school-funded offer, individual suitability, purposeful learning and reporting. School leaders
@@ -89,7 +95,7 @@ const essentials = [
     </p>
   </Section>
 
-  <Section id="activities" title="What could you make happen?">
+  <Section id="activities" title="Hands-on projects and activities">
     <div class="prose">
       <p>
         Picture a basecamp built from ropes and materials, a ball rolling through a giant chain reaction or a group
@@ -107,7 +113,7 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="learning" title="The fun matters. So does the learning." alt>
+  <Section id="learning" title="Learning through practical projects" alt>
     <div class="prose">
       <p>
         When young people have something meaningful to make or solve, we see different strengths, interests and
@@ -122,7 +128,7 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="meet-wes" title="Meet Wes">
+  <Section id="meet-wes" title="Meet Wes, founder of Waypoint">
     <div class:list={['prose', { 'with-image': wesImage }]}>
       {wesImage && <img class="with-image__photo" src={wesImage.src} alt={wesImage.alt} loading="lazy" />}
       <p>
@@ -136,7 +142,7 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="start-with-a-conversation" title="Start with a conversation" alt class="cta">
+  <Section id="start-with-a-conversation" title="Talk to us about Waypoint" alt class="cta">
     <div class="prose">
       <p>
         Whether you're a SENCo considering a pupil, a parent exploring opportunities or a home educator curious
@@ -163,6 +169,10 @@ const essentials = [
 
   .hero__text {
     max-width: 46rem;
+  }
+
+  .hero__headline {
+    font-size: clamp(2rem, 5vw, 3rem);
   }
 
   .hero__image {

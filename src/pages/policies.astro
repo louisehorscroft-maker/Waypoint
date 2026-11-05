@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/Section.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
-<BaseLayout title="Policies and provider information">
-  <Section id="intro">
-    <h1>Policies and provider information</h1>
-  </Section>
+<BaseLayout title="Policies and provider information" description="Information for families, schools and commissioners, and how to raise a concern.">
+  <PageHero
+    title="Policies and provider information"
+    strapline="Information for families, schools and commissioners, and how to raise a concern."
+  />
 </BaseLayout>

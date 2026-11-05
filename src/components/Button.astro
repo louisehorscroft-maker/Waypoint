@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'a'> {
   href: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'accent';
 }
 
 const { href, variant = 'primary', class: className, ...rest } = Astro.props;
@@ -28,13 +28,30 @@ const { href, variant = 'primary', class: className, ...rest } = Astro.props;
 
   .button--primary {
     background: var(--colour-brand);
-    color: #ffffff;
+    color: var(--colour-on-brand);
   }
 
   .button--primary:hover {
     background: var(--colour-brand-dark);
     border-color: var(--colour-brand-dark);
-    color: #ffffff;
+    color: var(--colour-on-brand);
+  }
+
+  /* Mustard with charcoal text, for use on forest green backgrounds */
+  .button--accent {
+    background: var(--colour-accent);
+    border-color: var(--colour-accent);
+    color: var(--charcoal);
+  }
+
+  .button--accent:hover {
+    background: var(--colour-on-brand);
+    border-color: var(--colour-on-brand);
+    color: var(--charcoal);
+  }
+
+  .button--accent:focus-visible {
+    outline-color: var(--colour-accent);
   }
 
   .button--secondary {
