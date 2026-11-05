@@ -16,7 +16,7 @@ Marketing site for Waypoint, built with Astro (TypeScript strict) and deployed t
 - `src/pages/`: One file per page, see the page list below
 - `src/components/`: Shared components, see the component list below
 - `src/styles/global.css`: Global styles, light mode only
-- `public/images/`: Logos and the cream logo mark used faded in the page hero (`waypoint-mark-cream.webp`, cropped from the cream logo and enlarged). Photo of Wes (`wes-horscroft-480.webp` and `-960.webp`, metadata stripped) in Meet Wes on Home, a stand-in until a final photo is chosen. Logos (`waypoint-logo-green.webp` in the header, top left, and `waypoint-logo-cream.webp` in the footer, hard right on the same row as the footer links)
+- `public/images/`: Logos and the cream logo mark used faded in the page hero (`waypoint-mark-cream.webp`, cropped from the cream logo and enlarged). Photo of Wes (`wes-horscroft-480.webp` and `-960.webp`, metadata stripped) in Meet Wes on Home, a stand-in until a final photo is chosen. Logos (`waypoint-logo-blue.webp` in the header, top left, recoloured from Wes's green file, and `waypoint-logo-cream.webp` in the footer, hard right on the same row as the footer links)
 - `content-source/`: Source copy from Wes (original .docx and the markdown conversion). Never part of the built site
 - `scripts/check-dist.mjs`: Runs after every build and fails it if source files, internal section labels or Google Drive/Notion links appear in `dist/`
 
@@ -55,39 +55,43 @@ Footer links point at these anchors, which must exist once the content is added:
 
 ## Colour scheme
 
-Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use the role variables (`--colour-brand`, `--colour-surface` and so on) rather than hex values. There is no accent colour (mustard and terracotta were tried and dropped).
+Bright blue and coral (chosen after green, mustard and terracotta versions were tried and dropped; the site has no green at all). Tokens live in `src/styles/global.css`, so use the role variables (`--colour-brand`, `--colour-accent`, `--colour-surface` and so on) rather than hex values.
 
-- **Forest green #2F5D50:** Brand colour, hero band, primary buttons, links, card and panel borders, menu underlines, the footer and occasional call-to-action sections (`<Section brand>`)
-- **White #FFFFFF:** Every section background. Sections do not alternate colours (cream bands were tried and looked blocky)
-- **Mist #F6F8F5:** Very pale green-grey for boxes (`InfoPanel`, `CardGroup`, `IllustrativeExample`, the drawings strip), with no border. Cards inside a box are white with a thin sage border
-- **Cream #FAF6EE:** Only text (including headings) on forest green
-- **Sage #DCE6DA:** Menu bar, the line under the hero band and the accent button (forest green text) on forest green. Never a section or box background. The thin (3px) full-width line at the top of every H2 section, and above the footer, uses the deeper sage border tone (`--colour-border`, #C9D6C6)
-- **Charcoal #232B28:** Body text and focus outlines (cream outlines on forest green)
+- **Blue #1D5FA8:** Brand colour, hero band, primary buttons, links, headings, icons, drawings, the photo frame block, the footer and occasional call-to-action sections (`<Section brand>`). Darker blue #164A84 for hover
+- **Coral #FF7A66:** Accent, for the line under the hero band, card top edges, the `InfoPanel` edge, menu and footer link underlines, and the accent button (navy #12345A text, 4.94:1). Fills and edges only, never text
+- **Sky #E3F0FB:** Menu bar
+- **White #FFFFFF:** Every section background. Sections do not alternate colours
+- **Mist #F4F8FC:** Very pale blue for boxes (`InfoPanel`, `CardGroup`, `IllustrativeExample`, the drawings strip), with no border. Cards inside a box are white with a thin pale blue border
+- **Pale blue border #D3E3F3:** The thin (3px) full-width line at the top of every H2 section and above the footer, and card borders
+- **Cream #FAF6EE:** Only text (including headings) on blue
+- **Slate #1F2933:** Body text and focus outlines (cream outlines on blue)
+
+The logo in the header is `waypoint-logo-blue.webp`, recoloured from Wes's green logo file. Ask Wes for an official blue version (ideally SVG) to replace it.
 
 Two rules apply everywhere:
 
-- **Headings and bold:** All headings (H1 to H4) and bold text (`strong`, `b`, and the labels in `InfoPanel`) are forest green, except on forest green backgrounds, where they are cream. Set globally in `global.css`.
-- **Boxes:** Boxes are mist on the white page with no border, plus forest green accents. Boxes inside a box (cards in a `CardGroup`) are white. This is handled by the `--box-bg` and `--box-inner-bg` variables, so use them for any new box component rather than a fixed colour.
+- **Headings and bold:** All headings (H1 to H4) and bold text (`strong`, `b`, and the labels in `InfoPanel`) are blue, except on blue backgrounds, where they are cream. Set globally in `global.css`.
+- **Boxes:** Boxes are mist on the white page with no border, plus coral accents. Boxes inside a box (cards in a `CardGroup`) are white. This is handled by the `--box-bg` and `--box-inner-bg` variables, so use them for any new box component rather than a fixed colour.
 
 ## Components
 
 Use these components rather than one-off markup.
 
-- `PageHero`: Forest green band at the top of every page, with a sage line along its bottom edge (no line between the menu and the band) and the faded logo mark at a diagonal behind the text, with the H1, strapline and a sage Get in touch button. Pass `hideCta` on the contact page.
+- `PageHero`: Blue band at the top of every page, with a coral line along its bottom edge (no line between the menu and the band) and the faded logo mark at a diagonal behind the text, with the H1, strapline and a coral Get in touch button. Pass `hideCta` on the contact page.
 - `Header` and `Footer`: Site chrome. The header is sticky and full-width, with a large logo hard left as the standout element, the menu and Get in touch hard right, a keyboard-accessible Schools & Professionals dropdown, a burger menu below 90rem (1440px), so smaller laptops show the logo, Get in touch and the menu button and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
-- `Section`: Page section with an optional anchor `id`, `title` (the small H2 label), `strapline` (the big text under it, required with a title) and `brand` (forest green, for occasional calls to action such as the closing Get in touch, with an accent button). Each one has a full-width sage line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
-- `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (sage with forest green text, for forest green backgrounds). Never render a button without a real destination.
+- `Section`: Page section with an optional anchor `id`, `title` (the small H2 label), `strapline` (the big text under it, required with a title) and `brand` (blue, for occasional calls to action such as the closing Get in touch, with an accent button). Each one has a full-width pale blue line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
+- `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (coral with navy text, for blue backgrounds). Never render a button without a real destination.
 - `CardGroup`: Mist panel that holds every group of boxes, with `columns={2}` (four boxes, 2x2) or `columns={3}` (three or six) and an optional `footer` slot for a link under the boxes. Always use it for groups of cards,.
-- `Card`: Plain content box with an H3 (optional `icon`) and one paragraph, white with a forest green top edge. Always inside a `CardGroup`.
+- `Card`: Plain content box with an H3 (optional `icon`) and one paragraph, white with a coral top edge. Always inside a `CardGroup`.
 - `RouteCard`: Audience route card with a heading link and one paragraph. Always inside a `CardGroup`.
-- `InfoPanel`: Facts panel, mist with a forest green left edge. Each fact can take an `icon`. On a page, put it inside a `Section` with its own title, strapline and intro rather than giving the panel an H2.
+- `InfoPanel`: Facts panel, mist with a coral left edge. Each fact can take an `icon`. On a page, put it inside a `Section` with its own title, strapline and intro rather than giving the panel an H2.
 - `KeepTogether`: Renders text with number ranges and Shoreham-by-Sea kept on one line. Used by `PageHero` and `Section` straplines. Pass `facts` as label and value pairs, or slot in content.
-- `PhotoFrame`: Use for every real photo. The photo sits on an offset forest green block with rounded corners (the same idea as the Paddlesport site). `side="left"` mirrors the block for photos on the right of the text; `ratio` and `position` control the crop.
+- `PhotoFrame`: Use for every real photo. The photo sits on an offset blue block with rounded corners (the same idea as the Paddlesport site). `side="left"` mirrors the block for photos on the right of the text; `ratio` and `position` control the crop.
 - `ActivityCard`: Activity card with one paragraph, always inside a `CardGroup`. The optional `image` is for real photographs only, and the image slot is not rendered without one.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.
-- `Icon`: Small forest green line icons (`calendar`, `people`, `pin`, `tree`, `clipboard`, `heart`, `arrow`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
-- `Illustration`: Simple forest green line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
+- `Icon`: Small blue line icons (`calendar`, `people`, `pin`, `tree`, `clipboard`, `heart`, `arrow`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
+- `Illustration`: Simple blue line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
 - `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`.
 
 ## Pre-launch search engine blocking

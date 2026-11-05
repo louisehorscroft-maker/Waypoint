@@ -10,7 +10,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
 <header class="site-header" data-site-header>
   <div class="container site-header__inner">
     <a href="/" class="logo">
-      <img src="/images/waypoint-logo-green.webp" alt="Waypoint home" width="300" height="132" />
+      <img src="/images/waypoint-logo-blue.webp" alt="Waypoint home" width="300" height="132" />
     </a>
 
     <button
@@ -182,7 +182,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     position: sticky;
     top: 0;
     z-index: 100;
-    /* Sage bar with forest green text; a forest green underline marks hover and the current page */
+    /* Sky blue bar with blue text; a coral underline marks hover and the current page */
     background: var(--colour-surface);
     border-bottom: 1px solid var(--colour-border);
   }
@@ -356,7 +356,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
   }
 
   .site-nav__item + .site-nav__item {
-    border-top: 1px solid rgb(47 93 80 / 0.2);
+    border-top: 1px solid var(--colour-border);
   }
 
   .site-nav__link:hover,
@@ -366,7 +366,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
   .site-nav__link.is-active {
     color: var(--colour-brand-dark);
     text-decoration: underline;
-    text-decoration-color: var(--colour-brand);
+    text-decoration-color: var(--colour-accent);
     text-decoration-thickness: 3px;
     text-underline-offset: 0.4em;
   }

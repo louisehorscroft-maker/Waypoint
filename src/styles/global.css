@@ -1,27 +1,31 @@
 :root {
   color-scheme: light;
-  /* Palette, option B (outdoors and making) */
-  --forest-green: #2f5d50;
-  --forest-green-dark: #244a40;
+  /* Palette: bright blue and coral */
+  --blue: #1d5fa8;
+  --blue-dark: #164a84;
+  --coral: #ff7a66;
+  --navy: #12345a;
+  --sky: #e3f0fb;
   --cream: #faf6ee;
   --white: #ffffff;
-  /* Very pale green-grey for boxes */
-  --mist: #f6f8f5;
-  --sage: #dce6da;
-  --charcoal: #232b28;
+  /* Very pale blue for boxes */
+  --mist: #f4f8fc;
+  --slate: #1f2933;
 
-  /* Roles. Every section is white; forest green is used for occasional
-     call-to-action sections; sage is for the menu bar; cream is only text
-     on forest green */
+  /* Roles. Every section is white; blue is the brand and is used for
+     occasional call-to-action sections; coral is the accent (fills and edges
+     only, never text); sky is the menu bar; cream is only text on blue */
   --colour-bg: var(--white);
-  --colour-surface: var(--sage);
-  --colour-text: var(--charcoal);
-  --colour-muted: #4a5550;
-  --colour-brand: var(--forest-green);
-  --colour-brand-dark: var(--forest-green-dark);
+  --colour-surface: var(--sky);
+  --colour-text: var(--slate);
+  --colour-muted: #4b5563;
+  --colour-brand: var(--blue);
+  --colour-brand-dark: var(--blue-dark);
   --colour-on-brand: var(--cream);
-  --colour-border: #c9d6c6;
-  --colour-focus: var(--charcoal);
+  --colour-accent: var(--coral);
+  --colour-on-accent: var(--navy);
+  --colour-border: #d3e3f3;
+  --colour-focus: var(--slate);
 
   /* Boxes are a very pale tint on the white page, with no border. Boxes
      nested inside a box (cards in a card group) are white */
@@ -96,7 +100,7 @@ h4 {
   color: var(--colour-brand);
 }
 
-/* Bold text is forest green too */
+/* Bold text is blue too */
 strong,
 b,
 dt {
@@ -158,12 +162,11 @@ p {
 
 .section {
   padding: 3rem 0;
-  /* Full-width sage line separating each H2 section, in the deeper sage
-     border tone so it shows against both cream and white */
+  /* Thin full-width pale blue line separating each H2 section */
   border-top: 3px solid var(--colour-border);
 }
 
-/* The page hero already has a sage line along its bottom edge */
+/* The page hero already has a coral line along its bottom edge */
 .page-hero + .section {
   border-top: 0;
 }
@@ -174,7 +177,7 @@ p {
   }
 }
 
-/* Occasional forest green section for calls to action */
+/* Occasional blue section for calls to action */
 .section--brand {
   background: var(--colour-brand);
   color: var(--colour-on-brand);

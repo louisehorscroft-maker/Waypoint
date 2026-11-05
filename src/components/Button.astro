@@ -37,11 +37,11 @@ const { href, variant = 'primary', class: className, ...rest } = Astro.props;
     color: var(--colour-on-brand);
   }
 
-  /* Sage with forest green text, for use on forest green backgrounds */
+  /* Coral with navy text, for use on blue backgrounds */
   .button--accent {
-    background: var(--colour-surface);
-    border-color: var(--colour-surface);
-    color: var(--colour-brand);
+    background: var(--colour-accent);
+    border-color: var(--colour-accent);
+    color: var(--colour-on-accent);
   }
 
   .button--accent:hover {
@@ -50,7 +50,7 @@ const { href, variant = 'primary', class: className, ...rest } = Astro.props;
     color: var(--colour-brand-dark);
   }
 
-  /* Charcoal does not show on forest green, so use a cream focus ring */
+  /* Slate does not show on blue, so use a cream focus ring */
   .button--accent:focus-visible {
     outline-color: var(--colour-on-brand);
   }
