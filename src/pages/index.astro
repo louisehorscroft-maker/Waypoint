@@ -40,7 +40,7 @@ const keyFacts = [
     strapline="Hands-on, small-group learning days for young people aged 8–16."
   />
 
-  <Section id="about" title="About Waypoint" strapline="Big ideas. Real experiences. Something to be proud of.">
+  <Section id="about" title="About Waypoint" strapline="A day of making, building and working together.">
     <div class="prose">
       <p>
         Imagine a team building a basecamp, setting off a giant chain reaction or inventing a whole village.
@@ -71,7 +71,7 @@ const keyFacts = [
     </div>
   </Section>
 
-  <Section id="find-your-way" title="Who Waypoint is for" strapline="Find the right route for you.">
+  <Section id="find-your-way" title="Who Waypoint is for" strapline="Schools, local authorities and families.">
     <div class="prose">
       <p>
         Whether you work in a school or local authority, or care for a young person, start with the route that
@@ -124,7 +124,8 @@ const keyFacts = [
   </Section>
 
   <Section id="learning" title="Learning at Waypoint" strapline="The fun matters. So does the learning.">
-    <div class="prose">
+    <div class="learning">
+      <div class="prose">
       <p>
         When young people have something meaningful to make or solve, different strengths, interests and ways of
         contributing come through. Our aim is to give every young person engaging experiences, thoughtful guidance
@@ -140,6 +141,10 @@ const keyFacts = [
         Creative, practical enrichment alongside other home-educated young people, with arrangements discussed
         before any place is agreed.
       </p>
+      </div>
+      <div class="learning__drawing">
+        <Illustration name="campfire" label="Line drawing of stick people sitting and standing round a campfire" />
+      </div>
     </div>
   </Section>
 
@@ -215,6 +220,27 @@ const keyFacts = [
     .drawings {
       gap: 2.5rem;
       padding: 1.5rem 2.5rem;
+    }
+  }
+
+  /* Campfire drawing beside the learning text from tablet up */
+  .learning {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .learning__drawing {
+    max-width: 26rem;
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    background: var(--box-bg);
+  }
+
+  @media (min-width: 48rem) {
+    .learning {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+      gap: 3rem;
     }
   }
 

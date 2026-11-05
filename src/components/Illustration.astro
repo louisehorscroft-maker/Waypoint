@@ -1,10 +1,11 @@
 ---
 /**
  * Simple line drawings of activities, in the logo's line style (forest green,
- * round ends, a gentle wavy ground line). Objects only: never draw people,
- * real sessions or the venue.
+ * round ends, a gentle wavy ground line). Stick people are fine (Wes asked for
+ * them) as long as they stay simple, with no faces or real-person detail.
+ * Never draw a real session or the venue.
  */
-export type IllustrationName = 'basecamp' | 'chain-reaction' | 'survival-village';
+export type IllustrationName = 'basecamp' | 'chain-reaction' | 'survival-village' | 'campfire';
 
 interface Props {
   name: IllustrationName;
@@ -30,15 +31,15 @@ const { name, label } = Astro.props;
   {
     name === 'basecamp' && (
       <>
-        {/* Two trees with a ridge rope and a tarp shelter */}
-        <path d="M32 122V74" />
-        <path d="M32 40c-11 0-18 9-18 18 0 8 7 15 18 15s18-7 18-15c0-9-7-18-18-18z" />
-        <path d="M168 122V78" />
-        <path d="M168 48c-10 0-16 8-16 16 0 7 6 13 16 13s16-6 16-13c0-8-6-16-16-16z" />
-        <path d="M32 82c40 6 96 6 136 0" />
-        <path d="M60 121 100 86l40 35" />
-        <path d="M100 86v35M88 121l12-18 12 18" />
-        <path d="M60 121 48 116M140 121l12-5" />
+        {/* A basecamp tent with a flag and guy ropes, between two pine trees */}
+        <path d="M30 46 18 70h8L14 94h10L12 110h36L36 94h10L34 70h8z" />
+        <path d="M30 110v12" />
+        <path d="M62 122 105 64l43 58" />
+        <path d="M105 86 95 122M105 86l10 36" />
+        <path d="M105 64V50l14 5-14 5" />
+        <path d="M76 103 50 120M134 103l26 17" />
+        <path d="M178 66l-9 18h6l-9 18h8l-9 14h26l-9-14h8l-9-18h6z" />
+        <path d="M178 116v6" />
       </>
     )
   }
@@ -71,6 +72,25 @@ const { name, label } = Astro.props;
         <path d="M134 122v-20l18-14 18 14v20" />
         <path d="M176 122l14-10M190 122l-14-10" />
         <path d="M183 112c-4-4-3-9 0-13 1 4 4 5 4 9s-2 5-4 4z" />
+      </>
+    )
+  }
+  {
+    name === 'campfire' && (
+      <>
+        {/* Stick people sitting round a campfire, one waving */}
+        <path d="M84 122l32-11M116 122 84 111" />
+        <path d="M100 109c-9-7-8-18-1-27 2 7 10 10 10 18 0 6-4 9-9 9z" />
+        <path d="M100 103c-3-3-3-7 0-10 1 3 4 4 3 7 0 2-1 3-3 3z" />
+        <path d="M86 76v-4M114 74l2-4M100 66v-5" />
+        <circle cx="56" cy="80" r="7" />
+        <path d="M56 87v20h14l2 15M56 94l12 8" />
+        <circle cx="144" cy="80" r="7" />
+        <path d="M144 87v20h-14l-2 15M144 94l-12 8" />
+        <circle cx="24" cy="66" r="7" />
+        <path d="M24 73v28M24 101l-7 21M24 101l7 21M24 80l-12-12M24 80l9 12" />
+        <circle cx="176" cy="66" r="7" />
+        <path d="M176 73v28M176 101l-7 21M176 101l7 21M176 80l-10 12M176 80l10 12" />
       </>
     )
   }

@@ -86,7 +86,7 @@ Use these components rather than one-off markup.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.
 - `Icon`: Small forest green line icons (`calendar`, `people`, `pin`, `tree`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
-- `Illustration`: Simple forest green line drawings of activities (`basecamp`, `chain-reaction`, `survival-village`) in the logo's line style, with a wavy ground line. Objects only, never people, real sessions or the venue, and always with a `label` describing the drawing. They stand in until real photos arrive; check new drawings with Wes.
+- `Illustration`: Simple forest green line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
 - `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`.
 
 ## Pre-launch search engine blocking
@@ -126,7 +126,8 @@ These rules govern how copy from the source document is used on the site.
 - **Links:** Never publish any Google Drive or Notion links from the document.
 - **Unfinished items:** Never publish TBC labels, placeholders, hold notices, draft policy links, empty buttons or download buttons for files that don't exist.
 - **Booking and payment:** No booking or payment controls anywhere.
-- **Images:** No stock or AI-generated images of people, sessions or venues. Image slots stay hidden until real photos are supplied.
+- **Images:** No stock or AI-generated images of people, sessions or venues. Image slots stay hidden until real photos are supplied. Our own simple stick-figure line drawings (`Illustration`) are allowed.
+- **Tone:** Wes dislikes the polished, slogan-style lines in the source (it was drafted with ChatGPT), for example "Big ideas. Real experiences. Something to be proud of." and "Find the right route for you.". Write straplines and copy in plain, specific, down-to-earth language that says what actually happens. Avoid slogans, rule-of-three taglines and vague abstractions.
 - **Illustrative examples:** Labels marking examples as illustrative or fictional (such as Alex) must stay visible and attached to the example on every screen size.
 - **Mis-formatted headings:** Some paragraphs in the source are wrongly formatted as headings (long sentences starting with `##`). Treat these as body text or card content, not headings. Source headings are a guide only; site headings follow the rules in "Headings, type sizes and SEO".
 - **Em dashes:** Where the pattern is "Title — text", show the title as a card heading or bold label and the text as body. Elsewhere replace the em dash with a comma or full stop. Keep en dashes in ranges such as 8–16 and 9:00am–2:30pm.
