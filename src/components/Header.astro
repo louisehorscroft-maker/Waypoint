@@ -172,7 +172,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     });
 
     // Reset the mobile menu when moving to the desktop layout
-    const desktop = window.matchMedia('(min-width: 75rem)');
+    const desktop = window.matchMedia('(min-width: 78rem)');
     desktop.addEventListener('change', () => setMenu(false));
   }
 </script>
@@ -187,7 +187,9 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     border-bottom: 1px solid var(--colour-border);
   }
 
+  /* Full-width bar: logo hard left, menu and Get in touch hard right */
   .site-header__inner {
+    max-width: none;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -203,9 +205,10 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     line-height: 0;
   }
 
+  /* The logo is the standout element in the bar */
   .logo img {
     width: auto;
-    height: 3rem;
+    height: 3.75rem;
   }
 
   .site-header :global(.site-header__cta) {
@@ -256,6 +259,13 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
       font-size: 0.9375rem;
     }
 
+    .logo img {
+      height: 3rem;
+    }
+  }
+
+  /* Very small phones */
+  @media (max-width: 21.99rem) {
     .logo img {
       height: 2.5rem;
     }
@@ -384,10 +394,16 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
   }
 
   /* Desktop */
-  @media (min-width: 75rem) {
+  @media (min-width: 78rem) {
     .site-header__inner {
       flex-wrap: nowrap;
       gap: 1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .logo img {
+      height: 4.5rem;
     }
 
     .logo {
