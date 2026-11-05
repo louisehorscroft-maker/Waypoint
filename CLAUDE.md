@@ -25,7 +25,7 @@ Marketing site for Waypoint, built with Astro (TypeScript strict) and deployed t
 Page structure follows the "Navigation and reading guide" in the content source. Every page opens with a `PageHero` band holding a keyword-led H1, a one-line strapline and a Get in touch button (not on the contact page). The page `<title>` matches the H1.
 
 - `/`: Home (page 1), H1 "Alternative provision in Shoreham-by-Sea"
-- `/about/`: About (page 2, "Discover Waypoint" in the source, renamed About in the menu as the standard label), H1 "About Waypoint"
+- `/about/`: About (page 2, "Discover Waypoint" in the source, renamed About in the menu as the standard label), H1 "About Waypoint". Sections: What Waypoint is, Activities, Reporting (high up, as the differentiator), A typical day, Our approach, Learning, Is Waypoint a good fit. No Meet Wes or Our setting (the venue line is folded into What Waypoint is)
 - `/for-schools/`: For schools (page 3), H1 "Alternative provision for schools and SENCos"
 - `/for-local-authorities/`: For local authorities (page 7), H1 "Alternative provision for local authorities"
 - `/parents-and-carers/`: Parents and carers (page 4), H1 "Part-time alternative provision for your child"
@@ -129,7 +129,7 @@ Facts supplied by Lou (not in the content source), which may be used alongside i
 - Teaching PE since 2007, with a long background in sports coaching (write "since 2007" rather than a number of years, so it never goes out of date)
 - Raced for Great Britain at the IVF Va'a World Sprint Championships in Hawaii in 2024 (outrigger canoe racing)
 
-Sell Wes confidently on Home and About, but don't add other claims without a source. His paddling is about him, not Waypoint: the first term is land-based, so never imply Waypoint offers paddling.
+Sell Wes confidently. The full Meet Wes section lives on Home only (it was removed from About to avoid repeating it). Don't add other claims without a source. His paddling is about him, not Waypoint: the first term is land-based, so never imply Waypoint offers paddling.
 
 ## Waypoint content rules
 
