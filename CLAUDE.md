@@ -53,7 +53,7 @@ Footer links point at these anchors, which must exist once the content is added:
 Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use the role variables (`--colour-brand`, `--colour-accent` and so on) rather than hex values.
 
 - **Forest green #2F5D50:** Brand colour, hero band, primary buttons, links and footer
-- **Mustard #E3A72F:** Accent only, for borders, the hero band's bottom edge, the full-width line at the top of every H2 section (set on `.section` in `global.css`) and the accent button. Never use it as text on cream or sage, as the contrast is too low
+- **Mustard #E3A72F:** Accent only, for borders, the hero band's bottom edge, the thin (3px) full-width line at the top of every H2 section (set on `.section` in `global.css`) and the accent button. Never use it as text on cream or sage, as the contrast is too low
 - **Cream #FAF6EE:** Page background, card background and text on forest green
 - **Sage #DCE6DA:** Menu bar, alternate section and panel background. Menu text is forest green, with a mustard underline for hover and the current page (mustard text on sage is unreadable, 1.66:1)
 - **Charcoal #232B28:** Body text, text on mustard and focus outlines

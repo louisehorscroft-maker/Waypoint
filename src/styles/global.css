@@ -107,7 +107,7 @@ p {
 .section {
   padding: 3rem 0;
   /* Full-width mustard line separating each H2 section, matching the page hero */
-  border-top: 6px solid var(--colour-accent);
+  border-top: 3px solid var(--colour-accent);
 }
 
 /* The page hero already has a mustard line along its bottom edge */
