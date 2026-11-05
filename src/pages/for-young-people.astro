@@ -1,11 +1,301 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import CardGroup from '../components/CardGroup.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+import StepList from '../components/StepList.astro';
+import Step from '../components/Step.astro';
+import PhotoFrame from '../components/PhotoFrame.astro';
+import FaqItem from '../components/FaqItem.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "5 For Young People".
+// Wes's build notes: written to young people aged 8–16 (mainly 9–13), not babyish. Lead with
+// projects, teamwork and having a say; never define young people by behaviour. No referral
+// form or direct child data collection, so the hero has no Get in touch button.
 ---
 
-<BaseLayout title="Hands-on projects for young people" description="Got an idea? Let's see where it goes.">
+<BaseLayout
+  title="Hands-on projects for young people"
+  description="Build, invent and test things with other young people at Waypoint in Shoreham-by-Sea, for ages 8–16."
+>
   <PageHero
     title="Hands-on projects for young people"
-    strapline="Got an idea? Let's see where it goes."
+    strapline="Build, invent and test things with other young people."
+    hideCta
   />
+
+  <Section
+    id="try-ideas"
+    title="What Waypoint is"
+    strapline="Could you build a basecamp that really works?"
+    drawing="chain-reaction"
+    drawingLabel="Line drawing of a ball rolling down a ramp into a row of dominoes"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Could you set off a giant chain reaction, and work out how to make it even longer? Waypoint is about trying
+          ideas for real. You'll build, invent, test things and work with other young people. You might be the one with
+          the design, the builder, the tester or the person who spots a better way.
+        </p>
+        <p>
+          You don't have to be sporty, know anyone already or have all the answers. Just bring your curiosity, and we'll
+          help you find a way to join in.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section id="projects" title="Projects" strapline="What could you get stuck into?">
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Here are some of the projects we're working on. They're examples, not a fixed timetable. Adults plan and lead
+          them, and you get to suggest ideas and make choices. Some happen indoors and some outside.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={2}>
+      <ActivityCard
+        title="Build the Basecamp"
+        drawing="basecamp"
+        drawingLabel="Line drawing of a tent with a flag between two pine trees"
+      >
+        Plan and build a base using ropes and other materials. Decide what it needs, work with your group and see how
+        your design holds up.
+      </ActivityCard>
+      <ActivityCard
+        title="The Giant Chain Reaction"
+        drawing="chain-reaction"
+        drawingLabel="Line drawing of a ball rolling down a ramp into a row of dominoes"
+      >
+        Link ramps, balls and everyday objects into one long sequence. Change the design, test it and see what your
+        group can make happen.
+      </ActivityCard>
+      <ActivityCard
+        title="Survival Village"
+        drawing="survival-village"
+        drawingLabel="Line drawing of a small village of huts, a tipi with a flag and a campfire"
+      >
+        Imagine a settlement and plan what your group needs. Who builds what? What will you do with the materials
+        you've got?
+      </ActivityCard>
+      <ActivityCard
+        title="Waypoint Game Studio"
+        drawing="game-studio"
+        drawingLabel="Line drawing of two stick people pointing at a screen showing a simple game"
+      >
+        Invent characters, rules and levels for your own game idea, then work with an adult to turn it into a simple
+        game you can test.
+      </ActivityCard>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="your-strengths"
+    title="Your strengths"
+    strapline="Everyone brings something different."
+    drawing="building"
+    drawingLabel="Line drawing of two stick people carrying a plank, with a toolbox"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Some people love coming up with ideas. Others like building, working out how things work, organising the
+          materials or testing what the group has made. There's room for all of it, and plenty of chances to try
+          something new.
+        </p>
+        <p>
+          You might come to Waypoint through your school or through home education. You don't have to explain why
+          you're here to anyone else. It's all about what you get to do together.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section id="meet-wes" title="Meet Wes" strapline="Hi, I'm Wes.">
+    <PhotoFrame
+      slot="photo"
+      src="/images/wes-horscroft-480.webp"
+      srcset="/images/wes-horscroft-480.webp 480w, /images/wes-horscroft-960.webp 960w"
+      sizes="(min-width: 48rem) 18rem, 16rem"
+      alt="Wes Horscroft, founder of Waypoint"
+      width={480}
+      height={588}
+      ratio="4 / 5"
+      position="50% 30%"
+      side="left"
+    />
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          I've been teaching PE and coaching young people since 2007, I'm Director of Rugby at a school in Hove, and
+          I've raced for Great Britain in Hawaii. I love seeing what happens when someone has an idea and the group
+          works out how to make it real.
+        </p>
+        <p>
+          I'll show you around, explain what we're doing and help you find a way to get involved. I'd like to know what
+          you're into and what you'd like to try. You can tell me yourself, show me an idea or ask someone you trust to
+          help explain.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="your-first-day"
+    title="Your first day"
+    strapline="What happens when you arrive."
+    drawing="day"
+    drawingLabel="Line drawing of the sun's path across the sky, with five stops along the way"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          You won't have to make a speech about yourself or know how everything works on day one. You'll get to know the
+          place while doing something practical.
+        </p>
+      </div>
+    </Fragment>
+    <div class="steps">
+      <StepList>
+        <Step title="Before you come">
+          <p>
+            We'll tell you who you'll meet and what the day will look like. You can tell us what you're looking forward
+            to and ask questions in whatever way suits you.
+          </p>
+        </Step>
+        <Step title="When you arrive">
+          <p>
+            We'll welcome you and show you the main space, where to put your things and where the toilets are. You'll
+            know who to ask if you want to check something.
+          </p>
+        </Step>
+        <Step title="Get started">
+          <p>
+            We'll show you the challenge and how to begin. You might watch a demonstration, pick a part to work on or
+            get stuck into building with others.
+          </p>
+        </Step>
+        <Step title="Breaks and home time">
+          <p>There are breaks and lunch, and you'll know the plan for going home.</p>
+        </Step>
+      </StepList>
+    </div>
+  </Section>
+
+  <Section
+    id="good-questions"
+    title="Good questions"
+    strapline="Things people often ask."
+    drawing="idea"
+    drawingLabel="Line drawing of a stick person with a lightbulb idea, sketching at an easel"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>Tap a question to see the answer.</p>
+      </div>
+    </Fragment>
+    <div class="faqs">
+      <FaqItem question="What if I don't know anyone yet?">
+        <p>
+          That's fine. We'll introduce you to your group and help everyone get involved. Working on a project together
+          gives you something to talk about and do.
+        </p>
+      </FaqItem>
+      <FaqItem question="Do I have to like sport?">
+        <p>
+          Not at all. There are loads of ways to get involved, whether you like designing, making, solving puzzles,
+          organising or testing ideas.
+        </p>
+      </FaqItem>
+      <FaqItem question="Can I get help with something?">
+        <p>Of course. An adult can show you how something works, help you try a first step or work it out with you.</p>
+      </FaqItem>
+      <FaqItem question="Will there be breaks?">
+        <p>
+          Yes, there are breaks and lunch. If you need a pause during an activity, ask an adult and they'll help you take
+          a supervised break.
+        </p>
+      </FaqItem>
+      <FaqItem question="Can I bring my own ideas?">
+        <p>
+          Yes. Adults plan the activities and keep everyone safe, but you can suggest designs, share ideas and help decide
+          how your group tackles a challenge. You can explain an idea, draw it or show someone.
+        </p>
+      </FaqItem>
+      <FaqItem question="Who will hear about what I've been doing?">
+        <p>
+          We'll explain this before you start. If you come through school, we'll share useful updates with your school
+          and the people at home. If you're home educated, we'll agree with your family how to share updates. We'd like
+          to include what you think about your day too.
+        </p>
+        <p>
+          If we're ever worried about your safety or someone else's, we may need to tell an adult who can help. We'll
+          explain what we need to do.
+        </p>
+      </FaqItem>
+      <FaqItem question="Who can I talk to if I have a question or a worry?">
+        <p>
+          You can talk to Wes, a parent or carer, someone at school or another adult you trust. You can ask someone else
+          to help you explain.
+        </p>
+        <p>
+          If the worry is about someone at Waypoint, you can tell a trusted adult outside Waypoint. You don't have to
+          speak to that person first.
+        </p>
+      </FaqItem>
+    </div>
+  </Section>
+
+  <Section
+    id="want-to-try"
+    title="Want to try Waypoint?"
+    strapline="Show this page to someone at home or school."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Have a look at the projects and see what catches your eye. Then show this page to your parent, carer or someone
+          at school, and they can get in touch to find out more.
+        </p>
+      </div>
+      <ul class="route-links">
+        <li><a href="/about/#activities">See all the activities</a></li>
+      </ul>
+      <div class="button-row">
+        <Button href="/parents-and-carers/" variant="accent">Information for your parent or carer</Button>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .steps,
+  .faqs {
+    margin-top: 2rem;
+    max-width: 46rem;
+  }
+
+  .route-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+
+  .route-links a::after {
+    content: ' \2192';
+  }
+</style>
