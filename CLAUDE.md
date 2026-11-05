@@ -26,7 +26,7 @@ Page structure follows the "Navigation and reading guide" in the content source.
 
 - `/`: Home (page 1), H1 "Alternative provision in Shoreham-by-Sea"
 - `/about/`: About (page 2, "Discover Waypoint" in the source, renamed About in the menu as the standard label), H1 "About Waypoint". Sections: What Waypoint is, Activities, Reporting (high up, as the differentiator), A typical day, Our approach, Learning, Is Waypoint a good fit. No Meet Wes or Our setting (the venue line is folded into What Waypoint is)
-- `/for-schools/`: For schools (page 3), H1 "Alternative provision for schools and SENCos"
+- `/for-schools/`: For schools (page 3), H1 "Alternative provision for schools and SENCos". Sections: For schools (with jump links), At a glance, What a place provides, For headteachers (#for-headteachers), For SENCos (#for-sencos), Support and goals, Reporting (with the fictional Alex journey; About has the Alex weekly update), Arranging a placement (#arranging-a-placement), Discuss a pupil. Contact buttons pass `?purpose=visit` or `?purpose=placement` for the contact form to preselect later
 - `/for-local-authorities/`: For local authorities (page 7), H1 "Alternative provision for local authorities"
 - `/parents-and-carers/`: Parents and carers (page 4), H1 "Part-time alternative provision for your child"
 - `/home-education/`: Home education (page 6), H1 "Home education group in Shoreham-by-Sea"
@@ -91,7 +91,7 @@ Use these components rather than one-off markup.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.
 - `Icon`: Small blue line icons (`calendar`, `people`, `pin`, `tree`, `clipboard`, `heart`, `arrow`, `star`, `speech`, `mountain`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
-- `Illustration`: Simple blue line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`, `building`, `map-pin`, `signpost`, `idea`, `report`, `chat`, `game-studio`, `day`, `helping`, `steps`, `setting`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
+- `Illustration`: Simple blue line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`, `building`, `map-pin`, `signpost`, `idea`, `report`, `chat`, `game-studio`, `day`, `helping`, `steps`, `setting`, `school`, `meeting`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
 - `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`.
 
 ## Pre-launch search engine blocking

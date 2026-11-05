@@ -1,11 +1,407 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import InfoPanel from '../components/InfoPanel.astro';
+import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
+import StepList from '../components/StepList.astro';
+import Step from '../components/Step.astro';
+import IllustrativeExample from '../components/IllustrativeExample.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "3 For Schools".
+// Purpose (Wes's build notes): help a headteacher assess the provider, then help a
+// SENCo consider an individual pupil. Jump links and a practical facts panel near the top.
+
+const atAGlance = [
+  { label: 'Planned day', value: 'Tuesday, 9:00am–2:30pm', icon: 'calendar' as const },
+  { label: 'Programme', value: 'Land-based practical, creative and outdoor learning', icon: 'tree' as const },
+  {
+    label: 'Led by',
+    value: 'Wes Horscroft, founder, Director of Rugby and PE teacher since 2007',
+    icon: 'people' as const,
+  },
+  {
+    label: 'Reporting',
+    value: 'A weekly report, a check after two sessions and reviews around weeks 4, 8 and 12',
+    icon: 'clipboard' as const,
+  },
+  { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
+];
 ---
 
-<BaseLayout title="Alternative provision for schools and SENCos" description="A part-time, school-funded placement with individual goals and weekly reporting.">
+<BaseLayout
+  title="Alternative provision for schools and SENCos"
+  description="A part-time, school-funded alternative provision place in Shoreham-by-Sea for pupils aged 8–16, with individual goals and a weekly report."
+>
   <PageHero
     title="Alternative provision for schools and SENCos"
     strapline="A part-time, school-funded placement with individual goals and weekly reporting."
   />
+
+  <Section
+    id="overview"
+    title="For schools"
+    strapline="Finding out what helps a pupil take part."
+    drawing="idea"
+    drawingLabel="Line drawing of a stick person with a lightbulb idea, sketching at an easel"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          A day at Waypoint has two aims. To give the pupil a worthwhile learning experience, and to help the adults
+          around them understand what makes taking part possible.
+        </p>
+        <p>
+          Difficulty isn't always obvious. Some pupils push back. Others withdraw, avoid anything new or seem to cope
+          while they're struggling. Through hands-on projects and group tasks, we find out what helps a pupil get
+          started, communicate, contribute and recover after a setback, then plan the next step with the school and
+          family.
+        </p>
+      </div>
+      <p class="jump-intro">Jump to the part you need.</p>
+      <ul class="jump-links">
+        <li><a href="#for-headteachers">For headteachers</a></li>
+        <li><a href="#for-sencos">For SENCos</a></li>
+        <li><a href="#arranging-a-placement">Arranging a placement</a></li>
+      </ul>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="at-a-glance"
+    title="At a glance"
+    strapline="Tuesdays in Shoreham-by-Sea, for pupils aged 8–16."
+    drawing="map-pin"
+    drawingLabel="Line drawing of a dotted path leading to a map pin by the sea"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Waypoint is preparing to open. The venue, availability and day-to-day arrangements will be confirmed before
+          any placement is agreed. Fees and terms are on our <a href="/fees/">fees and arrangements</a> page.
+        </p>
+      </div>
+    </Fragment>
+    <div class="panel">
+      <InfoPanel facts={atAGlance} />
+    </div>
+  </Section>
+
+  <Section
+    id="what-a-place-provides"
+    title="What a place provides"
+    strapline="What a school-funded place is for."
+    drawing="building"
+    drawingLabel="Line drawing of two stick people carrying a plank, with a toolbox"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Each place is designed to give the pupil a good day and give your school something useful to work with.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      <Card title="A day worth taking part in" icon="star">
+        Staff-led practical projects where pupils make things, solve problems, work together and achieve something,
+        with the right support.
+      </Card>
+      <Card title="A clearer picture of support" icon="heart">
+        What the pupil can do, what helps and what's still hard, based on what we actually see, not a label or the
+        finished task.
+      </Card>
+      <Card title="Evidence for your next decision" icon="clipboard">
+        A weekly report, agreed reviews and realistic ideas for the pupil's wider plan. One Tuesday adds to that plan;
+        it doesn't replace a full timetable.
+      </Card>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="for-headteachers"
+    title="For headteachers"
+    strapline="Checking Waypoint as a provider."
+    drawing="school"
+    drawingLabel="Line drawing of a school building with a clock and a flag"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Before any pupil is considered, your school needs to be happy that Waypoint is the right provider. We welcome
+          questions about our educational purpose, leadership, safeguarding, day-to-day delivery and oversight.
+        </p>
+        <p>
+          You can arrange a visit and ask for information about leadership, safeguarding, recruitment, premises,
+          insurance and placement arrangements. We'll share the evidence we have and be clear about anything still
+          outstanding before a placement is agreed.
+        </p>
+        <p>
+          Checking the provider and considering a pupil are separate steps. Once you're happy with Waypoint, we work
+          with your SENCo or inclusion lead on an individual pupil.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/?purpose=visit">Discuss a school visit</Button>
+        <Button href="/policies/" variant="secondary">Provider information</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="for-sencos"
+    title="For SENCos and inclusion leads"
+    strapline="Considering a pupil."
+    drawing="meeting"
+    drawingLabel="Line drawing of two adults and a young person talking round a table"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Waypoint may suit a pupil who would benefit from practical learning with a purpose, a smaller group and
+          adults who take the time to understand what helps them take part. Some pupils show their difficulties
+          clearly and others mask them, so we look at strengths, interests and the next useful step rather than a
+          behaviour label.
+        </p>
+      </div>
+    </Fragment>
+    <div class="prose more">
+      <h3>What we'll ask you</h3>
+      <p>We start with what you already know about the pupil.</p>
+      <ul>
+        <li>Where does this pupil do well?</li>
+        <li>What gets in the way at school, and what support helps?</li>
+        <li>How much adult support do they need?</li>
+        <li>What do the pupil and their family say?</li>
+        <li>What would make a Tuesday at Waypoint worthwhile, rather than just a change of scene?</li>
+      </ul>
+      <p>
+        You don't need to fill in a new questionnaire. We ask for the information you already have that matters, such
+        as current support, any health or safety arrangements and the views of the pupil and family, and agree a secure
+        way to share it.
+      </p>
+      <h3>Being honest about fit</h3>
+      <p>
+        Before offering a place, we look at the pupil's needs and plans alongside the actual group, site, adults and
+        safeguarding arrangements. One-to-one support isn't included automatically. If a pupil needs more than we can
+        safely provide, we'll tell you before a place is agreed rather than accept it and hope for the best.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    id="support-and-goals"
+    title="Support and goals"
+    strapline="Practical help, and a few clear goals."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          If a pupil finds it hard to start, an adult might show them the task, make the instructions clearer or offer
+          one small first step. If frustration builds, we look at what's difficult, agree a supervised pause when it
+          helps and work towards rejoining. Expectations and boundaries stay clear throughout.
+        </p>
+      </div>
+    </Fragment>
+    <div class="prose more">
+      <h3>Goals</h3>
+      <p>
+        We agree a small number of goals with the pupil, school and family, drawing on SEN Support plans and EHCP
+        outcomes where relevant. We don't change an EHCP or replace statutory provision.
+      </p>
+      <p>
+        For example, a pupil might work towards starting a familiar task with fewer prompts, sharing an idea in a group
+        or coming back after a supported pause. Every pupil's goals are their own.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    id="reporting"
+    title="Reporting"
+    strapline="A clear written report, every week."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Every school-funded place includes a weekly report for the school and family. It covers the task, what the
+          pupil actually did or said, the support planned and given, how they responded, what's still difficult and
+          one or two realistic next steps.
+        </p>
+        <p>
+          We include the pupil's own view where we can, and keep our observations separate from what school and
+          parents tell us. We'll celebrate a success with support, but we won't treat it as a sign the pupil needs less
+          help, or assume something that works at Waypoint will work in class.
+        </p>
+      </div>
+    </Fragment>
+    <div class="prose more">
+      <p>
+        Before the first session we agree a named contact, who receives reports, attendance and safeguarding handover,
+        the reporting day and the review dates. If something significant happens, we use the agreed contact straight
+        away rather than waiting for the report.
+      </p>
+    </div>
+    <div class="example">
+      <IllustrativeExample title="From a Tuesday to a school decision" label="Fictional example, Alex is not a real pupil">
+        <p>How one made-up pupil's reports could build up into a decision for the school.</p>
+        <StepList>
+          <Step title="Before the start">
+            <p>
+              Alex loves designing things but often stays quiet in group tasks. The SENCo shares current support and a
+              question worth answering. What helps Alex share an idea or ask for help?
+            </p>
+          </Step>
+          <Step title="A Tuesday">
+            <p>
+              In a Giant Chain Reaction, Alex suggests changing a ramp and helps test it after an adult shows the next
+              step. The report recognises a contribution made with support.
+            </p>
+          </Step>
+          <Step title="After two sessions">
+            <p>
+              Alex joins in well after a clear demonstration but hesitates when only told what to do. We check the
+              starting picture, keep the support that helps and decide what to look for next.
+            </p>
+          </Step>
+          <Step title="Week four review">
+            <p>
+              The SENCo can see what Alex has done, what helped, the support still needed and what's still uncertain.
+              A quick demonstration and a chance to sketch an idea might be worth trying in school.
+            </p>
+          </Step>
+          <Step title="What happens next">
+            <p>
+              The school and Waypoint use the evidence and Alex's experience to decide whether to carry on, change the
+              support or plan a next step. Later reviews are around weeks 8 and 12.
+            </p>
+          </Step>
+        </StepList>
+      </IllustrativeExample>
+    </div>
+  </Section>
+
+  <Section
+    id="arranging-a-placement"
+    title="Arranging a placement"
+    strapline="From first conversation to first Tuesday."
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          The route is the same every time, so everyone knows where they stand. Approving Waypoint as a provider
+          doesn't automatically approve every pupil.
+        </p>
+      </div>
+    </Fragment>
+    <div class="steps">
+      <StepList>
+        <Step title="Provider conversation">
+          <p>A discussion with your headteacher or senior leadership about Waypoint as a provider.</p>
+        </Step>
+        <Step title="Talking about the pupil">
+          <p>A conversation with your SENCo or inclusion lead, including the views of the pupil and family.</p>
+        </Step>
+        <Step title="Deciding on suitability">
+          <p>We decide together whether the place is suitable and what support is available.</p>
+        </Step>
+        <Step title="Written agreement">
+          <p>
+            Goals, staffing and adjustments, safeguarding, attendance, costs, communication and reviews are agreed in
+            writing before a start is confirmed.
+          </p>
+        </Step>
+      </StepList>
+    </div>
+    <div class="prose more">
+      <p>
+        We normally need five working days to prepare once we have all the essential information, depending on
+        suitability, staffing and availability. This isn't a guaranteed start date, and an earlier start can sometimes
+        be considered.
+      </p>
+    </div>
+    <div class="button-row">
+      <Button href="/how-referrals-work/">How referrals work</Button>
+      <Button href="/fees/" variant="secondary">Fees and arrangements</Button>
+    </div>
+  </Section>
+
+  <Section
+    id="discuss-a-pupil"
+    title="Discuss a pupil"
+    strapline="Start with a conversation."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          What are you hoping a part-time placement could achieve? You don't need a full referral pack to start. Keep
+          your first message general, and we'll explain how to share pupil details securely.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/?purpose=placement" variant="accent">Discuss a pupil</Button>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .panel,
+  .steps,
+  .example {
+    margin-top: 2rem;
+  }
+
+  .steps,
+  .example {
+    max-width: 46rem;
+  }
+
+  .more {
+    margin-top: 1.5rem;
+  }
+
+  .more h3 {
+    margin-top: 1.75rem;
+  }
+
+  .more h3:first-child {
+    margin-top: 0;
+  }
+
+  .example :global(.step-list) {
+    margin-top: 1.25rem;
+  }
+
+  .jump-intro {
+    margin: 1.25rem 0 0.5rem;
+  }
+
+  .jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+
+  .jump-links a::after {
+    content: ' \2193';
+  }
+</style>
