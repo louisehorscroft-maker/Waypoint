@@ -92,6 +92,17 @@ h3 {
   font-size: 1.25rem;
 }
 
+/* Mustard bar above every H2 on every page, to break up each new section */
+main h2::before {
+  content: '';
+  display: block;
+  width: 4rem;
+  height: 4px;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  background: var(--colour-accent);
+}
+
 p {
   margin: 0 0 1rem;
 }
