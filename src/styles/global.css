@@ -5,13 +5,15 @@
   --forest-green-dark: #244a40;
   --cream: #faf6ee;
   --white: #ffffff;
+  /* Very pale green-grey for boxes */
+  --mist: #f6f8f5;
   --sage: #dce6da;
   --charcoal: #232b28;
 
-  /* Roles. Sections alternate cream and white; forest green is used for
-     occasional call-to-action sections; sage is for the menu bar and boxes */
-  --colour-bg: var(--cream);
-  --colour-bg-alt: var(--white);
+  /* Roles. Every section is white; forest green is used for occasional
+     call-to-action sections; sage is for the menu bar; cream is only text
+     on forest green */
+  --colour-bg: var(--white);
   --colour-surface: var(--sage);
   --colour-text: var(--charcoal);
   --colour-muted: #4a5550;
@@ -21,10 +23,10 @@
   --colour-border: #c9d6c6;
   --colour-focus: var(--charcoal);
 
-  /* Boxes take the opposite of the background they sit on: white boxes on
-     cream, cream boxes on white. Boxes nested inside a box flip back again */
-  --box-bg: var(--white);
-  --box-inner-bg: var(--cream);
+  /* Boxes are a very pale tint on the white page, with no border. Boxes
+     nested inside a box (cards in a card group) are white */
+  --box-bg: var(--mist);
+  --box-inner-bg: var(--white);
   --header-height: 5.5rem;
   --max-width: 75rem;
   --radius: 0.5rem;
@@ -134,13 +136,6 @@ p {
   .container {
     padding: 0 1rem;
   }
-}
-
-/* Alternate sections are white, against the cream page */
-.section--alt {
-  background: var(--colour-bg-alt);
-  --box-bg: var(--cream);
-  --box-inner-bg: var(--white);
 }
 
 /* Occasional forest green section for calls to action */

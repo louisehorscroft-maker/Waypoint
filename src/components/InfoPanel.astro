@@ -1,7 +1,11 @@
 ---
+import Icon, { type IconName } from './Icon.astro';
+
 interface Fact {
   label: string;
   value: string;
+  /** Optional small line icon shown before the label */
+  icon?: IconName;
 }
 
 interface Props {
@@ -25,7 +29,10 @@ const headingId = title ? `${id ?? 'info-panel'}-heading` : undefined;
       <dl class="info-panel__facts">
         {facts.map((fact) => (
           <div class="info-panel__fact">
-            <dt>{fact.label}</dt>
+            <dt>
+              {fact.icon && <Icon name={fact.icon} />}
+              <span>{fact.label}</span>
+            </dt>
             <dd>{fact.value}</dd>
           </div>
         ))}
@@ -37,9 +44,8 @@ const headingId = title ? `${id ?? 'info-panel'}-heading` : undefined;
 
 <style>
   .info-panel {
-    /* Opposite of the section background, with forest green accents */
+    /* Pale tinted box with a forest green edge */
     background: var(--box-bg);
-    border: 1px solid var(--colour-border);
     border-left: 4px solid var(--colour-brand);
     border-radius: var(--radius);
     padding: 1.5rem;
@@ -56,6 +62,9 @@ const headingId = title ? `${id ?? 'info-panel'}-heading` : undefined;
   }
 
   .info-panel__fact dt {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-weight: 700;
   }
 
@@ -66,7 +75,7 @@ const headingId = title ? `${id ?? 'info-panel'}-heading` : undefined;
   @media (min-width: 40rem) {
     .info-panel__fact {
       display: grid;
-      grid-template-columns: 10rem 1fr;
+      grid-template-columns: 11.5rem 1fr;
       gap: 1rem;
     }
   }

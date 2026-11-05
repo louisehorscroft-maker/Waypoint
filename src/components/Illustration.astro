@@ -1,0 +1,86 @@
+---
+/**
+ * Simple line drawings of activities, in the logo's line style (forest green,
+ * round ends, a gentle wavy ground line). Objects only: never draw people,
+ * real sessions or the venue.
+ */
+export type IllustrationName = 'basecamp' | 'chain-reaction' | 'survival-village';
+
+interface Props {
+  name: IllustrationName;
+  /** Accessible description of the drawing */
+  label: string;
+}
+
+const { name, label } = Astro.props;
+---
+
+<svg
+  class="illustration"
+  viewBox="0 0 200 140"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  role="img"
+  aria-label={label}
+>
+  <path class="illustration__ground" d="M8 122c22-2 38 2 60 0s40-3 62 0 40 2 62-1" />
+  {
+    name === 'basecamp' && (
+      <>
+        {/* Two trees with a ridge rope and a tarp shelter */}
+        <path d="M32 122V74" />
+        <path d="M32 40c-11 0-18 9-18 18 0 8 7 15 18 15s18-7 18-15c0-9-7-18-18-18z" />
+        <path d="M168 122V78" />
+        <path d="M168 48c-10 0-16 8-16 16 0 7 6 13 16 13s16-6 16-13c0-8-6-16-16-16z" />
+        <path d="M32 82c40 6 96 6 136 0" />
+        <path d="M60 121 100 86l40 35" />
+        <path d="M100 86v35M88 121l12-18 12 18" />
+        <path d="M60 121 48 116M140 121l12-5" />
+      </>
+    )
+  }
+  {
+    name === 'chain-reaction' && (
+      <>
+        {/* A ball rolling down a ramp into a row of falling dominoes */}
+        <circle cx="34" cy="44" r="7" />
+        <path d="M16 42 82 80" />
+        <path d="M74 75v47M30 50v72" />
+        <path d="M14 30c4-2 8-2 11 0M10 38c4-2 8-2 11 0" />
+        <path d="M88 122l8-28h6l-8 28" />
+        <path d="M108 122l6-29h6l-6 29" />
+        <path d="M128 122l3-30h6l-3 30" />
+        <path d="M148 122V92h6v30" />
+        <path d="M168 122V92h6v30" />
+      </>
+    )
+  }
+  {
+    name === 'survival-village' && (
+      <>
+        {/* A hut, a tipi with a flag, a small shelter and a campfire */}
+        <path d="M14 122V90l22-18 22 18v32" />
+        <path d="M30 122v-16h12v16" />
+        <path d="M72 122 98 64l26 58" />
+        <path d="M92 56l12 16M104 56 92 72" />
+        <path d="M98 64V36l16 6-16 6" />
+        <path d="M92 122l6-18 6 18" />
+        <path d="M134 122v-20l18-14 18 14v20" />
+        <path d="M176 122l14-10M190 122l-14-10" />
+        <path d="M183 112c-4-4-3-9 0-13 1 4 4 5 4 9s-2 5-4 4z" />
+      </>
+    )
+  }
+</svg>
+
+<style>
+  .illustration {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--colour-brand);
+  }
+</style>

@@ -8,7 +8,7 @@ const { columns } = Astro.props;
 const hasFooter = Astro.slots.has('footer');
 ---
 
-{/* Every group of boxes sits in a panel the opposite colour to the section (cream on white, white on cream); the boxes inside flip back to the section colour */}
+{/* Every group of boxes sits in a pale tinted panel; the boxes inside are white */}
 <div class="card-group">
   <div class:list={['grid', `grid--${columns}`]}>
     <slot />
@@ -25,7 +25,6 @@ const hasFooter = Astro.slots.has('footer');
 <style>
   .card-group {
     background: var(--box-bg);
-    border: 1px solid var(--colour-border);
     border-radius: var(--radius);
     padding: 1.25rem;
   }

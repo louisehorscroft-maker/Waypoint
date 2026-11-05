@@ -6,19 +6,17 @@ interface Props extends HTMLAttributes<'section'> {
   id?: string;
   /** Optional section heading, rendered as an h2 */
   title?: string;
-  /** Alternate background (white) */
-  alt?: boolean;
   /** Forest green background, for occasional calls to action. Use the accent button inside */
   brand?: boolean;
 }
 
-const { id, title, alt = false, brand = false, class: className, ...rest } = Astro.props;
+const { id, title, brand = false, class: className, ...rest } = Astro.props;
 const headingId = id && title ? `${id}-heading` : undefined;
 ---
 
 <section
   id={id}
-  class:list={['section', { 'section--alt': alt, 'section--brand': brand }, className]}
+  class:list={['section', { 'section--brand': brand }, className]}
   aria-labelledby={headingId}
   {...rest}
 >

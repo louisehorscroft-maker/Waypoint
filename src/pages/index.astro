@@ -6,6 +6,7 @@ import InfoPanel from '../components/InfoPanel.astro';
 import RouteCard from '../components/RouteCard.astro';
 import PageHero from '../components/PageHero.astro';
 import CardGroup from '../components/CardGroup.astro';
+import Illustration from '../components/Illustration.astro';
 
 // Copy: content-source/waypoint-content-v1.md, section "1 Home", WEBSITE COPY.
 
@@ -22,11 +23,12 @@ const heroImage = undefined as ImageSlot;
 const wesImage = undefined as ImageSlot;
 
 const essentials = [
-  { label: 'Planned day', value: 'Tuesday, 9:00am–2:30pm' },
-  { label: 'Ages', value: '8–16, subject to individual group suitability' },
-  { label: 'Location', value: 'Shoreham-by-Sea' },
+  { label: 'Planned day', value: 'Tuesday, 9:00am–2:30pm', icon: 'calendar' as const },
+  { label: 'Ages', value: '8–16, subject to individual group suitability', icon: 'people' as const },
+  { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
   {
     label: 'First term',
+    icon: 'tree' as const,
     value: 'Practical indoor and land-based outdoor learning; no paddling, water activities or climbing',
   },
 ];
@@ -41,7 +43,7 @@ const essentials = [
     strapline="Hands-on, small-group learning days for young people aged 8–16."
   />
 
-  <section id="intro" class="hero section--alt" aria-labelledby="intro-heading">
+  <section id="intro" class="hero" aria-labelledby="intro-heading">
     <div class:list={['container', 'hero__inner', { 'hero__inner--with-image': heroImage }]}>
       <div class="hero__text">
         <h2 id="intro-heading" class="hero__headline">Big ideas. Real experiences. Something to be proud of.</h2>
@@ -73,7 +75,7 @@ const essentials = [
     </InfoPanel>
   </Section>
 
-  <Section id="find-your-way" title="Who Waypoint is for" alt>
+  <Section id="find-your-way" title="Who Waypoint is for">
     <CardGroup columns={2}>
       <RouteCard title="Schools and SENCos" href="/for-schools/">
         Explore the school-funded offer, individual suitability, purposeful learning and reporting. School leaders
@@ -109,12 +111,17 @@ const essentials = [
         activity bank, not a fixed weekly timetable.
       </p>
     </div>
+    <div class="drawings">
+      <Illustration name="basecamp" label="Line drawing of a rope-and-tarp basecamp shelter between two trees" />
+      <Illustration name="chain-reaction" label="Line drawing of a ball rolling down a ramp into a row of dominoes" />
+      <Illustration name="survival-village" label="Line drawing of a small village of huts, a tipi with a flag and a campfire" />
+    </div>
     <div class="button-row">
       <Button href="/discover-waypoint/#activities">Explore the activities</Button>
     </div>
   </Section>
 
-  <Section id="learning" title="Learning through practical projects" alt>
+  <Section id="learning" title="Learning through practical projects">
     <div class="prose">
       <p>
         When young people have something meaningful to make or solve, we see different strengths, interests and
@@ -203,6 +210,24 @@ const essentials = [
 
   .prose {
     max-width: 46rem;
+  }
+
+  /* Line drawings of the example projects, in a pale tinted strip */
+  .drawings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: var(--radius);
+    background: var(--box-bg);
+  }
+
+  @media (min-width: 48rem) {
+    .drawings {
+      gap: 2.5rem;
+      padding: 1.5rem 2.5rem;
+    }
   }
 
   .prose p:last-child {

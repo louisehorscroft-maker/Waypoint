@@ -1,0 +1,71 @@
+---
+/**
+ * Small line icons in the same thin-line style as the logo. Decorative only,
+ * so they are hidden from screen readers; the text next to them carries the meaning.
+ */
+export type IconName = 'calendar' | 'people' | 'pin' | 'tree';
+
+interface Props {
+  name: IconName;
+  size?: number;
+}
+
+const { name, size = 22 } = Astro.props;
+---
+
+<svg
+  class="icon"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.75"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  {
+    name === 'calendar' && (
+      <>
+        <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+        <path d="M3.5 10h17M8 3v4M16 3v4" />
+        <path d="M8 14h2M14 14h2M8 17h2" />
+      </>
+    )
+  }
+  {
+    name === 'people' && (
+      <>
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3.5 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6" />
+        <circle cx="16.5" cy="9.5" r="2.25" />
+        <path d="M15.5 14.4c.3-.1.7-.1 1-.1 2.2 0 4 2.1 4 4.7" />
+      </>
+    )
+  }
+  {
+    name === 'pin' && (
+      <>
+        <path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11z" />
+        <circle cx="12" cy="10" r="2.4" />
+      </>
+    )
+  }
+  {
+    name === 'tree' && (
+      <>
+        <path d="M12 3.5 6.5 11h3l-4 5.5h13l-4-5.5h3z" />
+        <path d="M12 16.5V21M8 21h8" />
+      </>
+    )
+  }
+</svg>
+
+<style>
+  .icon {
+    flex-shrink: 0;
+    color: var(--colour-brand);
+  }
+</style>
