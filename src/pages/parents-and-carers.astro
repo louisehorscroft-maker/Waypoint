@@ -9,6 +9,8 @@ import RouteCard from '../components/RouteCard.astro';
 import IllustrativeExample from '../components/IllustrativeExample.astro';
 import PhotoFrame from '../components/PhotoFrame.astro';
 import FaqItem from '../components/FaqItem.astro';
+import StepList from '../components/StepList.astro';
+import Step from '../components/Step.astro';
 
 // Copy: rewritten from content-source/waypoint-content-v1.md, section "4 Parents and Carers".
 // Wes's build notes: one welcoming page for all families. Inspire first (projects, making,
@@ -45,7 +47,7 @@ import FaqItem from '../components/FaqItem.astro';
         </p>
       </div>
       <div class="button-row">
-        <Button href="/about/#typical-day">See a typical day</Button>
+        <Button href="/about/#activities">See the activities</Button>
       </div>
     </Fragment>
   </Section>
@@ -159,30 +161,47 @@ import FaqItem from '../components/FaqItem.astro';
   </Section>
 
   <Section
-    id="the-first-day"
-    title="The first day"
-    strapline="What to expect when they arrive."
+    id="a-day-at-waypoint"
+    title="A day at Waypoint"
+    strapline="What your child's day looks like."
     drawing="day"
     drawingLabel="Line drawing of the sun's path across the sky, with five stops along the way"
   >
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          Before the first session, we'd like to know what your child enjoys, what they're looking forward to and any
-          small things that help them feel comfortable somewhere new. We'll use what you and the school already know,
-          listen to your child and agree how arrival, introductions and collection will work.
-        </p>
-        <p>
-          On the day there's a friendly welcome. Your child meets the adult leading the day, finds out where everything
-          is and hears the plan, including activities, breaks, lunch and home time. Each activity starts with a clear
-          explanation or demonstration, and adults help them find a good way to join in.
-        </p>
-        <p>
-          We'll share a simple outline in advance so your child can picture the day. Tell us what they're excited about
-          as well as anything that worries them, because both help us get ready.
+          Before your child starts, we'd like to know what they enjoy, what they're looking forward to and any small
+          things that help them feel comfortable somewhere new. We'll agree how arrival, introductions and collection
+          will work, and share a simple outline so they can picture the day before it happens.
         </p>
       </div>
     </Fragment>
+    <div class="day-steps">
+      <StepList>
+        <Step title="A friendly welcome">
+          <p>Meet the adult leading the day, find out where everything is and hear the plan, including activities, breaks, lunch and home time.</p>
+        </Step>
+        <Step title="Get stuck in">
+          <p>Each activity starts with a clear explanation or demonstration, and adults help everyone find a good way to join in.</p>
+        </Step>
+        <Step title="Breaks and lunch">
+          <p>Time to rest, eat and catch up with the group.</p>
+        </Step>
+        <Step title="Keep building">
+          <p>Carry on with the project, improve an idea or try something new.</p>
+        </Step>
+        <Step title="Finish together">
+          <p>Look back at what the group made and get ready for home time.</p>
+        </Step>
+      </StepList>
+    </div>
+    <div class="prose more">
+      <p>
+        Activities change with the group and the conditions, but the shape of the day stays familiar, so your child
+        knows what's coming next. Tell us what they're excited about as well as anything that worries them, because both
+        help us get ready.
+      </p>
+    </div>
   </Section>
 
   <Section
@@ -340,7 +359,8 @@ import FaqItem from '../components/FaqItem.astro';
     margin-top: 1.5rem;
   }
 
-  .example {
+  .example,
+  .day-steps {
     margin-top: 2rem;
     max-width: 46rem;
   }
