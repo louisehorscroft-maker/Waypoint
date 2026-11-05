@@ -92,16 +92,6 @@ h3 {
   font-size: 1.25rem;
 }
 
-/* Mustard bar above every H2 on every page, to break up each new section */
-main h2::before {
-  content: '';
-  display: block;
-  width: 4rem;
-  height: 4px;
-  margin-bottom: 1rem;
-  border-radius: 2px;
-  background: var(--colour-accent);
-}
 
 p {
   margin: 0 0 1rem;
@@ -116,6 +106,13 @@ p {
 
 .section {
   padding: 3rem 0;
+  /* Full-width mustard line separating each H2 section, matching the page hero */
+  border-top: 6px solid var(--colour-accent);
+}
+
+/* The page hero already has a mustard line along its bottom edge */
+.page-hero + .section {
+  border-top: 0;
 }
 
 @media (max-width: 29.99rem) {

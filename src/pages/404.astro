@@ -1,15 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
 ---
 
 <BaseLayout title="Page not found">
-  <Section id="intro">
-    <h1>Page not found</h1>
-    <p class="lead">The page you were looking for has moved or no longer exists.</p>
-    <div class="button-row">
-      <Button href="/">Back to home</Button>
-    </div>
+  <PageHero title="Page not found" strapline="The page you were looking for has moved or no longer exists." hideCta />
+  <Section>
+    <Button href="/">Back to home</Button>
   </Section>
 </BaseLayout>
