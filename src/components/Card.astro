@@ -1,0 +1,39 @@
+---
+/** Plain content box: an H3 and one paragraph. Always inside a CardGroup. */
+interface Props {
+  title: string;
+  icon?: import('./Icon.astro').IconName;
+}
+
+import Icon from './Icon.astro';
+
+const { title, icon } = Astro.props;
+---
+
+<article class="card">
+  <h3 class="card__title">
+    {icon && <Icon name={icon} />}
+    <span>{title}</span>
+  </h3>
+  <p><slot /></p>
+</article>
+
+<style>
+  .card {
+    background: var(--box-inner-bg);
+    border: 1px solid var(--colour-border);
+    border-top: 4px solid var(--colour-brand);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  .card__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card p {
+    margin: 0;
+  }
+</style>

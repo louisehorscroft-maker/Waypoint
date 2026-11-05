@@ -6,6 +6,7 @@ import InfoPanel from '../components/InfoPanel.astro';
 import RouteCard from '../components/RouteCard.astro';
 import PageHero from '../components/PageHero.astro';
 import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
 import Illustration from '../components/Illustration.astro';
 import PhotoFrame from '../components/PhotoFrame.astro';
 
@@ -132,14 +133,48 @@ const keyFacts = [
       </p>
       <h3>School-funded places</h3>
       <p>
-        We plan to agree individual goals with school and family, then share useful observations about
-        participation, support and next steps.
+        We agree a small number of individual goals with the school and family, drawing on the support plans
+        already in place.
       </p>
       <h3>Home Education Discovery</h3>
       <p>
         For young people who are home educated and want something extra in their week, Discovery is a day of
         hands-on projects and creative challenges alongside other young people.
       </p>
+    </div>
+  </Section>
+
+  <Section id="feedback" title="Feedback for schools and families" strapline="More than “they had a good day”.">
+    <div class="prose">
+      <p>
+        Every school-funded place is planned to come with a weekly report for the school and family. It sets out
+        what the young person actually did, the support that helped and what to try next, so the school has real
+        evidence to work with, not just a list of activities.
+      </p>
+    </div>
+    <CardGroup columns={3}>
+      <Card title="What happened" icon="clipboard">
+        The task, what the young person did or said and how they got on. A success with support is recognised for
+        what it is, without assuming they now need less help.
+      </Card>
+      <Card title="What helped" icon="heart">
+        The support that was planned, the support that was actually given and what is still difficult, so nobody
+        has to guess.
+      </Card>
+      <Card title="What next" icon="arrow">
+        One or two realistic next steps at Waypoint, and ideas the school may want to try, without assuming what
+        works on a Tuesday will work everywhere.
+      </Card>
+    </CardGroup>
+    <div class="prose feedback__more">
+      <p>
+        Where possible, reports include the young person's own view of their day. There is an early check after
+        two sessions and fuller reviews around weeks 4, 8 and 12, with dates agreed with the school before the
+        first session.
+      </p>
+    </div>
+    <div class="button-row">
+      <Button href="/for-schools/">How it works for schools</Button>
     </div>
   </Section>
 
@@ -190,6 +225,10 @@ const keyFacts = [
 
   .secondary-route {
     font-weight: 600;
+  }
+
+  .feedback__more {
+    margin-top: 1.5rem;
   }
 
   .secondary-route a::after {

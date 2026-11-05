@@ -78,6 +78,7 @@ Use these components rather than one-off markup.
 - `Section`: Page section with an optional anchor `id`, `title` (the small H2 label), `strapline` (the big text under it, required with a title) and `brand` (forest green, for occasional calls to action such as the closing Get in touch, with an accent button). Each one has a full-width sage line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
 - `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (sage with forest green text, for forest green backgrounds). Never render a button without a real destination.
 - `CardGroup`: Mist panel that holds every group of boxes, with `columns={2}` (four boxes, 2x2) or `columns={3}` (three or six) and an optional `footer` slot for a link under the boxes. Always use it for groups of cards,.
+- `Card`: Plain content box with an H3 (optional `icon`) and one paragraph, white with a forest green top edge. Always inside a `CardGroup`.
 - `RouteCard`: Audience route card with a heading link and one paragraph. Always inside a `CardGroup`.
 - `InfoPanel`: Facts panel, mist with a forest green left edge. Each fact can take an `icon`. On a page, put it inside a `Section` with its own title, strapline and intro rather than giving the panel an H2.
 - `KeepTogether`: Renders text with number ranges and Shoreham-by-Sea kept on one line. Used by `PageHero` and `Section` straplines. Pass `facts` as label and value pairs, or slot in content.
@@ -85,7 +86,7 @@ Use these components rather than one-off markup.
 - `ActivityCard`: Activity card with one paragraph, always inside a `CardGroup`. The optional `image` is for real photographs only, and the image slot is not rendered without one.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.
-- `Icon`: Small forest green line icons (`calendar`, `people`, `pin`, `tree`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
+- `Icon`: Small forest green line icons (`calendar`, `people`, `pin`, `tree`, `clipboard`, `heart`, `arrow`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
 - `Illustration`: Simple forest green line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
 - `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`.
 
