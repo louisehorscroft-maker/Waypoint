@@ -94,6 +94,10 @@ Use these components rather than one-off markup.
 - `Illustration`: Simple blue line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`, `building`, `map-pin`, `signpost`, `idea`, `report`, `chat`, `game-studio`, `day`, `helping`, `steps`, `setting`, `school`, `meeting`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
 - `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`. Pass `who` to show a "Led by:" label, so process steps always say who leads them.
 
+## Deploying
+
+Cloudflare Workers Builds deploys every push to `main` automatically (free plan, one build at a time). Push only to `main`, and group small changes into fewer commits to keep the build queue short. If builds sit in "Queued" with nothing running, it's a Cloudflare-side stall: a fresh push or Retry in the dashboard usually restarts it, and `npm run deploy` from a local copy deploys directly without the queue.
+
 ## Pre-launch search engine blocking
 
 While the site is being built it is hidden from search engines by two things, `<meta name="robots" content="noindex, nofollow">` in `src/layouts/BaseLayout.astro` and `public/robots.txt` disallowing everything. Both must be removed at launch, never one without the other.
