@@ -1,4 +1,5 @@
 ---
+import { areasText } from '../data/areas';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
@@ -24,6 +25,7 @@ const keyFacts = [
   { label: 'Planned hours', value: '9:00am–2:30pm', icon: 'calendar' as const },
   { label: 'Ages', value: '8–16, depending on individual and group suitability', icon: 'people' as const },
   { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
+  { label: 'Areas', value: areasText, icon: 'map' as const },
   {
     label: 'First term',
     value: 'Practical indoor and land-based outdoor learning',
@@ -41,7 +43,7 @@ const keyFacts = [
     strapline="Hands-on, small-group learning days for young people aged 8–16."
   />
 
-  <Section id="about" title="About Waypoint" strapline="A day of making, building and working together." drawing="building" drawingLabel="Line drawing of two stick people carrying a plank, with a toolbox">
+  <Section id="about" title="About our alternative provision" strapline="A day of making, building and working together." drawing="building" drawingLabel="Line drawing of two stick people carrying a plank, with a toolbox">
     <Fragment slot="intro">
       <div class="prose">
         <p>
@@ -62,7 +64,7 @@ const keyFacts = [
     </Fragment>
   </Section>
 
-  <Section id="key-facts" title="Key facts" strapline="Small groups in Shoreham-by-Sea, for ages 8–16." drawing="map-pin" drawingLabel="Line drawing of a dotted path leading to a map pin by the sea" drawingSide="left">
+  <Section id="key-facts" title="Ages, hours and areas" strapline="Small groups in Shoreham-by-Sea, for ages 8–16." drawing="map-pin" drawingLabel="Line drawing of a dotted path leading to a map pin by the sea" drawingSide="left">
     <Fragment slot="intro">
       <div class="prose">
         <p>

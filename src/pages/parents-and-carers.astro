@@ -16,12 +16,75 @@ import Step from '../components/Step.astro';
 // Wes's build notes: one welcoming page for all families. Inspire first (projects, making,
 // things to be proud of), then the day, support and the two routes. Never split families by
 // need, or imply guaranteed friendships, outcomes, age-banded groups or a fixed timetable.
+
+/** FAQs: shown on the page and given to search engines and AI tools as FAQPage data */
+const faqs: { question: string; answer: string[] }[] = [
+  {
+    "question": "Could Waypoint help my child discover new interests?",
+    "answer": [
+      "That's exactly what we're aiming for. Your child might find they love making things, planning a group project, solving a problem outdoors or trying a new role in a team. We'll listen to what interests them and make sure the group suits them."
+    ]
+  },
+  {
+    "question": "What if my child likes to watch before joining in?",
+    "answer": [
+      "That's really useful to know. We can show them a task first, start with the first step and help them find their own way to contribute. Tell us how they like to get involved."
+    ]
+  },
+  {
+    "question": "Will I hear about what my child enjoys and achieves?",
+    "answer": [
+      "Yes. School-funded places include a weekly report covering what they took part in, what they learned, their strengths and next steps. For home education places, we'll explain how we keep families updated before a place is agreed."
+    ]
+  },
+  {
+    "question": "Can I tell you what my child thought of their day?",
+    "answer": [
+      "Please do. We'd love to hear their favourite part, what they'd like to try next or anything they want us to know. If your account of something differs from ours, we'll check the facts and put any mistakes right."
+    ]
+  },
+  {
+    "question": "Who is Waypoint for?",
+    "answer": [
+      "Young people aged 8–16, through two routes, school-funded places and places for home-educated young people, depending on a suitable group and agreed support. Your child doesn't need a diagnosis for you to ask whether Waypoint could suit them."
+    ]
+  },
+  {
+    "question": "Does Waypoint fit alongside school or home education?",
+    "answer": [
+      "Yes. School-funded places are part-time and sit alongside your child's school education. Home education places work alongside your own home education plans."
+    ]
+  },
+  {
+    "question": "What will my child need to bring?",
+    "answer": [
+      "We'll confirm clothing, food and drink, transport and collection before the first session. Please talk to us about any health needs or medication in advance."
+    ]
+  },
+  {
+    "question": "How do you decide whether the group is right for my child?",
+    "answer": [
+      "We talk through your child's interests and age, the group they'd join and any support or access they need. We only agree a place where we can support your child well. Extra one-to-one staffing isn't included automatically."
+    ]
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer.join(' ') },
+  })),
+};
 ---
 
 <BaseLayout
   title="Part-time alternative provision for your child"
   description="Small-group, hands-on days in Shoreham-by-Sea for young people aged 8–16, through your child's school or as a home-educating family."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <PageHero
     title="Part-time alternative provision for your child"
     strapline="Small-group, hands-on days in Shoreham-by-Sea for young people aged 8–16."
@@ -41,7 +104,8 @@ import Step from '../components/Step.astro';
           challenge they tackled with others. That's the kind of day Waypoint is all about.
         </p>
         <p>
-          Waypoint is being developed in Shoreham-by-Sea for young people aged 8–16. The small-group, land-based days
+          Waypoint is being developed in Shoreham-by-Sea for young people aged 8–16 from Shoreham, Lancing, Worthing,
+          Brighton and Hove and across West Sussex. The small-group, land-based days
           bring together making, designing, problem-solving and shared projects, with adults guiding the way and room
           for everyone to contribute in their own way.
         </p>
@@ -272,58 +336,15 @@ import Step from '../components/Step.astro';
       </div>
     </Fragment>
     <div class="faqs">
-      <FaqItem question="Could Waypoint help my child discover new interests?">
-        <p>
-          That's exactly what we're aiming for. Your child might find they love making things, planning a group project,
-          solving a problem outdoors or trying a new role in a team. We'll listen to what interests them and make sure
-          the group suits them.
-        </p>
-      </FaqItem>
-      <FaqItem question="What if my child likes to watch before joining in?">
-        <p>
-          That's really useful to know. We can show them a task first, start with the first step and help them find
-          their own way to contribute. Tell us how they like to get involved.
-        </p>
-      </FaqItem>
-      <FaqItem question="Will I hear about what my child enjoys and achieves?">
-        <p>
-          Yes. School-funded places include a weekly report covering what they took part in, what they learned, their
-          strengths and next steps. For home education places, we'll explain how we keep families updated before a
-          place is agreed.
-        </p>
-      </FaqItem>
-      <FaqItem question="Can I tell you what my child thought of their day?">
-        <p>
-          Please do. We'd love to hear their favourite part, what they'd like to try next or anything they want us to
-          know. If your account of something differs from ours, we'll check the facts and put any mistakes right.
-        </p>
-      </FaqItem>
-      <FaqItem question="Who is Waypoint for?">
-        <p>
-          Young people aged 8–16, through two routes, school-funded places and places for home-educated young people, depending on a
-          suitable group and agreed support. Your child doesn't need a diagnosis for you to ask whether Waypoint could
-          suit them.
-        </p>
-      </FaqItem>
-      <FaqItem question="Does Waypoint fit alongside school or home education?">
-        <p>
-          Yes. School-funded places are part-time and sit alongside your child's school education. Home education places
-          work alongside your own home education plans.
-        </p>
-      </FaqItem>
-      <FaqItem question="What will my child need to bring?">
-        <p>
-          We'll confirm clothing, food and drink, transport and collection before the first session. Please talk to us
-          about any health needs or medication in advance.
-        </p>
-      </FaqItem>
-      <FaqItem question="How do you decide whether the group is right for my child?">
-        <p>
-          We talk through your child's interests and age, the group they'd join and any support or access they need. We
-          only agree a place where we can support your child well. Extra one-to-one staffing isn't included
-          automatically.
-        </p>
-      </FaqItem>
+      {
+        faqs.map((faq) => (
+          <FaqItem question={faq.question}>
+            {faq.answer.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </FaqItem>
+        ))
+      }
     </div>
   </Section>
 

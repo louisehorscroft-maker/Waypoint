@@ -1,4 +1,5 @@
 ---
+import { areasText } from '../data/areas';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
@@ -16,6 +17,7 @@ import IllustrativeExample from '../components/IllustrativeExample.astro';
 const atAGlance = [
   { label: 'Planned hours', value: '9:00am–2:30pm', icon: 'calendar' as const },
   { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
+  { label: 'Areas', value: areasText, icon: 'map' as const },
   { label: 'Ages', value: '8–16, with group suitability agreed individually', icon: 'people' as const },
   { label: 'Format', value: 'Adult-guided small-group projects, indoors and on land outdoors', icon: 'tree' as const },
 ];
@@ -32,7 +34,7 @@ const atAGlance = [
 
   <Section
     id="discovery"
-    title="Home education at Waypoint"
+    title="Home education in Sussex"
     strapline="Making, inventing and exploring, with other young people."
     drawing="campfire"
     drawingLabel="Line drawing of stick people sitting and standing round a campfire"
@@ -40,8 +42,8 @@ const atAGlance = [
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          Waypoint is planning practical-learning days for home-educated young people aged 8–16 in Shoreham-by-Sea.
-          It's a chance to make, invent, explore and see what happens when different ideas come together.
+          Waypoint is planning practical-learning days for home-educated young people aged 8–16 in Shoreham-by-Sea,
+          for families from Shoreham, Lancing, Worthing, Brighton and Hove and across West Sussex. It's a chance to make, invent, explore and see what happens when different ideas come together.
         </p>
         <p>
           Imagine a group designing a basecamp, inventing a Survival Village or creating characters for their own video
@@ -59,7 +61,7 @@ const atAGlance = [
 
   <Section
     id="at-a-glance"
-    title="At a glance"
+    title="Ages, hours and areas"
     strapline="Small groups in Shoreham-by-Sea, for ages 8–16."
     drawing="map-pin"
     drawingLabel="Line drawing of a dotted path leading to a map pin by the sea"

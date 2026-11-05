@@ -1,5 +1,8 @@
 # PRE-LAUNCH ONLY: blocks all search engines while the site is being built.
-# REMOVE THIS FILE AT LAUNCH, together with the noindex meta robots tag in
-# src/layouts/BaseLayout.astro.
+# AT LAUNCH, change "Disallow: /" to "Allow: /", together with removing the noindex meta robots
+# tag in src/layouts/BaseLayout.astro.
 User-agent: *
 Disallow: /
+
+# Keep this line at launch, so search engines can find every page.
+Sitemap: https://waypoint-ap.co.uk/sitemap-index.xml

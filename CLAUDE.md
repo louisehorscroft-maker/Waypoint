@@ -62,8 +62,11 @@ The site uses only five text sizes, set as tokens in `global.css` (`--text-h1`, 
 
 - **Titles and descriptions:** All live in `src/data/seo.ts`, one entry per page. Titles are 60 characters or fewer, keywords and location first (alternative provision, Shoreham-by-Sea, West Sussex, ages 8–16), with "| Waypoint" last. Descriptions are 120 to 155 characters, in house style and using facts only. Every one must be unique. The build fails if any break these rules. Add an entry for every new page.
 - **Never in search results:** The thank-you and 404 pages pass `noindex` to `BaseLayout`, which stays after launch.
+- **Sitemap:** `@astrojs/sitemap` builds `sitemap-index.xml` (leaving out the thank-you and 404 pages), and `robots.txt` points to it. At launch, keep the Sitemap line in robots.txt.
+- **FAQ data:** Parents and carers and For young people keep their FAQs in a `faqs` list in the page, which drives both the visible questions and FAQPage structured data (passed to `BaseLayout`'s `head` slot). Edit the list, not the markup.
+- **Section labels:** Where it reads naturally, H2 labels carry keywords (for example "About our alternative provision", "Ages, hours and areas", "Alternative provision fees").
 - **Social sharing:** Open Graph and Twitter tags are on every page. The share image is `public/images/waypoint-social.png` (1200 by 630).
-- **Organisation details:** Home has EducationalOrganization structured data (name, area served, founder). It has no address or contact details until they're verified.
+- **Organisation details:** Home has EducationalOrganization structured data (name, areas served from `src/data/areas.ts`, location, founder). It has no address or contact details until they're verified.
 - **The live address:** Canonical links, `og:url`, the share image and the structured data URL use `site` in `astro.config.mjs` (https://waypoint-ap.co.uk).
 
 Number ranges (8–16, 9:00am–2:30pm) and Shoreham-by-Sea never break across lines in H1s and straplines (handled by `KeepTogether`).
@@ -107,7 +110,7 @@ Use these components rather than one-off markup.
 - `ActivityCard`: Activity card with one paragraph and a coral top edge, always inside a `CardGroup`. The optional `image` is for real photographs only; until one exists, pass `drawing` and `drawingLabel` to show a line drawing above the text instead.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.
-- `Icon`: Small blue line icons (`calendar`, `people`, `pin`, `tree`, `clipboard`, `heart`, `arrow`, `star`, `speech`, `mountain`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
+- `Icon`: Small blue line icons (`calendar`, `people`, `pin`, `map`, `tree`, `clipboard`, `heart`, `arrow`, `star`, `speech`, `mountain`, `phone`, `mail`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
 - `Illustration`: Simple blue line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`, `building`, `map-pin`, `signpost`, `idea`, `report`, `chat`, `game-studio`, `day`, `helping`, `steps`, `setting`, `school`, `meeting`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
 - `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`. Pass `who` to show a "Led by:" label, so process steps always say who leads them.
 
@@ -129,7 +132,7 @@ The domain is waypoint-ap.co.uk, set as `site` in `astro.config.mjs` (without ww
 
 ## Pre-launch search engine blocking
 
-While the site is being built it is hidden from search engines by two things, `<meta name="robots" content="noindex, nofollow">` in `src/layouts/BaseLayout.astro` and `public/robots.txt` disallowing everything. Both must be removed at launch, never one without the other.
+While the site is being built it is hidden from search engines by two things, `<meta name="robots" content="noindex, nofollow">` in `src/layouts/BaseLayout.astro` and `public/robots.txt` disallowing everything. At launch, remove the meta tag and change `Disallow: /` to `Allow: /` in robots.txt (keeping its Sitemap line), never one without the other.
 
 ## Light mode
 
@@ -151,6 +154,10 @@ These rules apply to all content and copy on the site.
 - **Content boxes:** Avoid groups of four content boxes, use three or six instead.
 - **Box copy:** Use one paragraph per content box.
 - **Hyphens:** Don't remove hyphens from words when editing.
+
+## Areas
+
+Waypoint is based in Shoreham-by-Sea and wants to be found by families and professionals from Shoreham-by-Sea, Lancing, Worthing, Brighton and Hove and across West Sussex (confirmed by Lou). The list lives in `src/data/areas.ts` and feeds the Areas fact in the facts panels, the footer line on every page and the home page's structured data. Some intros and search descriptions name the areas too. Only add an area Wes confirms, and say young people come "from" these areas, not that Waypoint runs sessions there.
 
 ## About Wes
 

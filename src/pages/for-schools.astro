@@ -1,4 +1,5 @@
 ---
+import { areasText } from '../data/areas';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
@@ -28,6 +29,7 @@ const atAGlance = [
     icon: 'clipboard' as const,
   },
   { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
+  { label: 'Areas', value: areasText, icon: 'map' as const },
 ];
 ---
 
@@ -42,7 +44,7 @@ const atAGlance = [
 
   <Section
     id="overview"
-    title="For schools"
+    title="School-funded alternative provision"
     strapline="A day where pupils can show what they can do."
     drawing="idea"
     drawingLabel="Line drawing of a stick person with a lightbulb idea, sketching at an easel"
@@ -72,7 +74,7 @@ const atAGlance = [
 
   <Section
     id="at-a-glance"
-    title="At a glance"
+    title="Ages, hours and areas"
     strapline="Small groups in Shoreham-by-Sea, for pupils aged 8–16."
     drawing="map-pin"
     drawingLabel="Line drawing of a dotted path leading to a map pin by the sea"

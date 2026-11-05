@@ -15,7 +15,7 @@ export const seo: Record<string, PageSeo> = {
   '/': {
     title: 'Alternative provision, Shoreham-by-Sea, ages 8–16 | Waypoint',
     description:
-      'Small-group alternative provision in Shoreham-by-Sea, West Sussex, for ages 8–16. Hands-on projects, individual goals and a weekly report for schools.',
+      'Small-group alternative provision in Shoreham-by-Sea for ages 8–16, near Brighton, Hove, Worthing and Lancing. Hands-on projects and weekly reports.',
   },
   '/about/': {
     title: 'About our hands-on alternative provision | Waypoint',
@@ -25,12 +25,12 @@ export const seo: Record<string, PageSeo> = {
   '/for-schools/': {
     title: 'Alternative provision for schools and SENCos | Waypoint',
     description:
-      'School-funded alternative provision in Shoreham-by-Sea for pupils aged 8–16, with individual goals, a weekly evidence-led report and agreed reviews.',
+      'School-funded alternative provision in Shoreham-by-Sea for pupils aged 8–16 across West Sussex and Brighton and Hove, with a weekly evidence report.',
   },
   '/for-local-authorities/': {
     title: 'Alternative provision for local authorities | Waypoint',
     description:
-      'Alternative provision in West Sussex for commissioners and Virtual Schools, with agreed goals, weekly evidence, named contacts and reviews, ages 8–16.',
+      'Alternative provision in Sussex for councils and Virtual Schools, near Brighton, Hove and Worthing, with agreed goals, weekly evidence and reviews.',
   },
   '/parents-and-carers/': {
     title: 'Alternative provision for your child, ages 8–16 | Waypoint',
@@ -40,7 +40,7 @@ export const seo: Record<string, PageSeo> = {
   '/home-education/': {
     title: 'Home education group in Shoreham-by-Sea | Waypoint',
     description:
-      'Hands-on group projects and creative challenges for home-educated young people aged 8–16 in Shoreham-by-Sea, West Sussex. No referral needed.',
+      'Home education group in Shoreham-by-Sea for ages 8–16, near Brighton, Hove, Worthing and Lancing. Hands-on group projects, no referral needed.',
   },
   '/for-young-people/': {
     title: 'Hands-on projects for young people aged 8–16 | Waypoint',

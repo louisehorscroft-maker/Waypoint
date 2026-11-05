@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { seo } from '../data/seo';
+import { areas } from '../data/areas';
 
 interface Props {
   /** Fallback when the page has no entry in src/data/seo.ts; shown as "<title> | Waypoint" */
@@ -33,7 +34,8 @@ const organisation = {
   name: 'Waypoint',
   description:
     'Small-group alternative provision being developed in Shoreham-by-Sea, West Sussex, for young people aged 8–16.',
-  areaServed: { '@type': 'Place', name: 'Shoreham-by-Sea, West Sussex' },
+  areaServed: [...areas.map((name) => ({ '@type': 'Place', name })), { '@type': 'AdministrativeArea', name: 'West Sussex' }],
+  location: { '@type': 'Place', name: 'Shoreham-by-Sea, West Sussex' },
   founder: { '@type': 'Person', name: 'Wes Horscroft' },
   ...(site ? { url: site.toString(), logo: new URL('/images/waypoint-logo-blue.webp', site).toString() } : {}),
 };
@@ -79,6 +81,8 @@ const organisation = {
     }
     <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
     {isHome && <script type="application/ld+json" set:html={JSON.stringify(organisation)} />}
+    {/* Page-specific structured data, such as FAQs */}
+    <slot name="head" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

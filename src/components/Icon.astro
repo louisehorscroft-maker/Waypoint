@@ -15,7 +15,8 @@ export type IconName =
   | 'speech'
   | 'mountain'
   | 'phone'
-  | 'mail';
+  | 'mail'
+  | 'map';
 
 interface Props {
   name: IconName;
@@ -94,6 +95,7 @@ const { name, size = 22 } = Astro.props;
       </>
     )
   }
+  {name === 'map' && <path d="M3.5 6.5 9 4.5l6 2 5.5-2v13L15 19.5l-6-2-5.5 2zM9 4.5v13M15 6.5v13" />}
   {
     name === 'mail' && (
       <>
