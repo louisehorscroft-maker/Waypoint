@@ -5,7 +5,17 @@
  * them) as long as they stay simple, with no faces or real-person detail.
  * Never draw a real session or the venue.
  */
-export type IllustrationName = 'basecamp' | 'chain-reaction' | 'survival-village' | 'campfire';
+export type IllustrationName =
+  | 'basecamp'
+  | 'chain-reaction'
+  | 'survival-village'
+  | 'campfire'
+  | 'building'
+  | 'map-pin'
+  | 'signpost'
+  | 'idea'
+  | 'report'
+  | 'chat';
 
 interface Props {
   name: IllustrationName;
@@ -91,6 +101,91 @@ const { name, label } = Astro.props;
         <path d="M24 73v28M24 101l-7 21M24 101l7 21M24 80l-12-12M24 80l9 12" />
         <circle cx="176" cy="66" r="7" />
         <path d="M176 73v28M176 101l-7 21M176 101l7 21M176 80l-10 12M176 80l10 12" />
+      </>
+    )
+  }
+  {
+    name === 'building' && (
+      <>
+        {/* Two stick people carrying a plank, with a toolbox */}
+        <circle cx="50" cy="48" r="7" />
+        <path d="M50 55v37M50 92l-8 30M50 92l8 30M50 64l10 7M50 64l-8 12" />
+        <circle cx="150" cy="48" r="7" />
+        <path d="M150 55v37M150 92l-8 30M150 92l8 30M150 64l-10 7M150 64l8 12" />
+        <rect x="56" y="68" width="88" height="7" rx="2" />
+        <rect x="86" y="104" width="28" height="18" rx="2" />
+        <path d="M93 104v-5h14v5M86 112h28" />
+      </>
+    )
+  }
+  {
+    name === 'map-pin' && (
+      <>
+        {/* A dotted path to a map pin, with the sun and the sea */}
+        <circle cx="38" cy="36" r="9" />
+        <path d="M38 20v-4M38 56v-4M22 36h-4M58 36h-4M27 25l-3-3M49 25l3-3M27 47l-3 3M49 47l3 3" />
+        <path d="M18 118c30-6 30-26 60-26s34-14 66-22" stroke-dasharray="0.5 9" />
+        <path d="M150 76c-10-10-14-16-14-23a14 14 0 0 1 28 0c0 7-4 13-14 23z" />
+        <circle cx="150" cy="53" r="5" />
+        <path d="M118 110c4-4 8-4 12 0s8 4 12 0 8-4 12 0 8 4 12 0" />
+      </>
+    )
+  }
+  {
+    name === 'signpost' && (
+      <>
+        {/* A stick person looking up at a signpost with three arrows */}
+        <path d="M108 122V34" />
+        <path d="M108 42h40l8 7-8 7h-40z" />
+        <path d="M108 64H70l-8 7 8 7h38z" />
+        <path d="M108 86h34l7 6-7 6h-34z" />
+        <circle cx="34" cy="80" r="7" />
+        <path d="M34 87v19M34 106l-7 16M34 106l7 16M34 93l14-12M34 93l-10 8" />
+      </>
+    )
+  }
+  {
+    name === 'idea' && (
+      <>
+        {/* A stick person with a lightbulb idea, sketching at an easel */}
+        <circle cx="56" cy="38" r="9" />
+        <path d="M52 47h8M53 51h6M56 22v-5M42 30l-4-3M70 30l4-3" />
+        <circle cx="56" cy="68" r="7" />
+        <path d="M56 75v25M56 100l-8 22M56 100l8 22M56 82l20 6M56 82l-10 10" />
+        <path d="M100 122l16-32M144 122l-16-32M122 90v32" />
+        <rect x="92" y="50" width="60" height="40" rx="3" />
+        <path d="M100 78c6-6 10-6 16 0s10 6 16 0" />
+        <circle cx="134" cy="64" r="6" />
+      </>
+    )
+  }
+  {
+    name === 'report' && (
+      <>
+        {/* A report sheet with ticks and a pencil, and a stick person pointing at it */}
+        <rect x="66" y="30" width="64" height="90" rx="3" />
+        <path d="M76 48l4 4 8-8M96 48h24M76 68l4 4 8-8M96 68h24M76 90h44M76 104h30" />
+        <path d="M142 118l6 3 26-52-6-3z" />
+        <path d="M142 118l-2 8 8-5M164 74l6 3" />
+        <circle cx="32" cy="80" r="7" />
+        <path d="M32 87v19M32 106l-7 16M32 106l7 16M32 93l26-10M32 93l-9 10" />
+      </>
+    )
+  }
+  {
+    name === 'chat' && (
+      <>
+        {/* Two stick people chatting, with speech bubbles */}
+        <circle cx="62" cy="76" r="7" />
+        <path d="M62 83v21M62 104l-7 18M62 104l7 18M62 90l12 8M62 90l-10 10" />
+        <circle cx="138" cy="76" r="7" />
+        <path d="M138 83v21M138 104l-7 18M138 104l7 18M138 90l-12 8M138 90l10 10" />
+        <rect x="24" y="24" width="52" height="28" rx="9" />
+        <path d="M46 52l-4 10 12-10" />
+        <path d="M38 38h.5M50 38h.5M62 38h.5" />
+        <rect x="120" y="30" width="56" height="26" rx="9" />
+        <path d="M150 56l4 10-14-10" />
+        <path d="M130 44c5-5 9-5 13 0s9 5 13 0" />
       </>
     )
   }

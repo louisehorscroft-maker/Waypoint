@@ -9,6 +9,7 @@ import CardGroup from '../components/CardGroup.astro';
 import Card from '../components/Card.astro';
 import Illustration from '../components/Illustration.astro';
 import PhotoFrame from '../components/PhotoFrame.astro';
+import WithDrawing from '../components/WithDrawing.astro';
 
 // Copy: rewritten from content-source/waypoint-content-v1.md, section "1 Home".
 // Wes's WEBSITE COPY is the framework; every fact here comes from it.
@@ -42,43 +43,49 @@ const keyFacts = [
   />
 
   <Section id="about" title="About Waypoint" strapline="A day of making, building and working together.">
-    <div class="prose">
-      <p>
-        Imagine a team building a basecamp, setting off a giant chain reaction or inventing a whole village.
-        Waypoint is a new small-group provision being developed in Shoreham-by-Sea, where young people aged 8–16
-        will create, explore, solve problems and work together.
-      </p>
-      <p>
-        Waypoint offers two routes. Schools can arrange a funded place for a pupil, and home-educating families can
-        enquire directly about Home Education Discovery. Whichever route a young person takes, the day is built
-        around worthwhile activities, encouragement and room for different strengths, and we look carefully at each
-        young person's needs before any place is offered.
-      </p>
-    </div>
-    <div class="button-row">
-      <Button href="/discover-waypoint/">Discover Waypoint</Button>
-    </div>
+    <WithDrawing drawing="building" label="Line drawing of two stick people carrying a plank, with a toolbox">
+      <div class="prose">
+        <p>
+          Imagine a team building a basecamp, setting off a giant chain reaction or inventing a whole village.
+          Waypoint is a new small-group provision being developed in Shoreham-by-Sea, where young people aged 8–16
+          will create, explore, solve problems and work together.
+        </p>
+        <p>
+          Waypoint offers two routes. Schools can arrange a funded place for a pupil, and home-educating families can
+          enquire directly about Home Education Discovery. Whichever route a young person takes, the day is built
+          around worthwhile activities, encouragement and room for different strengths, and we look carefully at each
+          young person's needs before any place is offered.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/discover-waypoint/">Discover Waypoint</Button>
+      </div>
+    </WithDrawing>
   </Section>
 
   <Section id="key-facts" title="Key facts" strapline="Tuesdays in Shoreham-by-Sea, for ages 8–16.">
-    <div class="prose">
-      <p>
-        Waypoint is preparing to open. This is what we are planning, and we will confirm the venue, opening date,
-        practical arrangements and available places before any start is agreed.
-      </p>
-    </div>
+    <WithDrawing drawing="map-pin" label="Line drawing of a dotted path leading to a map pin by the sea">
+      <div class="prose">
+        <p>
+          Waypoint is preparing to open. This is what we are planning, and we will confirm the venue, opening date,
+          practical arrangements and available places before any start is agreed.
+        </p>
+      </div>
+    </WithDrawing>
     <div class="key-facts">
       <InfoPanel facts={keyFacts} />
     </div>
   </Section>
 
   <Section id="find-your-way" title="Who Waypoint is for" strapline="Schools, local authorities and families.">
-    <div class="prose">
-      <p>
-        Whether you work in a school or local authority, or care for a young person, start with the route that
-        fits.
-      </p>
-    </div>
+    <WithDrawing drawing="signpost" label="Line drawing of a stick person looking up at a signpost">
+      <div class="prose">
+        <p>
+          Whether you work in a school or local authority, or care for a young person, start with the route that
+          fits.
+        </p>
+      </div>
+    </WithDrawing>
     <CardGroup columns={2}>
       <RouteCard title="Schools and SENCos" href="/for-schools/">
         See how a school-funded place works, from assessing Waypoint as a provider to considering an individual
@@ -125,32 +132,36 @@ const keyFacts = [
   </Section>
 
   <Section id="learning" title="Learning at Waypoint" strapline="The fun matters. So does the learning.">
-    <div class="prose">
-      <p>
-        When young people have something meaningful to make or solve, different strengths, interests and ways of
-        contributing come through. Our aim is to give every young person engaging experiences, thoughtful guidance
-        and a real part to play.
-      </p>
-      <h3>School-funded places</h3>
-      <p>
-        We agree a small number of individual goals with the school and family, drawing on the support plans
-        already in place.
-      </p>
-      <h3>Home Education Discovery</h3>
-      <p>
-        For young people who are home educated and want something extra in their week, Discovery is a day of
-        hands-on projects and creative challenges alongside other young people.
-      </p>
-    </div>
+    <WithDrawing drawing="idea" label="Line drawing of a stick person with a lightbulb idea, sketching at an easel">
+      <div class="prose">
+        <p>
+          When young people have something meaningful to make or solve, different strengths, interests and ways of
+          contributing come through. Our aim is to give every young person engaging experiences, thoughtful guidance
+          and a real part to play.
+        </p>
+        <h3>School-funded places</h3>
+        <p>
+          We agree a small number of individual goals with the school and family, drawing on the support plans
+          already in place.
+        </p>
+        <h3>Home Education Discovery</h3>
+        <p>
+          For young people who are home educated and want something extra in their week, Discovery is a day of
+          hands-on projects and creative challenges alongside other young people.
+        </p>
+      </div>
+    </WithDrawing>
   </Section>
 
   <Section id="feedback" title="Feedback for schools and families" strapline="A clear written report every week.">
-    <div class="prose">
-      <p>
-        School-funded places include a weekly report for the school and family. It tells you what the young person
-        did, what helped and what to try next.
-      </p>
-    </div>
+    <WithDrawing drawing="report" label="Line drawing of a report sheet with ticks and a pencil">
+      <div class="prose">
+        <p>
+          School-funded places include a weekly report for the school and family. It tells you what the young person
+          did, what helped and what to try next.
+        </p>
+      </div>
+    </WithDrawing>
     <CardGroup columns={3}>
       <Card title="What they did" icon="clipboard">
         The activity, what the young person did and how it went.
@@ -200,16 +211,18 @@ const keyFacts = [
   </Section>
 
   <Section id="get-in-touch" title="Get in touch" strapline="Start with a conversation." brand>
-    <div class="prose">
-      <p>
-        Whether you're a SENCo considering a pupil, a parent exploring options or a home educator curious about
-        Discovery, you're welcome to ask us anything. We'll explain the plans, help you find the right route and be
-        clear about what is still being finalised.
-      </p>
-    </div>
-    <div class="button-row">
-      <Button href="/contact/" variant="accent">Get in touch</Button>
-    </div>
+    <WithDrawing drawing="chat" label="Line drawing of two stick people chatting, with speech bubbles">
+      <div class="prose">
+        <p>
+          Whether you're a SENCo considering a pupil, a parent exploring options or a home educator curious about
+          Discovery, you're welcome to ask us anything. We'll explain the plans, help you find the right route and be
+          clear about what is still being finalised.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/" variant="accent">Get in touch</Button>
+      </div>
+    </WithDrawing>
   </Section>
 </BaseLayout>
 
