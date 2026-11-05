@@ -57,3 +57,10 @@ const placeholders = ['hello@example.com', '07700 900123', 'YOUR_WEB3FORMS_ACCES
 if (placeholders.length > 0) {
   console.warn(`check-dist: WARNING placeholder contact details still in use (${placeholders.join(', ')}). Update src/data/contact.ts before launch.`);
 }
+
+// Pre-launch reminder (warning only): safeguarding training placeholders
+const safeguardingPage = await readFile(join(DIST, 'safeguarding', 'index.html'), 'utf8').catch(() => '');
+const trainingGaps = (safeguardingPage.match(/Details to be added\./g) ?? []).length;
+if (trainingGaps > 0) {
+  console.warn(`check-dist: WARNING ${trainingGaps} safeguarding training placeholders still in use. Update src/data/safeguarding.ts before launch.`);
+}

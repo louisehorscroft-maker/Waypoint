@@ -7,6 +7,7 @@ import CardGroup from '../components/CardGroup.astro';
 import Card from '../components/Card.astro';
 import Icon from '../components/Icon.astro';
 import { contact } from '../data/contact';
+import { policies, training } from '../data/safeguarding';
 
 // Safeguarding page. Based on the source (sections 5, 10 and the footer notes): keep a clear
 // trusted-adult route, safer recruitment and attendance escalation. Wes's Designated Safeguarding
@@ -158,12 +159,65 @@ import { contact } from '../data/contact';
   </Section>
 
   <Section
+    id="our-policies"
+    title="Our policies"
+    strapline="What each safeguarding policy covers."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          These are the policies behind how we keep young people safe. Ask us and we'll share the current version of
+          each, and tell you about anything still being finalised.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      {
+        policies.map((policy) => (
+          <Card title={policy.title} icon="clipboard">
+            {`${policy.summary} `}{policy.href ? <a href={policy.href}>Read the policy</a> : 'Available on request.'}
+          </Card>
+        ))
+      }
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="training-and-checks"
+    title="Training and checks"
+    strapline="Qualified, checked and trained."
+    drawing="idea"
+    drawingLabel="Line drawing of a stick person with a lightbulb idea, sketching at an easel"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Everyone who works with young people at Waypoint is checked and trained before they start. Here are Wes's
+          checks and qualifications.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      {
+        training.map((item) => (
+          <Card title={item.title} icon="star">
+            {item.detail ?? <span class="placeholder">Details to be added.</span>}
+          </Card>
+        ))
+      }
+    </CardGroup>
+  </Section>
+
+  <Section
     id="get-in-touch"
     title="Questions"
     strapline="Ask us about safeguarding."
     brand
-    drawing="report"
-    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
     drawingSide="left"
   >
     <Fragment slot="intro">
@@ -213,6 +267,11 @@ import { contact } from '../data/contact';
   /* Keep phone numbers on one line */
   :global(a[href^='tel:']) {
     white-space: nowrap;
+  }
+
+  .placeholder {
+    font-style: italic;
+    color: var(--colour-muted);
   }
 
   .more-link {
