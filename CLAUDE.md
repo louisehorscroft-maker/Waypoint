@@ -63,7 +63,7 @@ Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use th
 Use these components rather than one-off markup.
 
 - `PageHero`: Forest green band at the top of every page with the H1, strapline and a mustard Get in touch button. Pass `hideCta` on the contact page.
-- `Header` and `Footer`: Site chrome. The header is sticky, with a keyboard-accessible Schools & Professionals dropdown, a mobile menu below 75rem and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
+- `Header` and `Footer`: Site chrome. The header is sticky, with a keyboard-accessible Schools & Professionals dropdown, full-width with the logo hard left and the menu next to it, 18px menu text, a mobile menu below 80rem and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
 - `Section`: Page section with an optional anchor `id`, optional `title` (h2) and `alt` background. Anchors clear the sticky header automatically.
 - `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (mustard, for forest green backgrounds). Never render a button without a real destination.
 - `RouteCard`: Audience route card with a heading link and one paragraph. Put four in `.grid.grid--2` (2x2) and three or six in `.grid.grid--3`.
