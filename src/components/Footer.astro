@@ -1,0 +1,32 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>&copy; {year} Waypoint. All rights reserved.</p>
+    <p><a href="/contact/">Get in touch</a></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--colour-border);
+    background: var(--colour-surface);
+    color: var(--colour-muted);
+    font-size: 0.9375rem;
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .site-footer p {
+    margin: 0;
+  }
+</style>

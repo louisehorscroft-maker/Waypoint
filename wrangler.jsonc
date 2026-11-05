@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "waypoint",
+  "compatibility_date": "2026-11-01",
+  // Static Astro build, served directly from Workers static assets
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

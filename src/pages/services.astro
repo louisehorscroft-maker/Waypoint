@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: 'Discovery',
+    body: 'A focused review of your current position, goals and challenges, summarised in a short written report.',
+  },
+  {
+    title: 'Strategy',
+    body: 'A practical plan setting out priorities, timescales and the resources needed to reach your goals.',
+  },
+  {
+    title: 'Delivery support',
+    body: 'Hands-on help to put the plan into action, from kick-off through to the final milestone.',
+  },
+  {
+    title: 'Coaching',
+    body: 'One-to-one sessions that build confidence and help leaders make better decisions under pressure.',
+  },
+  {
+    title: 'Workshops',
+    body: 'Structured sessions that bring teams together to solve problems and agree a shared direction.',
+  },
+  {
+    title: 'Ongoing reviews',
+    body: 'Regular check-ins to track progress, measure results and keep your plan up to date.',
+  },
+];
+---
+
+<BaseLayout title="Services" description="The services Waypoint offers.">
+  <section class="section">
+    <div class="container">
+      <h1>Our services</h1>
+      <p class="lead">
+        We offer a flexible set of services that can be used on their own or combined. The descriptions below
+        are placeholders until the final details are agreed.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>What we offer</h2>
+      <p>Each service is tailored to your needs, with pricing agreed before any work begins.</p>
+      <div class="grid">
+        {
+          services.map((service) => (
+            <article class="card">
+              <h3>{service.title}</h3>
+              <p>{service.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
