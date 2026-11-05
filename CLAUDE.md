@@ -54,7 +54,7 @@ Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use th
 
 - **Forest green #2F5D50:** Brand colour, hero band, primary buttons, links, card and panel borders, menu underlines, the footer and occasional call-to-action sections (`<Section brand>`)
 - **Cream #FAF6EE:** Page background, box background on white sections, and text (including headings) on forest green
-- **White #FFFFFF:** Alternate section background (`<Section alt>`) and box background on cream sections. Sections alternate cream and white
+- **White #FFFFFF:** Alternate section background (`<Section alt>`) and box background on cream sections. Sections alternate cream and white, starting with white for the first H2 section after the page hero (use `alt` on the 1st, 3rd, 5th section and so on, and give the first section the `section--alt` class if it is not a `Section`)
 - **Sage #DCE6DA:** Menu bar, the line under the hero band and the accent button (forest green text) on forest green. Never a section or box background. The thin (3px) full-width line at the top of every H2 section, and above the footer, uses the deeper sage border tone (`--colour-border`, #C9D6C6)
 - **Charcoal #232B28:** Body text and focus outlines (cream outlines on forest green)
 

@@ -41,7 +41,7 @@ const essentials = [
     strapline="Hands-on, small-group learning days for young people aged 8–16."
   />
 
-  <section id="intro" class="hero" aria-labelledby="intro-heading">
+  <section id="intro" class="hero section--alt" aria-labelledby="intro-heading">
     <div class:list={['container', 'hero__inner', { 'hero__inner--with-image': heroImage }]}>
       <div class="hero__text">
         <h2 id="intro-heading" class="hero__headline">Big ideas. Real experiences. Something to be proud of.</h2>
@@ -64,7 +64,7 @@ const essentials = [
     </div>
   </section>
 
-  <Section alt>
+  <Section>
     <InfoPanel id="essentials" title="Days, ages and location" headingLevel="h2" facts={essentials}>
       <p>
         Waypoint is preparing to open. You can explore the planned offer and ask questions now; we will confirm
@@ -73,7 +73,7 @@ const essentials = [
     </InfoPanel>
   </Section>
 
-  <Section id="find-your-way" title="Who Waypoint is for">
+  <Section id="find-your-way" title="Who Waypoint is for" alt>
     <CardGroup columns={2}>
       <RouteCard title="Schools and SENCos" href="/for-schools/">
         Explore the school-funded offer, individual suitability, purposeful learning and reporting. School leaders
@@ -96,7 +96,7 @@ const essentials = [
     </CardGroup>
   </Section>
 
-  <Section id="activities" title="Hands-on projects and activities" alt>
+  <Section id="activities" title="Hands-on projects and activities">
     <div class="prose">
       <p>
         Picture a basecamp built from ropes and materials, a ball rolling through a giant chain reaction or a group
@@ -114,7 +114,7 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="learning" title="Learning through practical projects">
+  <Section id="learning" title="Learning through practical projects" alt>
     <div class="prose">
       <p>
         When young people have something meaningful to make or solve, we see different strengths, interests and
@@ -129,7 +129,7 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="meet-wes" title="Meet Wes, founder of Waypoint" alt>
+  <Section id="meet-wes" title="Meet Wes, founder of Waypoint">
     <div class:list={['prose', { 'with-image': wesImage }]}>
       {wesImage && <img class="with-image__photo" src={wesImage.src} alt={wesImage.alt} loading="lazy" />}
       <p>
