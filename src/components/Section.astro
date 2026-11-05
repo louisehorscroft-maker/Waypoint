@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import KeepTogether from './KeepTogether.astro';
+import Illustration, { type IllustrationName } from './Illustration.astro';
 
 interface Props extends HTMLAttributes<'section'> {
   /** Anchor id, used for in-page links such as /contact#visits */
@@ -11,9 +12,28 @@ interface Props extends HTMLAttributes<'section'> {
   strapline?: string;
   /** Blue background, for occasional calls to action. Use the accent button inside */
   brand?: boolean;
+  /**
+   * Line drawing shown opposite the heading, strapline and intro (the `intro`
+   * slot). Its box stretches to the same height as that text.
+   */
+  drawing?: IllustrationName;
+  /** Describes the drawing for screen readers */
+  drawingLabel?: string;
+  /** Which side the drawing sits on from tablet up; alternate down the page */
+  drawingSide?: 'right' | 'left';
 }
 
-const { id, title, strapline, brand = false, class: className, ...rest } = Astro.props;
+const {
+  id,
+  title,
+  strapline,
+  brand = false,
+  drawing,
+  drawingLabel = '',
+  drawingSide = 'right',
+  class: className,
+  ...rest
+} = Astro.props;
 const headingId = id && title ? `${id}-heading` : undefined;
 ---
 
@@ -24,8 +44,79 @@ const headingId = id && title ? `${id}-heading` : undefined;
   {...rest}
 >
   <div class="container">
-    {title && <h2 id={headingId}>{title}</h2>}
-    {strapline && <p class="section-strapline"><KeepTogether text={strapline} /></p>}
+    <div class:list={['section-head', { 'section-head--drawing': drawing, 'section-head--left': drawingSide === 'left' }]}>
+      <div class="section-head__text">
+        {title && <h2 id={headingId}>{title}</h2>}
+        {strapline && <p class="section-strapline"><KeepTogether text={strapline} /></p>}
+        <slot name="intro" />
+      </div>
+      {
+        drawing && (
+          <div class="section-head__art">
+            <Illustration name={drawing} label={drawingLabel} />
+          </div>
+        )
+      }
+    </div>
     <slot />
   </div>
 </section>
+
+<style>
+  .section-head__text > :global(:last-child) {
+    margin-bottom: 0;
+  }
+
+  /* Drawing box below the text on phones, kept compact */
+  .section-head--drawing {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .section-head__art {
+    position: relative;
+    height: 11rem;
+    max-width: 18rem;
+    border-radius: var(--radius);
+    background: var(--box-bg);
+  }
+
+  /* The drawing fits inside the box, whatever the box's height */
+  .section-head__art :global(.illustration) {
+    position: absolute;
+    inset: 1rem;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+  }
+
+  :global(.section--brand) .section-head__art {
+    background: transparent;
+  }
+
+  :global(.section--brand) .section-head__art :global(.illustration) {
+    color: var(--colour-on-brand);
+  }
+
+  /* From tablet up: drawing opposite the text, its box the same height */
+  @media (min-width: 48rem) {
+    .section-head--drawing {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+      gap: 3rem;
+      align-items: stretch;
+    }
+
+    .section-head--left {
+      grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    }
+
+    .section-head--left .section-head__art {
+      order: -1;
+    }
+
+    .section-head__art {
+      height: auto;
+      min-height: 12rem;
+      max-width: none;
+    }
+  }
+</style>
