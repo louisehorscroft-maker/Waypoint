@@ -271,14 +271,30 @@ const keyFacts = [
   }
 
   /* Line drawings of the example projects, in a pale tinted strip */
+  /* One drawing per row on phones, three in a row from tablet up */
   .drawings {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    justify-items: center;
     gap: 1rem;
     margin-top: 2rem;
     padding: 1rem;
     border-radius: var(--radius);
     background: var(--box-bg);
+  }
+
+  .drawings :global(.illustration) {
+    max-width: 16rem;
+  }
+
+  @media (min-width: 40rem) {
+    .drawings {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .drawings :global(.illustration) {
+      max-width: none;
+    }
   }
 
   @media (min-width: 48rem) {
