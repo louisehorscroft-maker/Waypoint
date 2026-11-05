@@ -46,7 +46,7 @@ The site uses only five text sizes, set as tokens in `global.css` (`--text-h1`, 
 - **H3:** Sub-headings within a section, such as card titles.
 - **Normal text:** Everything else.
 - **Intros:** Every H2 is followed by its strapline and then an intro paragraph before any boxes, drawings or lists. Every H3 is followed by an intro paragraph.
-- **No set day:** Never mention Tuesday, any other named day or "one day a week". The source plans Tuesdays, but Waypoint may run up to five days a week, so say "a day at Waypoint", "part-time" or "placement" instead. The planned hours (9:00am–2:30pm) can stay.
+- **No set day:** Never mention Tuesday, any other named day or "one day a week". The source plans Tuesdays, but Waypoint may run up to five days a week, so say "a day at Waypoint" or "placement" instead. Don't write "part-time days" (it sounds like half a day); "part-time" is fine only for a placement or the provision. The planned hours (9:00am–2:30pm) can stay.
 - **Home Education:** Never describe Discovery as alternative provision or intervention. It is enrichment for home-educated young people.
 - **Facts only:** Headings, straplines and copy must only state facts that are in the source. Waypoint is preparing to open, so never imply it is already operating.
 
