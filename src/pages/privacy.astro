@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
+import { contact } from '../data/contact';
+
+// Website privacy notice. The content source has no approved privacy text, and Wes's notes ask
+// for one matched to what the site actually does: an enquiry form sent through Web3Forms,
+// hosting on Cloudflare, no cookies, no analytics, no third-party fonts or scripts (checked).
+// Needs Wes's (or legal) sign-off before launch. If the site adds analytics, cookies or other
+// services, update this page. Placement information is covered separately, not here.
+---
+
+<BaseLayout title="Privacy notice" description="How Waypoint uses the information you give us through this website.">
+  <PageHero title="Privacy notice" strapline="How we use the information you give us through this website." />
+
+  <Section
+    id="what-we-collect"
+    title="What we collect"
+    strapline="Only what you choose to send us."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          This notice covers this website and the enquiries you send through it. If a young person starts a placement
+          with us, we'll give you separate information about how we handle placement information.
+        </p>
+        <p>We only collect the information you choose to give us.</p>
+        <ul class="labelled">
+          <li>
+            <strong>Enquiry form:</strong> Your name, email address, phone number (if you give it), who you're contacting
+            us as, your school or organisation (if you give it) and your message.
+          </li>
+          <li>
+            <strong>Email and phone:</strong> Whatever you include when you email or call us.
+          </li>
+          <li>
+            <strong>Visiting the website:</strong> Our hosting provider handles basic technical information, such as your
+            IP address, to deliver the website securely.
+          </li>
+        </ul>
+        <p>Please don't include a child's full name, medical records or other sensitive details in a first message.</p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="how-we-use-it"
+    title="How we use it"
+    strapline="To reply to you, and nothing else."
+    drawing="meeting"
+    drawingLabel="Line drawing of two adults and a young person talking round a table"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          We use your information to respond to your enquiry and any follow-up conversation. We do this because we have a
+          legitimate interest in replying to people who contact us. We don't sell your information, use it for marketing
+          or share it with anyone except the services below.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={2}>
+      <Card title="Cloudflare" icon="pin">
+        Hosts this website and delivers it securely. Read the
+        <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>.
+      </Card>
+      <Card title="Web3Forms" icon="mail">
+        Passes the messages you send through our enquiry form to us by email. Read the
+        <a href="https://web3forms.com/privacy">Web3Forms privacy policy</a>.
+      </Card>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="keeping-it"
+    title="Keeping it and cookies"
+    strapline="No longer than we need, and no tracking."
+    drawing="school"
+    drawingLabel="Line drawing of a school building with a clock and a flag"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          We keep your enquiry only for as long as we need it to reply to you and deal with any follow-up, and then we
+          delete it.
+        </p>
+        <p>
+          This website doesn't use cookies, analytics or tracking of any kind, which is why there's no cookie banner.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="your-rights"
+    title="Your rights"
+    strapline="You're in control of your information."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>Under UK data protection law, you can ask us to do the following.</p>
+        <ul>
+          <li>Tell you what information we hold about you and give you a copy</li>
+          <li>Correct anything that's wrong</li>
+          <li>Delete your information</li>
+          <li>Stop or limit how we use it</li>
+        </ul>
+        <p>
+          To do any of these, email us at <a href={`mailto:${contact.email}`}>{contact.email}</a>. If you're unhappy with
+          how we've handled your information, you can complain to the Information Commissioner's Office
+          at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a> or on 0303 123 1113.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="questions"
+    title="Questions"
+    strapline="Ask us about your information."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>If you have any questions about this notice or your information, please get in touch.</p>
+      </div>
+      <div class="button-row">
+        <Button href="/contact/" variant="accent">Get in touch</Button>
+      </div>
+    </Fragment>
+  </Section>
+</BaseLayout>
+
+<style>
+  .labelled {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .labelled li + li {
+    margin-top: 0.5rem;
+  }
+</style>

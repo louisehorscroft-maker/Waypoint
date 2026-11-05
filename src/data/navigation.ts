@@ -37,8 +37,7 @@ export const footerNav: NavLink[] = [
   { label: 'How referrals work', href: '/how-referrals-work/' },
   { label: 'Policies and provider information', href: '/policies/' },
   { label: 'Safeguarding', href: '/policies/#raising-a-concern' },
-  // Privacy notice points at /policies until an approved notice exists
   { label: 'Complaints', href: '/complaints/' },
-  { label: 'Privacy notice', href: '/policies/' },
+  { label: 'Privacy notice', href: '/privacy/' },
   { label: 'Accessibility information', href: '/policies/#accessing-information' },
 ];
