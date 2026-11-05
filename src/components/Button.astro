@@ -37,20 +37,20 @@ const { href, variant = 'primary', class: className, ...rest } = Astro.props;
     color: var(--colour-on-brand);
   }
 
-  /* Terracotta with white text, for use on forest green backgrounds */
+  /* Sage with forest green text, for use on forest green backgrounds */
   .button--accent {
-    background: var(--colour-accent);
-    border-color: var(--colour-accent);
-    color: var(--colour-on-accent);
+    background: var(--colour-surface);
+    border-color: var(--colour-surface);
+    color: var(--colour-brand);
   }
 
   .button--accent:hover {
     background: var(--colour-on-brand);
     border-color: var(--colour-on-brand);
-    color: var(--charcoal);
+    color: var(--colour-brand-dark);
   }
 
-  /* Terracotta is too close in tone to forest green for a focus ring */
+  /* Charcoal does not show on forest green, so use a cream focus ring */
   .button--accent:focus-visible {
     outline-color: var(--colour-on-brand);
   }

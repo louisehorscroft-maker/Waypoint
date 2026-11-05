@@ -64,7 +64,7 @@ const essentials = [
     </div>
   </section>
 
-  <Section>
+  <Section alt>
     <InfoPanel id="essentials" title="Days, ages and location" headingLevel="h2" facts={essentials}>
       <p>
         Waypoint is preparing to open. You can explore the planned offer and ask questions now; we will confirm
@@ -96,7 +96,7 @@ const essentials = [
     </CardGroup>
   </Section>
 
-  <Section id="activities" title="Hands-on projects and activities">
+  <Section id="activities" title="Hands-on projects and activities" alt>
     <div class="prose">
       <p>
         Picture a basecamp built from ropes and materials, a ball rolling through a giant chain reaction or a group
@@ -114,7 +114,7 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="learning" title="Learning through practical projects" alt>
+  <Section id="learning" title="Learning through practical projects">
     <div class="prose">
       <p>
         When young people have something meaningful to make or solve, we see different strengths, interests and
@@ -129,7 +129,7 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="meet-wes" title="Meet Wes, founder of Waypoint">
+  <Section id="meet-wes" title="Meet Wes, founder of Waypoint" alt>
     <div class:list={['prose', { 'with-image': wesImage }]}>
       {wesImage && <img class="with-image__photo" src={wesImage.src} alt={wesImage.alt} loading="lazy" />}
       <p>
@@ -143,7 +143,7 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="start-with-a-conversation" title="Talk to us about Waypoint" alt class="cta">
+  <Section id="start-with-a-conversation" title="Talk to us about Waypoint" brand>
     <div class="prose">
       <p>
         Whether you're a SENCo considering a pupil, a parent exploring opportunities or a home educator curious
@@ -152,7 +152,7 @@ const essentials = [
       </p>
     </div>
     <div class="button-row">
-      <Button href="/contact/">Get in touch</Button>
+      <Button href="/contact/" variant="accent">Get in touch</Button>
     </div>
   </Section>
 </BaseLayout>

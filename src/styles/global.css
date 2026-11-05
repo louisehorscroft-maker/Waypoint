@@ -3,22 +3,21 @@
   /* Palette, option B (outdoors and making) */
   --forest-green: #2f5d50;
   --forest-green-dark: #244a40;
-  --terracotta: #b5562f;
   --cream: #faf6ee;
+  --white: #ffffff;
   --sage: #dce6da;
   --charcoal: #232b28;
 
-  /* Roles. Terracotta is the accent: borders, underlines and the accent
-     button. Text on terracotta is white (4.84:1); cream is just under AA */
+  /* Roles. Sections alternate cream and white; forest green is used for
+     occasional call-to-action sections; sage is for the menu bar and boxes */
   --colour-bg: var(--cream);
+  --colour-bg-alt: var(--white);
   --colour-surface: var(--sage);
   --colour-text: var(--charcoal);
   --colour-muted: #4a5550;
   --colour-brand: var(--forest-green);
   --colour-brand-dark: var(--forest-green-dark);
   --colour-on-brand: var(--cream);
-  --colour-accent: var(--terracotta);
-  --colour-on-accent: #ffffff;
   --colour-border: #c9d6c6;
   --colour-focus: var(--charcoal);
   --header-height: 5.5rem;
@@ -107,12 +106,12 @@ p {
 
 .section {
   padding: 3rem 0;
-  /* Full-width sage line separating each H2 section. Uses the deeper sage
-     border tone so it still shows against sage section backgrounds */
+  /* Full-width sage line separating each H2 section, in the deeper sage
+     border tone so it shows against both cream and white */
   border-top: 3px solid var(--colour-border);
 }
 
-/* The page hero already has an accent line along its bottom edge */
+/* The page hero already has a sage line along its bottom edge */
 .page-hero + .section {
   border-top: 0;
 }
@@ -123,8 +122,24 @@ p {
   }
 }
 
+/* Alternate sections are white, against the cream page */
 .section--alt {
-  background: var(--colour-surface);
+  background: var(--colour-bg-alt);
+}
+
+/* Occasional forest green section for calls to action */
+.section--brand {
+  background: var(--colour-brand);
+  color: var(--colour-on-brand);
+}
+
+.section--brand h2,
+.section--brand a:not(.button) {
+  color: var(--colour-on-brand);
+}
+
+.section--brand :focus-visible {
+  outline-color: var(--colour-on-brand);
 }
 
 .lead {

@@ -182,7 +182,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     position: sticky;
     top: 0;
     z-index: 100;
-    /* Sage bar with forest green text; terracotta marks hover and the current page */
+    /* Sage bar with forest green text; a forest green underline marks hover and the current page */
     background: var(--colour-surface);
     border-bottom: 1px solid var(--colour-border);
   }
@@ -367,7 +367,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
   .site-nav__link.is-active {
     color: var(--colour-brand-dark);
     text-decoration: underline;
-    text-decoration-color: var(--colour-accent);
+    text-decoration-color: var(--colour-brand);
     text-decoration-thickness: 3px;
     text-underline-offset: 0.4em;
   }
