@@ -106,8 +106,9 @@ p {
 
 .section {
   padding: 3rem 0;
-  /* Full-width mustard line separating each H2 section, matching the page hero */
-  border-top: 3px solid var(--colour-accent);
+  /* Full-width sage line separating each H2 section. Uses the deeper sage
+     border tone so it still shows against sage section backgrounds */
+  border-top: 3px solid var(--colour-border);
 }
 
 /* The page hero already has a mustard line along its bottom edge */

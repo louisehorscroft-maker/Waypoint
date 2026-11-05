@@ -5,6 +5,7 @@ import Button from '../components/Button.astro';
 import InfoPanel from '../components/InfoPanel.astro';
 import RouteCard from '../components/RouteCard.astro';
 import PageHero from '../components/PageHero.astro';
+import CardGroup from '../components/CardGroup.astro';
 
 // Copy: content-source/waypoint-content-v1.md, section "1 Home", WEBSITE COPY.
 
@@ -72,8 +73,8 @@ const essentials = [
     </InfoPanel>
   </Section>
 
-  <Section id="find-your-way" title="Who Waypoint is for" alt>
-    <div class="grid grid--2">
+  <Section id="find-your-way" title="Who Waypoint is for">
+    <CardGroup columns={2}>
       <RouteCard title="Schools and SENCos" href="/for-schools/">
         Explore the school-funded offer, individual suitability, purposeful learning and reporting. School leaders
         assess Waypoint as a provider; SENCos and inclusion leads consider individual pupils.
@@ -89,10 +90,10 @@ const essentials = [
       <RouteCard title="For young people" href="/for-young-people/">
         Check out the projects, meet Wes and see what your first day could look like.
       </RouteCard>
-    </div>
-    <p class="secondary-route">
-      <a href="/for-local-authorities/">For Local Authorities</a>
-    </p>
+      <p slot="footer" class="secondary-route">
+        <a href="/for-local-authorities/">For Local Authorities</a>
+      </p>
+    </CardGroup>
   </Section>
 
   <Section id="activities" title="Hands-on projects and activities">
@@ -193,7 +194,6 @@ const essentials = [
   }
 
   .secondary-route {
-    margin: 1.5rem 0 0;
     font-weight: 600;
   }
 

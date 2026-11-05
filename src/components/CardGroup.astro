@@ -1,0 +1,45 @@
+---
+interface Props {
+  /** 2 for a 2x2 grid of four, 3 for groups of three or six */
+  columns: 2 | 3;
+}
+
+const { columns } = Astro.props;
+const hasFooter = Astro.slots.has('footer');
+---
+
+{/* Every group of boxes sits in a sage panel, on a plain (non-alt) section */}
+<div class="card-group">
+  <div class:list={['grid', `grid--${columns}`]}>
+    <slot />
+  </div>
+  {
+    hasFooter && (
+      <div class="card-group__footer">
+        <slot name="footer" />
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .card-group {
+    background: var(--colour-surface);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+
+  @media (min-width: 48rem) {
+    .card-group {
+      padding: 2rem;
+    }
+  }
+
+  .card-group__footer {
+    margin-top: 1.5rem;
+  }
+
+  .card-group__footer :global(p) {
+    margin: 0;
+  }
+</style>
