@@ -1,11 +1,377 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import CardGroup from '../components/CardGroup.astro';
+import Card from '../components/Card.astro';
+import RouteCard from '../components/RouteCard.astro';
+import IllustrativeExample from '../components/IllustrativeExample.astro';
+import PhotoFrame from '../components/PhotoFrame.astro';
+import FaqItem from '../components/FaqItem.astro';
+
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "4 Parents and Carers".
+// Wes's build notes: one welcoming page for all families. Inspire first (projects, making,
+// things to be proud of), then the day, support and the two routes. Never split families by
+// need, or imply guaranteed friendships, outcomes, age-banded groups or a fixed timetable.
 ---
 
-<BaseLayout title="Part-time alternative provision for your child" description="A day full of ideas, discovery and things to feel proud of.">
+<BaseLayout
+  title="Part-time alternative provision for your child"
+  description="Small-group, hands-on days in Shoreham-by-Sea for young people aged 8–16, through your child's school or Home Education Discovery."
+>
   <PageHero
     title="Part-time alternative provision for your child"
-    strapline="A day full of ideas, discovery and things to feel proud of."
+    strapline="Small-group, hands-on days in Shoreham-by-Sea for young people aged 8–16."
   />
+
+  <Section
+    id="welcome"
+    title="Parents and carers"
+    strapline="Something to tell you about when they get home."
+    drawing="campfire"
+    drawingLabel="Line drawing of stick people sitting and standing round a campfire"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Imagine your child coming home with a story about something they made, an idea they helped bring to life or a
+          challenge they tackled with others. That's the kind of day Waypoint is all about.
+        </p>
+        <p>
+          Waypoint is being developed in Shoreham-by-Sea for young people aged 8–16. The small-group, land-based days
+          bring together making, designing, problem-solving and shared projects, with adults guiding the way and room
+          for everyone to contribute in their own way.
+        </p>
+      </div>
+      <div class="button-row">
+        <Button href="/about/#typical-day">See a typical day</Button>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="what-they-might-love"
+    title="What they might love"
+    strapline="Something for every kind of young person."
+    drawing="chain-reaction"
+    drawingLabel="Line drawing of a ball rolling down a ramp into a row of dominoes"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Your child might plan a basecamp, experiment with a Giant Chain Reaction, create a Survival Village or help a
+          group crack a practical puzzle. Nobody is expected to love every part of a project, because every young
+          person brings something different.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      <Card title="Coming up with the idea" icon="star">
+        Some young people love dreaming up the design and sketching how it could work.
+      </Card>
+      <Card title="Building and testing" icon="clipboard">
+        Others want to get hands-on, put it together and see what happens when they try it out.
+      </Card>
+      <Card title="Making it better" icon="arrow">
+        And some spot the clever change that makes the whole thing work better.
+      </Card>
+    </CardGroup>
+    <div class="prose more">
+      <p>
+        You know what makes your child light up, so we'd love to hear about their interests, their personality and
+        what they're looking forward to trying.
+      </p>
+    </div>
+    <div class="example">
+      <IllustrativeExample title="See an idea come to life" label="Example project, not a fixed timetable or promised result">
+        <p>
+          Picture a group planning a Survival Village. Someone sketches where the shelters could go, someone else
+          experiments with materials and another spots an idea that makes the village work better. They put their plans
+          together, build it, test it and enjoy seeing what they've made as a team.
+        </p>
+      </IllustrativeExample>
+    </div>
+  </Section>
+
+  <Section
+    id="two-routes"
+    title="Two routes"
+    strapline="Through your child's school, or through home education."
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Whichever route you choose, we start by getting to know your child's interests and making sure the group and
+          support are a good match. You can ask us anything before arrangements are agreed.
+        </p>
+      </div>
+    </Fragment>
+    <CardGroup columns={2}>
+      <RouteCard title="Through your child's school" href="/for-schools/">
+        A part-time place arranged with your school's SENCo or inclusion lead, once the school is happy with Waypoint as
+        a provider. It comes with individual goals, school funding and a weekly report.
+      </RouteCard>
+      <RouteCard title="Home Education Discovery" href="/home-education/">
+        Hands-on projects and creative challenges alongside other home-educated young people. Families get in touch
+        directly, with no school referral needed.
+      </RouteCard>
+      <p slot="footer" class="secondary-route">
+        <a href="/for-young-people/">Information for your child</a>
+      </p>
+    </CardGroup>
+  </Section>
+
+  <Section
+    id="meet-wes"
+    title="Meet Wes"
+    strapline="The person leading the way."
+    drawingSide="left"
+  >
+    <PhotoFrame
+      slot="photo"
+      src="/images/wes-horscroft-480.webp"
+      srcset="/images/wes-horscroft-480.webp 480w, /images/wes-horscroft-960.webp 960w"
+      sizes="(min-width: 48rem) 18rem, 16rem"
+      alt="Wes Horscroft, founder of Waypoint"
+      width={480}
+      height={588}
+      ratio="4 / 5"
+      position="50% 30%"
+    />
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Waypoint is founded by Wes Horscroft. Wes has been teaching PE since 2007, is Director of Rugby at Cardinal
+          Newman Catholic School in Hove and raced for Great Britain in Hawaii in 2024.
+        </p>
+        <p>
+          He loves hands-on learning and believes every young person has something valuable to contribute. And you
+          don't need to be sporty to enjoy designing, building, exploring or being part of a shared challenge.
+        </p>
+        <p>Before your child starts, we'll tell you who will be leading their sessions and how to get in touch.</p>
+      </div>
+      <p class="more-link"><a href="/#meet-wes">More about Wes</a></p>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="the-first-day"
+    title="The first day"
+    strapline="What to expect when they arrive."
+    drawing="day"
+    drawingLabel="Line drawing of the sun's path across the sky, with five stops along the way"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Before the first session, we'd like to know what your child enjoys, what they're looking forward to and any
+          small things that help them feel comfortable somewhere new. We'll use what you and the school already know,
+          listen to your child and agree how arrival, introductions and collection will work.
+        </p>
+        <p>
+          On the day there's a friendly welcome. Your child meets the adult leading the day, finds out where everything
+          is and hears the plan, including activities, breaks, lunch and home time. Each activity starts with a clear
+          explanation or demonstration, and adults help them find a good way to join in.
+        </p>
+        <p>
+          We'll share a simple outline in advance so your child can picture the day. Tell us what they're excited about
+          as well as anything that worries them, because both help us get ready.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="joining-in"
+    title="Joining in"
+    strapline="Every young person joins in their own way."
+    drawing="helping"
+    drawingLabel="Line drawing of an adult showing a young person how to stack blocks"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Some young people jump straight into an idea. Others like to watch a demonstration first or start with one
+          part. We make room for different strengths and ways of contributing, with adults guiding the activities and
+          making expectations clear.
+        </p>
+        <p>
+          We want every young person to feel included, find things they enjoy and feel the satisfaction of making
+          progress. When something needs adjusting, we do it thoughtfully, with clear boundaries and supervision.
+        </p>
+        <p>
+          Before a place is agreed, tell us anything that could help your child get the most out of it, and we'll talk
+          through their interests, any adjustments and how we'll keep in touch.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="keeping-you-updated"
+    title="Keeping you updated"
+    strapline="Hear what they've been up to, every week."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          School-funded places include a weekly report for you and the school, so you'll hear about the projects your
+          child has been part of and what they've learned.
+        </p>
+        <p>
+          Reports capture the things worth celebrating, like an idea your child shared, something they built, a skill
+          they practised or how they helped the group. They also explain what helped and what could come next. If
+          anything important comes up, we'll be in touch straight away through the agreed contact.
+        </p>
+        <p>
+          We'd love to hear from you too, whether it's their favourite part, what they want to try next or anything
+          they'd like us to know. For Discovery places, we'll explain how we keep families updated before a place is
+          agreed.
+        </p>
+      </div>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="questions"
+    title="Questions parents ask"
+    strapline="The things families ask us most."
+    drawing="idea"
+    drawingLabel="Line drawing of a stick person with a lightbulb idea, sketching at an easel"
+    drawingSide="left"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>If your question isn't here, just ask. There's no such thing as a silly question.</p>
+      </div>
+    </Fragment>
+    <div class="faqs">
+      <FaqItem question="Could Waypoint help my child discover new interests?">
+        <p>
+          That's exactly what we're aiming for. Your child might find they love making things, planning a group project,
+          solving a problem outdoors or trying a new role in a team. We'll listen to what interests them and make sure
+          the group suits them.
+        </p>
+      </FaqItem>
+      <FaqItem question="What if my child likes to watch before joining in?">
+        <p>
+          That's really useful to know. We can show them a task first, start with the first step and help them find
+          their own way to contribute. Tell us how they like to get involved.
+        </p>
+      </FaqItem>
+      <FaqItem question="Will I hear about what my child enjoys and achieves?">
+        <p>
+          Yes. School-funded places include a weekly report covering what they took part in, what they learned, their
+          strengths and next steps. For Discovery, we'll explain how we keep families updated before a place is
+          agreed.
+        </p>
+      </FaqItem>
+      <FaqItem question="Can I tell you what my child thought of their day?">
+        <p>
+          Please do. We'd love to hear their favourite part, what they'd like to try next or anything they want us to
+          know. If your account of something differs from ours, we'll check the facts and put any mistakes right.
+        </p>
+      </FaqItem>
+      <FaqItem question="Who is Waypoint for?">
+        <p>
+          Young people aged 8–16, through two routes, school-funded places and Home Education Discovery, depending on a
+          suitable group and agreed support. Your child doesn't need a diagnosis for you to ask whether Waypoint could
+          suit them.
+        </p>
+      </FaqItem>
+      <FaqItem question="Does Waypoint fit alongside school or home education?">
+        <p>
+          Yes. School-funded places are part-time and sit alongside your child's school education. Discovery is for
+          home-educated young people and works alongside your own home education plans.
+        </p>
+      </FaqItem>
+      <FaqItem question="What will my child need to bring?">
+        <p>
+          We'll confirm clothing, food and drink, transport and collection before the first session. Please talk to us
+          about any health needs or medication in advance.
+        </p>
+      </FaqItem>
+      <FaqItem question="How do you decide whether the group is right for my child?">
+        <p>
+          We talk through your child's interests and age, the group they'd join and any support or access they need. We
+          only agree a place where we can support your child well. Extra one-to-one staffing isn't included
+          automatically.
+        </p>
+      </FaqItem>
+    </div>
+  </Section>
+
+  <Section
+    id="ask-a-question"
+    title="Ask a question"
+    strapline="Tell us about your child."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
+    <Fragment slot="intro">
+      <div class="prose">
+        <p>
+          Tell us what your child enjoys and what you're hoping to find. If you're exploring a school-funded place, we'll
+          explain how it works with your school's SENCo. If you home educate, you can ask about Discovery directly. You
+          don't need a referral pack just to get in touch.
+        </p>
+      </div>
+      <ul class="route-links">
+        <li><a href="/for-schools/">Share Waypoint with your school</a></li>
+        <li><a href="/fees/">See fees and arrangements</a></li>
+      </ul>
+      <div class="button-row">
+        <Button href="/contact/?purpose=general" variant="accent">Ask a question</Button>
+      </div>
+    </Fragment>
+  </Section>
 </BaseLayout>
+
+<style>
+  .more {
+    margin-top: 1.5rem;
+  }
+
+  .example {
+    margin-top: 2rem;
+    max-width: 46rem;
+  }
+
+  .faqs {
+    margin-top: 2rem;
+    max-width: 46rem;
+  }
+
+  .secondary-route,
+  .more-link {
+    font-weight: 600;
+  }
+
+  .more-link {
+    margin: 1rem 0 0;
+  }
+
+  .secondary-route a::after,
+  .more-link a::after,
+  .route-links a::after {
+    content: ' \2192';
+  }
+
+  .route-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+</style>

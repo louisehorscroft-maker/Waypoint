@@ -28,7 +28,7 @@ Page structure follows the "Navigation and reading guide" in the content source.
 - `/about/`: About (page 2, "Discover Waypoint" in the source, renamed About in the menu as the standard label), H1 "About Waypoint". Sections: What Waypoint is, Activities, Reporting (high up, as the differentiator), A typical day, Our approach, Learning, Is Waypoint a good fit. No Meet Wes or Our setting (the venue line is folded into What Waypoint is)
 - `/for-schools/`: For schools (page 3), H1 "Alternative provision for schools and SENCos". Sections: For schools (with jump links), At a glance, What a place provides, For headteachers (#for-headteachers), For SENCos (#for-sencos), Support and goals, Reporting (with the fictional Alex journey; About has the Alex weekly update), Arranging a placement (#arranging-a-placement), Discuss a pupil. Contact buttons pass `?purpose=visit` or `?purpose=placement` for the contact form to preselect later
 - `/for-local-authorities/`: For local authorities (page 7), H1 "Alternative provision for local authorities". One direct-entry page for commissioners and Virtual Schools: For local authorities, What a placement adds, At a glance (with the "invitation to talk, not a framework, endorsement or contract" note), Suitability, Evidence and reporting, Communication (with For Virtual Schools), Provider information, Arranging a placement (steps with Led by), Talk to us. Never invent numbers, contracts, frameworks, council logos or approvals
-- `/parents-and-carers/`: Parents and carers (page 4), H1 "Part-time alternative provision for your child"
+- `/parents-and-carers/`: Parents and carers (page 4), H1 "Part-time alternative provision for your child". One welcoming page for all families (never split by need): Parents and carers, What they might love (three role cards and the Survival Village example), Two routes (two route cards, as Wes's notes ask), Meet Wes (short, with photo and a link to Home), The first day, Joining in, Keeping you updated, Questions parents ask (FAQs), Ask a question
 - `/home-education/`: Home education (page 6), H1 "Home education group in Shoreham-by-Sea"
 - `/for-young-people/`: For young people (page 5), H1 "Hands-on projects for young people"
 - `/fees/`: Placement arrangements and fees (page 8), H1 "Fees and placement arrangements"
@@ -133,7 +133,7 @@ Facts supplied by Lou (not in the content source), which may be used alongside i
 - Teaching PE since 2007, with a long background in sports coaching (write "since 2007" rather than a number of years, so it never goes out of date)
 - Raced for Great Britain at the IVF Va'a World Sprint Championships in Hawaii in 2024 (outrigger canoe racing)
 
-Sell Wes confidently. The full Meet Wes section lives on Home only (it was removed from About to avoid repeating it). Don't add other claims without a source. His paddling is about him, not Waypoint: the first term is land-based, so never imply Waypoint offers paddling.
+Sell Wes confidently. The full Meet Wes section lives on Home only (it was removed from About to avoid repeating it). Parents and carers has a short version with his photo, as Wes's notes ask for a portrait there, linking to Home for more. Don't add other claims without a source. His paddling is about him, not Waypoint: the first term is land-based, so never imply Waypoint offers paddling.
 
 ## Waypoint content rules
 
