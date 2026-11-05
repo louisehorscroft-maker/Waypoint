@@ -90,7 +90,7 @@ Use these components rather than one-off markup.
 - `ActivityCard`: Activity card with one paragraph and a coral top edge, always inside a `CardGroup`. The optional `image` is for real photographs only; until one exists, pass `drawing` and `drawingLabel` to show a line drawing above the text instead.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.
-- `Icon`: Small blue line icons (`calendar`, `people`, `pin`, `tree`, `clipboard`, `heart`, `arrow`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
+- `Icon`: Small blue line icons (`calendar`, `people`, `pin`, `tree`, `clipboard`, `heart`, `arrow`, `star`, `speech`, `mountain`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
 - `Illustration`: Simple blue line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`, `building`, `map-pin`, `signpost`, `idea`, `report`, `chat`, `game-studio`, `day`, `helping`, `steps`, `setting`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
 - `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`.
 
