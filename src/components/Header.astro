@@ -172,7 +172,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
     });
 
     // Reset the mobile menu when moving to the desktop layout
-    const desktop = window.matchMedia('(min-width: 78rem)');
+    const desktop = window.matchMedia('(min-width: 90rem)');
     desktop.addEventListener('change', () => setMenu(false));
   }
 </script>
@@ -394,7 +394,7 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
   }
 
   /* Desktop */
-  @media (min-width: 78rem) {
+  @media (min-width: 90rem) {
     .site-header__inner {
       flex-wrap: nowrap;
       gap: 1.5rem;
