@@ -88,10 +88,13 @@ const hasArt = Boolean(drawing) || hasPhoto;
     gap: 1.5rem;
   }
 
+  /* Centred under the text on phones */
   .section-head__art {
     position: relative;
+    width: 100%;
     height: 11rem;
     max-width: 18rem;
+    justify-self: center;
     border-radius: var(--radius);
     background: var(--box-bg);
   }
@@ -107,6 +110,7 @@ const hasArt = Boolean(drawing) || hasPhoto;
   .section-head__photo {
     max-width: 16rem;
     align-self: center;
+    justify-self: center;
   }
 
   :global(.section--brand) .section-head__art {
