@@ -9,12 +9,14 @@ interface Props {
   drawing: IllustrationName;
   /** Describes the drawing for screen readers */
   label: string;
+  /** Which side the drawing sits on from tablet up; alternate down the page */
+  side?: 'right' | 'left';
 }
 
-const { drawing, label } = Astro.props;
+const { drawing, label, side = 'right' } = Astro.props;
 ---
 
-<div class="with-drawing">
+<div class:list={['with-drawing', `with-drawing--${side}`]}>
   <div class="with-drawing__text">
     <slot />
   </div>
@@ -60,6 +62,14 @@ const { drawing, label } = Astro.props;
 
     .with-drawing__art {
       max-width: none;
+    }
+
+    .with-drawing--left {
+      grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+    }
+
+    .with-drawing--left .with-drawing__art {
+      order: -1;
     }
   }
 </style>

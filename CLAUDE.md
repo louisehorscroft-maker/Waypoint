@@ -92,7 +92,7 @@ Use these components rather than one-off markup.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.
 - `Icon`: Small blue line icons (`calendar`, `people`, `pin`, `tree`, `clipboard`, `heart`, `arrow`), decorative and hidden from screen readers. Add new icons in the same 24px, 1.75 stroke, round-ended style.
 - `Illustration`: Simple blue line drawings (`basecamp`, `chain-reaction`, `survival-village`, `campfire`, `building`, `map-pin`, `signpost`, `idea`, `report`, `chat`) in the logo's line style, with a wavy ground line, always with a `label` describing the drawing. Wes loves these. Simple stick people are allowed (Wes asked for them), with no faces or real-person detail; never draw a real session or the venue. Check new drawings with Wes.
-- `WithDrawing`: Puts a section's intro text beside a line drawing (below it, small, on phones). Every H2 section has a line drawing or a real photo; use this for sections without one. On blue `brand` sections the drawing turns cream with no box.
+- `WithDrawing`: Puts a section's intro text beside a line drawing (below it, small, on phones). Use `side="left"` or the default right so pictures alternate sides down the page, including photos. Every H2 section has a line drawing or a real photo; use this for sections without one. On blue `brand` sections the drawing turns cream with no box.
 - `StepList` and `Step`: Numbered stages. Wrap `<Step title="...">` items in `<StepList>`.
 
 ## Pre-launch search engine blocking
