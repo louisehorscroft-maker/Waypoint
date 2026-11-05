@@ -1,0 +1,23 @@
+---
+/**
+ * Renders text, keeping number ranges (8–16, 9:00am–2:30pm) and the place name
+ * Shoreham-by-Sea on one line without changing the words themselves.
+ */
+interface Props {
+  text: string;
+}
+
+const NO_BREAK = /(\d[\d:]*(?:am|pm)?–\d[\d:]*(?:am|pm)?|Shoreham-by-Sea)/;
+const parts = Astro.props.text
+  .split(NO_BREAK)
+  .filter(Boolean)
+  .map((part) => ({ text: part, nowrap: NO_BREAK.test(part) }));
+---
+
+{parts.map((part) => (part.nowrap ? <span class="nowrap">{part.text}</span> : part.text))}
+
+<style>
+  .nowrap {
+    white-space: nowrap;
+  }
+</style>

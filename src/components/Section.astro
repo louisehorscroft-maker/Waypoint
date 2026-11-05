@@ -1,16 +1,19 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import KeepTogether from './KeepTogether.astro';
 
 interface Props extends HTMLAttributes<'section'> {
   /** Anchor id, used for in-page links such as /contact#visits */
   id?: string;
-  /** Optional section heading, rendered as an h2 */
+  /** Section heading: a short, keyword-friendly label, rendered as a small H2 */
   title?: string;
+  /** Big text directly under the H2. Every H2 needs one */
+  strapline?: string;
   /** Forest green background, for occasional calls to action. Use the accent button inside */
   brand?: boolean;
 }
 
-const { id, title, brand = false, class: className, ...rest } = Astro.props;
+const { id, title, strapline, brand = false, class: className, ...rest } = Astro.props;
 const headingId = id && title ? `${id}-heading` : undefined;
 ---
 
@@ -22,6 +25,7 @@ const headingId = id && title ? `${id}-heading` : undefined;
 >
   <div class="container">
     {title && <h2 id={headingId}>{title}</h2>}
+    {strapline && <p class="section-strapline"><KeepTogether text={strapline} /></p>}
     <slot />
   </div>
 </section>

@@ -36,15 +36,20 @@ Page structure follows the "Navigation and reading guide" in the content source.
 - `/policies/`: Policies and provider information (page 10), H1 "Policies and provider information"
 - `/contact/`: Get in touch (page 11), H1 "Contact Waypoint"
 
-## Headings and SEO
+## Headings, type sizes and SEO
 
-H1s and H2s are written for search as well as for readers, so they may differ from the headings in the content source. Body copy stays word for word.
+The site uses only five text sizes, set as tokens in `global.css` (`--text-h1`, `--text-h2`, `--text-strapline`, `--text-h3`, `--text-body`). Never add another size. Menu, buttons, cards, footer and labels all use the normal text size.
 
-- **H1:** Keyword-led and short, in the `PageHero` band. Say what Waypoint is (alternative provision), who it is for, and where (Shoreham-by-Sea) where it fits.
-- **First H2:** Carries the page's big headline from the source, for example "Big ideas. Real experiences. Something to be proud of." on Home, followed by the intro copy.
-- **Other H2s:** Short, descriptive and keyword-friendly, for example "Hands-on projects and activities" rather than "What could you make happen?".
+- **H1:** Keyword-led and short, in the `PageHero` band, with a one-line strapline (strapline size) and a Get in touch button. Say what Waypoint is (alternative provision), who it is for, and where (Shoreham-by-Sea) where it fits.
+- **H2:** A small uppercase label, like the Paddlesport site, short and keyword-friendly (for example "Projects and activities"). Pass it as `Section`'s `title`.
+- **Strapline:** The big text directly under every H2, a short punchy line (for example "What could you make happen?"). Pass it as `Section`'s `strapline`. Every H2 must have one.
+- **H3:** Sub-headings within a section, such as card titles.
+- **Normal text:** Everything else.
+- **Intros:** Every H2 is followed by its strapline and then an intro paragraph before any boxes, drawings or lists. Every H3 is followed by an intro paragraph.
 - **Home Education:** Never describe Discovery as alternative provision or intervention. It is enrichment for home-educated young people.
-- **Facts only:** Headings and straplines must only state facts that are in the source. Waypoint is preparing to open, so never imply it is already operating.
+- **Facts only:** Headings, straplines and copy must only state facts that are in the source. Waypoint is preparing to open, so never imply it is already operating.
+
+Number ranges (8–16, 9:00am–2:30pm) and Shoreham-by-Sea never break across lines in H1s and straplines (handled by `KeepTogether`).
 
 Footer links point at these anchors, which must exist once the content is added: `/contact/#visits`, `/policies/#raising-a-concern` and `/policies/#accessing-information`. Complaints and Privacy notice link to `/policies/` until approved documents exist.
 
@@ -70,11 +75,12 @@ Use these components rather than one-off markup.
 
 - `PageHero`: Forest green band at the top of every page, with a sage line along its bottom edge (no line between the menu and the band) and the faded logo mark at a diagonal behind the text, with the H1, strapline and a sage Get in touch button. Pass `hideCta` on the contact page.
 - `Header` and `Footer`: Site chrome. The header is sticky and full-width, with a large logo hard left as the standout element, the menu and Get in touch hard right, a keyboard-accessible Schools & Professionals dropdown, a burger menu below 90rem (1440px), so smaller laptops show the logo, Get in touch and the menu button and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
-- `Section`: Page section with an optional anchor `id`, optional `title` (h2) and `brand` (forest green, for occasional calls to action such as the closing Get in touch, with an accent button). Each one has a full-width sage line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
+- `Section`: Page section with an optional anchor `id`, `title` (the small H2 label), `strapline` (the big text under it, required with a title) and `brand` (forest green, for occasional calls to action such as the closing Get in touch, with an accent button). Each one has a full-width sage line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
 - `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (sage with forest green text, for forest green backgrounds). Never render a button without a real destination.
 - `CardGroup`: Mist panel that holds every group of boxes, with `columns={2}` (four boxes, 2x2) or `columns={3}` (three or six) and an optional `footer` slot for a link under the boxes. Always use it for groups of cards,.
 - `RouteCard`: Audience route card with a heading link and one paragraph. Always inside a `CardGroup`.
-- `InfoPanel`: Facts panel, mist with a forest green left edge. Each fact can take an `icon`. Pass `facts` as label and value pairs, or slot in content.
+- `InfoPanel`: Facts panel, mist with a forest green left edge. Each fact can take an `icon`. On a page, put it inside a `Section` with its own title, strapline and intro rather than giving the panel an H2.
+- `KeepTogether`: Renders text with number ranges and Shoreham-by-Sea kept on one line. Used by `PageHero` and `Section` straplines. Pass `facts` as label and value pairs, or slot in content.
 - `PhotoFrame`: Use for every real photo. The photo sits on an offset forest green block with rounded corners (the same idea as the Paddlesport site). `side="left"` mirrors the block for photos on the right of the text; `ratio` and `position` control the crop.
 - `ActivityCard`: Activity card with one paragraph, always inside a `CardGroup`. The optional `image` is for real photographs only, and the image slot is not rendered without one.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
@@ -113,7 +119,8 @@ These rules apply to all content and copy on the site.
 These rules govern how copy from the source document is used on the site.
 
 - **Single source:** `content-source/waypoint-content-v1.md` is the single source of copy. It has pages 1 to 11, a parent introduction and a footer section.
-- **What is published:** Only text under "WEBSITE COPY" appears on the site, plus FORM WORDING, SUCCESS MESSAGE and FAILURE MESSAGE on the contact page. Use it word for word apart from the house style fixes in this file.
+- **What is published:** Only content from "WEBSITE COPY" appears on the site, plus FORM WORDING, SUCCESS MESSAGE and FAILURE MESSAGE on the contact page.
+- **Framework, not verbatim:** Wes's WEBSITE COPY is the framework. Rewrite it to be clearer, warmer and punchier, and to fit the heading and intro rules, but keep his meaning, keep every fact accurate and add no new facts, claims or promises. FORM WORDING, SUCCESS MESSAGE and FAILURE MESSAGE stay word for word.
 - **Instructions, not copy:** "INTERNAL BUILD NOTES" and "BUTTONS AND DESTINATIONS" are instructions to follow and are never published.
 - **Internal sections:** Everything from "Decisions before publication" onwards, including all GAP, handover and editorial sections, is internal and must never appear on the site.
 - **Links:** Never publish any Google Drive or Notion links from the document.
@@ -121,6 +128,6 @@ These rules govern how copy from the source document is used on the site.
 - **Booking and payment:** No booking or payment controls anywhere.
 - **Images:** No stock or AI-generated images of people, sessions or venues. Image slots stay hidden until real photos are supplied.
 - **Illustrative examples:** Labels marking examples as illustrative or fictional (such as Alex) must stay visible and attached to the example on every screen size.
-- **Mis-formatted headings:** Some paragraphs in the source are wrongly formatted as headings (long sentences starting with `##`). Treat these as body text or card content, not headings.
+- **Mis-formatted headings:** Some paragraphs in the source are wrongly formatted as headings (long sentences starting with `##`). Treat these as body text or card content, not headings. Source headings are a guide only; site headings follow the rules in "Headings, type sizes and SEO".
 - **Em dashes:** Where the pattern is "Title — text", show the title as a card heading or bold label and the text as body. Elsewhere replace the em dash with a comma or full stop. Keep en dashes in ranges such as 8–16 and 9:00am–2:30pm.
 - **Four cards or routes:** Where the source has four cards or routes, use a 2x2 grid on desktop, not four in a row. This is the agreed exception to the "three or six content boxes" house rule.

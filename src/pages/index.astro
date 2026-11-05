@@ -9,17 +9,9 @@ import CardGroup from '../components/CardGroup.astro';
 import Illustration from '../components/Illustration.astro';
 import PhotoFrame from '../components/PhotoFrame.astro';
 
-// Copy: content-source/waypoint-content-v1.md, section "1 Home", WEBSITE COPY.
+// Copy: rewritten from content-source/waypoint-content-v1.md, section "1 Home".
+// Wes's WEBSITE COPY is the framework; every fact here comes from it.
 
-type ImageSlot = { src: string; alt: string } | undefined;
-
-/**
- * Image slots stay hidden until real photographs are supplied.
- * Hero: truthful practical-project imagery only (adult-created examples where
- * available), never stock, AI-generated or learner images, and no paddling or
- * climbing presented as first-term provision.
- */
-const heroImage = undefined as ImageSlot;
 /** Meet Wes: a real photograph of Wes only (supplied by Lou, placeholder until a final photo). */
 const wesImage = {
   src: '/images/wes-horscroft-480.webp',
@@ -27,72 +19,76 @@ const wesImage = {
   alt: 'Wes Horscroft, founder of Waypoint',
 };
 
-const essentials = [
+const keyFacts = [
   { label: 'Planned day', value: 'Tuesday, 9:00am–2:30pm', icon: 'calendar' as const },
-  { label: 'Ages', value: '8–16, subject to individual group suitability', icon: 'people' as const },
+  { label: 'Ages', value: '8–16, depending on individual and group suitability', icon: 'people' as const },
   { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
   {
     label: 'First term',
+    value: 'Practical indoor and land-based outdoor learning, with no paddling, water activities or climbing',
     icon: 'tree' as const,
-    value: 'Practical indoor and land-based outdoor learning; no paddling, water activities or climbing',
   },
 ];
 ---
 
 <BaseLayout
   title="Alternative provision in Shoreham-by-Sea"
-  description="Waypoint is developing hands-on days where young people can create, explore, solve problems and work together."
+  description="Waypoint is a new small-group provision in Shoreham-by-Sea where young people aged 8–16 will create, explore, solve problems and work together."
 >
   <PageHero
     title="Alternative provision in Shoreham-by-Sea"
     strapline="Hands-on, small-group learning days for young people aged 8–16."
   />
 
-  <section id="intro" class="hero" aria-labelledby="intro-heading">
-    <div class:list={['container', 'hero__inner', { 'hero__inner--with-image': heroImage }]}>
-      <div class="hero__text">
-        <h2 id="intro-heading" class="hero__headline">Big ideas. Real experiences. Something to be proud of.</h2>
-        <p class="lead">
-          Imagine a team building a basecamp, setting off a giant chain reaction or inventing a whole village.
-          Waypoint is developing hands-on days where young people can create, explore, solve problems and work
-          together.
-        </p>
-        <p>
-          Planned for Shoreham-by-Sea and young people aged 8–16, Waypoint offers two developing routes within a
-          small-group, part-time learning experience, school-funded Intervention and Home Education Discovery.
-          Both start with worthwhile activities, encouragement and room for different strengths. Individual
-          suitability is considered before any place is offered.
-        </p>
-        <div class="button-row">
-          <Button href="/discover-waypoint/">Discover Waypoint</Button>
-        </div>
-      </div>
-      {heroImage && <img class="hero__image" src={heroImage.src} alt={heroImage.alt} />}
-    </div>
-  </section>
-
-  <Section>
-    <InfoPanel id="essentials" title="Days, ages and location" headingLevel="h2" facts={essentials}>
+  <Section id="about" title="About Waypoint" strapline="Big ideas. Real experiences. Something to be proud of.">
+    <div class="prose">
       <p>
-        Waypoint is preparing to open. You can explore the planned offer and ask questions now; we will confirm
-        the venue, opening date, practical arrangements and available places before any start is agreed.
+        Imagine a team building a basecamp, setting off a giant chain reaction or inventing a whole village.
+        Waypoint is a new small-group provision being developed in Shoreham-by-Sea, where young people aged 8–16
+        will create, explore, solve problems and work together.
       </p>
-    </InfoPanel>
+      <p>
+        There are two ways in, a school-funded place arranged through your child's school, or Home Education
+        Discovery for home-educated young people. Both start with worthwhile activities, encouragement and room for
+        different strengths, and every place is agreed individually.
+      </p>
+    </div>
+    <div class="button-row">
+      <Button href="/discover-waypoint/">Discover Waypoint</Button>
+    </div>
   </Section>
 
-  <Section id="find-your-way" title="Who Waypoint is for">
+  <Section id="key-facts" title="Key facts" strapline="Tuesdays in Shoreham-by-Sea, for ages 8–16.">
+    <div class="prose">
+      <p>
+        Waypoint is preparing to open. This is what we are planning, and we will confirm the venue, opening date,
+        practical arrangements and available places before any start is agreed.
+      </p>
+    </div>
+    <div class="key-facts">
+      <InfoPanel facts={keyFacts} />
+    </div>
+  </Section>
+
+  <Section id="find-your-way" title="Who Waypoint is for" strapline="Find the right route for you.">
+    <div class="prose">
+      <p>
+        Whether you work in a school, care for a young person or are a young person yourself, start with the
+        route that fits.
+      </p>
+    </div>
     <CardGroup columns={2}>
       <RouteCard title="Schools and SENCos" href="/for-schools/">
-        Explore the school-funded offer, individual suitability, purposeful learning and reporting. School leaders
-        assess Waypoint as a provider; SENCos and inclusion leads consider individual pupils.
+        See how a school-funded place works, from assessing Waypoint as a provider to considering an individual
+        pupil, with purposeful learning and regular reporting.
       </RouteCard>
       <RouteCard title="Parents and carers" href="/parents-and-carers/">
-        Picture an enjoyable day, meet Wes and see the two ways to explore a place, through school or Home
+        Picture your child's day, meet Wes and see the two ways to explore a place, through school or Home
         Education Discovery.
       </RouteCard>
       <RouteCard title="Home Education Discovery" href="/home-education/">
-        Explore practical enrichment, group projects and creative challenges. Families can enquire directly without
-        a school referral.
+        Practical enrichment, group projects and creative challenges for home-educated young people. Families can
+        enquire directly, with no school referral needed.
       </RouteCard>
       <RouteCard title="For young people" href="/for-young-people/">
         Check out the projects, meet Wes and see what your first day could look like.
@@ -103,17 +99,16 @@ const essentials = [
     </CardGroup>
   </Section>
 
-  <Section id="activities" title="Hands-on projects and activities">
+  <Section id="activities" title="Projects and activities" strapline="What could you make happen?">
     <div class="prose">
       <p>
-        Picture a basecamp built from ropes and materials, a ball rolling through a giant chain reaction or a group
-        creating a Survival Village. You could dream up an idea, draw the plan, build, test or spot what could work
-        better.
+        Build a basecamp from ropes and materials, send a ball through a giant chain reaction or create a whole
+        Survival Village. Dream up an idea, draw the plan, build it, test it and work out what could be better.
       </p>
       <p>
-        These projects are designed to be enjoyable in their own right. Along the way, young people can practise
-        practical skills, teamwork, communication and problem-solving. These are examples from our developing
-        activity bank, not a fixed weekly timetable.
+        The projects are fun in their own right, and along the way young people practise practical skills,
+        teamwork, communication and problem-solving. They are examples from our developing activity bank, not a
+        fixed weekly timetable.
       </p>
     </div>
     <div class="drawings">
@@ -126,22 +121,27 @@ const essentials = [
     </div>
   </Section>
 
-  <Section id="learning" title="Learning through practical projects">
+  <Section id="learning" title="Learning at Waypoint" strapline="The fun matters. So does the learning.">
     <div class="prose">
       <p>
-        When young people have something meaningful to make or solve, we see different strengths, interests and
-        ways of contributing. Our aim is to offer engaging experiences, thoughtful guidance and opportunities for
-        each young person to play a part.
+        When young people have something meaningful to make or solve, different strengths, interests and ways of
+        contributing come through. Our aim is to give every young person engaging experiences, thoughtful guidance
+        and a real part to play.
       </p>
+      <h3>School-funded places</h3>
       <p>
-        For school-funded pupils, we plan to agree individual goals with school and family and share useful
-        observations about participation, support and next steps. Discovery offers home-educated young people
-        creative, practical enrichment alongside others, with arrangements discussed before booking.
+        We plan to agree individual goals with school and family, then share useful observations about
+        participation, support and next steps.
+      </p>
+      <h3>Home Education Discovery</h3>
+      <p>
+        Creative, practical enrichment alongside other home-educated young people, with arrangements discussed
+        before any place is agreed.
       </p>
     </div>
   </Section>
 
-  <Section id="meet-wes" title="Meet Wes, founder of Waypoint">
+  <Section id="meet-wes" title="Meet Wes" strapline="An experienced PE teacher and sports coach.">
     <div class="meet-wes">
       <PhotoFrame
         class="meet-wes__photo"
@@ -155,24 +155,24 @@ const essentials = [
         position="50% 30%"
       />
       <div class="prose">
-      <p>
-        Waypoint is founded by Wes Horscroft, an experienced PE teacher and sports coach who enjoys helping young
-        people bring ideas to life, build practical skills and see what they can contribute.
-      </p>
-      <p>
-        His approach combines encouragement, clear expectations and curiosity about each young person. Waypoint is
-        not a sports club, designing, making, collaborating and trying something new all count.
-      </p>
+        <p>
+          Waypoint is founded by Wes Horscroft, who loves helping young people bring ideas to life, build practical
+          skills and discover what they can contribute.
+        </p>
+        <p>
+          His approach mixes encouragement, clear expectations and real curiosity about each young person. And
+          Waypoint is not a sports club. Designing, making, collaborating and trying something new all count.
+        </p>
       </div>
     </div>
   </Section>
 
-  <Section id="start-with-a-conversation" title="Talk to us about Waypoint" brand>
+  <Section id="get-in-touch" title="Get in touch" strapline="Start with a conversation." brand>
     <div class="prose">
       <p>
-        Whether you're a SENCo considering a pupil, a parent exploring opportunities or a home educator curious
-        about Discovery, you're welcome to start with a question. We'll explain the planned offer, help you find
-        the right route and be clear about arrangements still being finalised.
+        Whether you're a SENCo considering a pupil, a parent exploring options or a home educator curious about
+        Discovery, you're welcome to ask us anything. We'll explain the plans, help you find the right route and be
+        clear about what is still being finalised.
       </p>
     </div>
     <div class="button-row">
@@ -182,39 +182,8 @@ const essentials = [
 </BaseLayout>
 
 <style>
-  .hero {
-    padding: 3rem 0 2rem;
-  }
-
-  .hero__inner {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .hero__text {
-    max-width: 46rem;
-  }
-
-  .hero__headline {
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-
-  .hero__image {
-    width: 100%;
-    border-radius: var(--radius);
-    object-fit: cover;
-    aspect-ratio: 4 / 3;
-  }
-
-  @media (min-width: 56rem) {
-    .hero {
-      padding: 4.5rem 0 3rem;
-    }
-
-    .hero__inner--with-image {
-      grid-template-columns: 3fr 2fr;
-    }
+  .key-facts {
+    margin-top: 1.5rem;
   }
 
   .secondary-route {
@@ -225,8 +194,8 @@ const essentials = [
     content: ' \2192';
   }
 
-  .prose {
-    max-width: 46rem;
+  .prose h3 {
+    margin-top: 1.75rem;
   }
 
   /* Line drawings of the example projects, in a pale tinted strip */
@@ -245,10 +214,6 @@ const essentials = [
       gap: 2.5rem;
       padding: 1.5rem 2.5rem;
     }
-  }
-
-  .prose p:last-child {
-    margin-bottom: 0;
   }
 
   /* Photo above the text on phones, beside it from tablet up */
