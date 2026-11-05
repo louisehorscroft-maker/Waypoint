@@ -5,24 +5,24 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="container">
-    <nav aria-label="Footer">
-      <ul class="site-footer__links">
-        {
-          footerNav.map((link) => (
-            <li>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-    <div class="site-footer__bottom">
+  <div class="container site-footer__inner">
+    <div class="site-footer__main">
+      <nav aria-label="Footer">
+        <ul class="site-footer__links">
+          {
+            footerNav.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
       <p class="site-footer__copyright">&copy; {year} Waypoint</p>
-      <a href="/" class="site-footer__logo">
-        <img src="/images/waypoint-logo-cream.webp" alt="Waypoint home" width="300" height="132" loading="lazy" />
-      </a>
     </div>
+    <a href="/" class="site-footer__logo">
+      <img src="/images/waypoint-logo-cream.webp" alt="Waypoint home" width="300" height="132" loading="lazy" />
+    </a>
   </div>
 </footer>
 
@@ -34,23 +34,30 @@ const year = new Date().getFullYear();
     padding: 2.5rem 0 2rem;
   }
 
-  .site-footer__bottom {
+  /* Full-width like the header: links on the left, logo hard right on the same row */
+  .site-footer__inner {
+    max-width: none;
     display: flex;
-    align-items: flex-end;
+    flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgb(250 246 238 / 0.25);
+    gap: 1.5rem 2.5rem;
+  }
+
+  .site-footer__main {
+    flex: 1 1 18rem;
+    max-width: 60rem;
   }
 
   .site-footer__logo {
     display: block;
+    margin-left: auto;
     line-height: 0;
   }
 
   .site-footer__logo img {
     width: auto;
-    height: 4rem;
+    height: 4.5rem;
   }
 
   .site-footer__links {
@@ -71,6 +78,14 @@ const year = new Date().getFullYear();
   @media (min-width: 56rem) {
     .site-footer__links {
       grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Match the header's side padding on wide screens so the logos line up */
+  @media (min-width: 90rem) {
+    .site-footer__inner {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
     }
   }
 
