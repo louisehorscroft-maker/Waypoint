@@ -3,13 +3,13 @@
   /* Palette, option B (outdoors and making) */
   --forest-green: #2f5d50;
   --forest-green-dark: #244a40;
-  --mustard: #e3a72f;
+  --terracotta: #b5562f;
   --cream: #faf6ee;
   --sage: #dce6da;
   --charcoal: #232b28;
 
-  /* Roles. Mustard fails contrast as text on cream, so use it only for
-     accents and borders on light backgrounds, or as a fill with charcoal text */
+  /* Roles. Terracotta is the accent: borders, underlines and the accent
+     button. Text on terracotta is white (4.84:1); cream is just under AA */
   --colour-bg: var(--cream);
   --colour-surface: var(--sage);
   --colour-text: var(--charcoal);
@@ -17,7 +17,8 @@
   --colour-brand: var(--forest-green);
   --colour-brand-dark: var(--forest-green-dark);
   --colour-on-brand: var(--cream);
-  --colour-accent: var(--mustard);
+  --colour-accent: var(--terracotta);
+  --colour-on-accent: #ffffff;
   --colour-border: #c9d6c6;
   --colour-focus: var(--charcoal);
   --header-height: 5.5rem;
@@ -111,7 +112,7 @@ p {
   border-top: 3px solid var(--colour-border);
 }
 
-/* The page hero already has a mustard line along its bottom edge */
+/* The page hero already has an accent line along its bottom edge */
 .page-hero + .section {
   border-top: 0;
 }

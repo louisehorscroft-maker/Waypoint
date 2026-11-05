@@ -37,11 +37,11 @@ const { href, variant = 'primary', class: className, ...rest } = Astro.props;
     color: var(--colour-on-brand);
   }
 
-  /* Mustard with charcoal text, for use on forest green backgrounds */
+  /* Terracotta with white text, for use on forest green backgrounds */
   .button--accent {
     background: var(--colour-accent);
     border-color: var(--colour-accent);
-    color: var(--charcoal);
+    color: var(--colour-on-accent);
   }
 
   .button--accent:hover {
@@ -50,8 +50,9 @@ const { href, variant = 'primary', class: className, ...rest } = Astro.props;
     color: var(--charcoal);
   }
 
+  /* Terracotta is too close in tone to forest green for a focus ring */
   .button--accent:focus-visible {
-    outline-color: var(--colour-accent);
+    outline-color: var(--colour-on-brand);
   }
 
   .button--secondary {

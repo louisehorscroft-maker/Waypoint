@@ -53,19 +53,19 @@ Footer links point at these anchors, which must exist once the content is added:
 Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use the role variables (`--colour-brand`, `--colour-accent` and so on) rather than hex values.
 
 - **Forest green #2F5D50:** Brand colour, hero band, primary buttons, links and footer
-- **Mustard #E3A72F:** Accent only, for borders, the hero band's bottom edge, card top borders and the accent button. Never use it as text on cream or sage, as the contrast is too low
+- **Terracotta #B5562F:** Accent only, for the hero band's bottom edge, card and panel borders, menu underlines and the accent button. Text on terracotta is white (#FFFFFF, 4.84:1), as cream falls just short of AA. Never use it for focus outlines on forest green (too close in tone), and avoid it as body text
 - **Cream #FAF6EE:** Page background, card background and text on forest green
-- **Sage #DCE6DA:** Menu bar, alternate section, panel and card group background. The thin (3px) full-width line at the top of every H2 section uses the deeper sage border tone (`--colour-border`, #C9D6C6), set on `.section` in `global.css`. Menu text is forest green, with a mustard underline for hover and the current page (mustard text on sage is unreadable, 1.66:1)
-- **Charcoal #232B28:** Body text, text on mustard and focus outlines
+- **Sage #DCE6DA:** Menu bar, alternate section, panel and card group background. The thin (3px) full-width line at the top of every H2 section uses the deeper sage border tone (`--colour-border`, #C9D6C6), set on `.section` in `global.css`. Menu text is forest green, with a terracotta underline for hover and the current page
+- **Charcoal #232B28:** Body text and focus outlines (cream outlines on forest green)
 
 ## Components
 
 Use these components rather than one-off markup.
 
-- `PageHero`: Forest green band at the top of every page, with a mustard line along its bottom edge (no line between the menu and the band) and the faded logo mark at a diagonal behind the text, with the H1, strapline and a mustard Get in touch button. Pass `hideCta` on the contact page.
+- `PageHero`: Forest green band at the top of every page, with a terracotta line along its bottom edge (no line between the menu and the band) and the faded logo mark at a diagonal behind the text, with the H1, strapline and a terracotta Get in touch button. Pass `hideCta` on the contact page.
 - `Header` and `Footer`: Site chrome. The header is sticky and full-width, with a large logo hard left as the standout element, the menu and Get in touch hard right, a keyboard-accessible Schools & Professionals dropdown, a burger menu below 90rem (1440px), so smaller laptops show the logo, Get in touch and the menu button and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
 - `Section`: Page section with an optional anchor `id`, optional `title` (h2) and `alt` background. Each one has a full-width sage line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
-- `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (mustard, for forest green backgrounds). Never render a button without a real destination.
+- `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (terracotta, for forest green backgrounds). Never render a button without a real destination.
 - `CardGroup`: Sage panel that holds every group of boxes, with `columns={2}` (four boxes, 2x2) or `columns={3}` (three or six) and an optional `footer` slot for a link under the boxes. Always use it for groups of cards, and put it in a plain section (not `alt`), so the sage panel sits on the light background.
 - `RouteCard`: Audience route card with a heading link and one paragraph. Always inside a `CardGroup`.
 - `InfoPanel`: Facts panel. Pass `facts` as label and value pairs, or slot in content.
