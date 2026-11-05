@@ -77,6 +77,12 @@ const hasArt = Boolean(drawing) || hasPhoto;
     margin-bottom: 0;
   }
 
+  /* No drawing or photo beside the heading: let the intro run the full width of the page */
+  .section-head:not(.section-head--drawing) :global(.prose),
+  .section-head:not(.section-head--drawing) :global(.section-strapline) {
+    max-width: none;
+  }
+
   /* A strapline with no intro after it keeps its usual gap before the content below */
   .section-head__text > :global(.section-strapline:last-child) {
     margin-bottom: 1rem;
