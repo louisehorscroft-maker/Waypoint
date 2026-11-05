@@ -53,10 +53,15 @@ Footer links point at these anchors, which must exist once the content is added:
 Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use the role variables (`--colour-brand`, `--colour-surface` and so on) rather than hex values. There is no accent colour (mustard and terracotta were tried and dropped).
 
 - **Forest green #2F5D50:** Brand colour, hero band, primary buttons, links, card and panel borders, menu underlines, the footer and occasional call-to-action sections (`<Section brand>`)
-- **Cream #FAF6EE:** Page background, card background and text on forest green
-- **White #FFFFFF:** Alternate section background (`<Section alt>`). Sections alternate cream and white
-- **Sage #DCE6DA:** Menu bar, panels and card group backgrounds, the line under the hero band and the accent button (forest green text) on forest green. Never a section background. The thin (3px) full-width line at the top of every H2 section, and above the footer, uses the deeper sage border tone (`--colour-border`, #C9D6C6)
+- **Cream #FAF6EE:** Page background, box background on white sections, and text (including headings) on forest green
+- **White #FFFFFF:** Alternate section background (`<Section alt>`) and box background on cream sections. Sections alternate cream and white
+- **Sage #DCE6DA:** Menu bar, the line under the hero band and the accent button (forest green text) on forest green. Never a section or box background. The thin (3px) full-width line at the top of every H2 section, and above the footer, uses the deeper sage border tone (`--colour-border`, #C9D6C6)
 - **Charcoal #232B28:** Body text and focus outlines (cream outlines on forest green)
+
+Two rules apply everywhere:
+
+- **Headings and bold:** All headings (H1 to H4) and bold text (`strong`, `b`, and the labels in `InfoPanel`) are forest green, except on forest green backgrounds, where they are cream. Set globally in `global.css`.
+- **Boxes:** Boxes take the opposite colour to the section they sit on, white on cream and cream on white, with a thin sage border and forest green accents. Boxes inside a box (cards in a `CardGroup`) flip back to the section colour. This is handled by the `--box-bg` and `--box-inner-bg` variables, so use them for any new box component rather than a fixed colour.
 
 ## Components
 
@@ -66,9 +71,9 @@ Use these components rather than one-off markup.
 - `Header` and `Footer`: Site chrome. The header is sticky and full-width, with a large logo hard left as the standout element, the menu and Get in touch hard right, a keyboard-accessible Schools & Professionals dropdown, a burger menu below 90rem (1440px), so smaller laptops show the logo, Get in touch and the menu button and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
 - `Section`: Page section with an optional anchor `id`, optional `title` (h2), `alt` (white background) and `brand` (forest green, for occasional calls to action such as the closing Get in touch, with an accent button). Each one has a full-width sage line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
 - `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (sage with forest green text, for forest green backgrounds). Never render a button without a real destination.
-- `CardGroup`: Sage panel that holds every group of boxes, with `columns={2}` (four boxes, 2x2) or `columns={3}` (three or six) and an optional `footer` slot for a link under the boxes. Always use it for groups of cards, on a cream or white section.
+- `CardGroup`: Panel that holds every group of boxes, in the opposite colour to the section, with `columns={2}` (four boxes, 2x2) or `columns={3}` (three or six) and an optional `footer` slot for a link under the boxes. Always use it for groups of cards, on a cream or white section.
 - `RouteCard`: Audience route card with a heading link and one paragraph. Always inside a `CardGroup`.
-- `InfoPanel`: Facts panel. Pass `facts` as label and value pairs, or slot in content.
+- `InfoPanel`: Facts panel, in the opposite colour to the section with a forest green left edge. Pass `facts` as label and value pairs, or slot in content.
 - `ActivityCard`: Activity card with one paragraph, always inside a `CardGroup`. The optional `image` is for real photographs only, and the image slot is not rendered without one.
 - `FaqItem`: Accessible expand and collapse question, built on `<details>`.
 - `IllustrativeExample`: Box for illustrative or fictional examples such as Alex, with a visible `label` that stays attached on every screen size.

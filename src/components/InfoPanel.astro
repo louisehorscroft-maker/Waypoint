@@ -37,7 +37,9 @@ const headingId = title ? `${id ?? 'info-panel'}-heading` : undefined;
 
 <style>
   .info-panel {
-    background: var(--colour-surface);
+    /* Opposite of the section background, with forest green accents */
+    background: var(--box-bg);
+    border: 1px solid var(--colour-border);
     border-left: 4px solid var(--colour-brand);
     border-radius: var(--radius);
     padding: 1.5rem;
