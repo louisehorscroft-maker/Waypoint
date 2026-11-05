@@ -53,7 +53,7 @@ Footer links point at these anchors, which must exist once the content is added:
 Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use the role variables (`--colour-brand`, `--colour-accent` and so on) rather than hex values.
 
 - **Forest green #2F5D50:** Brand colour, hero band, primary buttons, links and footer
-- **Mustard #E3A72F:** Accent only, for borders, the hero band's top and bottom edges, the full-width line at the top of every H2 section (set on `.section` in `global.css`) and the accent button. Never use it as text on cream or sage, as the contrast is too low
+- **Mustard #E3A72F:** Accent only, for borders, the hero band's bottom edge, the full-width line at the top of every H2 section (set on `.section` in `global.css`) and the accent button. Never use it as text on cream or sage, as the contrast is too low
 - **Cream #FAF6EE:** Page background, card background and text on forest green
 - **Sage #DCE6DA:** Menu bar, alternate section and panel background. Menu text is forest green, with a mustard underline for hover and the current page (mustard text on sage is unreadable, 1.66:1)
 - **Charcoal #232B28:** Body text, text on mustard and focus outlines
@@ -62,7 +62,7 @@ Option B, outdoors and making. Tokens live in `src/styles/global.css`, so use th
 
 Use these components rather than one-off markup.
 
-- `PageHero`: Forest green band at the top of every page, with mustard bars above and below it, with the H1, strapline and a mustard Get in touch button. Pass `hideCta` on the contact page.
+- `PageHero`: Forest green band at the top of every page, with a mustard line along its bottom edge (no line between the menu and the band), with the H1, strapline and a mustard Get in touch button. Pass `hideCta` on the contact page.
 - `Header` and `Footer`: Site chrome. The header is sticky and full-width, with a large logo hard left as the standout element, the menu and Get in touch hard right, a keyboard-accessible Schools & Professionals dropdown, a burger menu below 90rem (1440px), so smaller laptops show the logo, Get in touch and the menu button and an always-visible Get in touch button. The footer has no company number, address, registered office or cookie banner.
 - `Section`: Page section with an optional anchor `id`, optional `title` (h2) and `alt` background. Each one has a full-width mustard line along its top, except straight after the page hero. Wrap every H2 block in a `Section` so the lines stay consistent. Anchors clear the sticky header automatically.
 - `Button`: Link styled as a button, `variant="primary"`, `"secondary"` or `"accent"` (mustard, for forest green backgrounds). Never render a button without a real destination.
