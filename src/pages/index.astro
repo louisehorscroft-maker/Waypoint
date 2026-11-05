@@ -183,30 +183,46 @@ const keyFacts = [
     </div>
   </Section>
 
-  <Section id="meet-wes" title="Meet Wes" strapline="An experienced PE teacher and sports coach.">
-    <div class="meet-wes">
-      <PhotoFrame
-        class="meet-wes__photo"
-        src={wesImage.src}
-        srcset={wesImage.srcset}
-        sizes="(min-width: 48rem) 18rem, 14rem"
-        alt={wesImage.alt}
-        width={480}
-        height={588}
-        ratio="4 / 5"
-        position="50% 30%"
-      />
+  <Section
+    id="meet-wes"
+    title="Meet Wes"
+    strapline="Director of Rugby, PE teacher and GB paddler."
+    drawingSide="left"
+  >
+    <PhotoFrame
+      slot="photo"
+      src={wesImage.src}
+      srcset={wesImage.srcset}
+      sizes="(min-width: 48rem) 18rem, 16rem"
+      alt={wesImage.alt}
+      width={480}
+      height={588}
+      ratio="4 / 5"
+      position="50% 30%"
+    />
+    <Fragment slot="intro">
       <div class="prose">
         <p>
-          Waypoint is founded by Wes Horscroft, who loves helping young people bring ideas to life, build practical
-          skills and discover what they can contribute.
+          Waypoint is founded by Wes Horscroft, a rugby director, PE teacher and international paddler who knows how to
+          help young people learn new skills, work as a team and take on a real challenge.
         </p>
         <p>
-          His approach mixes encouragement, clear expectations and real curiosity about each young person. And
-          Waypoint is not a sports club. Designing, making, collaborating and trying something new all count.
+          At Waypoint he brings all of that to practical learning. You don't need to be sporty to join in. Designing,
+          making and trying something new all count.
         </p>
       </div>
-    </div>
+    </Fragment>
+    <CardGroup columns={3}>
+      <Card title="Director of Rugby">
+        At Newman, where Wes set up the ACE Academy.
+      </Card>
+      <Card title="GB paddler">
+        Raced for Great Britain at the 2024 IVF Va'a World Sprint Championships in Hawaii.
+      </Card>
+      <Card title="Teacher and coach">
+        A long background in PE teaching and coaching, helping young people learn and work together.
+      </Card>
+    </CardGroup>
   </Section>
 
   <Section id="get-in-touch" title="Get in touch" strapline="Start with a conversation." brand drawing="chat" drawingLabel="Line drawing of two stick people chatting, with speech bubbles">
@@ -264,25 +280,4 @@ const keyFacts = [
     }
   }
 
-  /* Photo above the text on phones, beside it from tablet up */
-  .meet-wes {
-    display: grid;
-    gap: 1.5rem;
-    align-items: center;
-  }
-
-  .meet-wes :global(.meet-wes__photo) {
-    width: 14rem;
-  }
-
-  @media (min-width: 48rem) {
-    .meet-wes {
-      grid-template-columns: 18rem 1fr;
-      gap: 2.5rem;
-    }
-
-    .meet-wes :global(.meet-wes__photo) {
-      width: auto;
-    }
-  }
 </style>

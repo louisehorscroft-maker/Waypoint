@@ -119,6 +119,17 @@ These rules apply to all content and copy on the site.
 - **Box copy:** Use one paragraph per content box.
 - **Hyphens:** Don't remove hyphens from words when editing.
 
+## About Wes
+
+Facts supplied by Lou (not in the content source), which may be used alongside it:
+
+- Wes Horscroft, founder of Waypoint
+- Director of Rugby at Newman, where he set up the ACE Academy
+- A long background in PE teaching and sports coaching
+- Raced for Great Britain at the IVF Va'a World Sprint Championships in Hawaii in 2024 (outrigger canoe racing)
+
+Sell Wes confidently on Home and About, but don't add other claims without a source. His paddling is about him, not Waypoint: the first term is land-based, so never imply Waypoint offers paddling.
+
 ## Waypoint content rules
 
 These rules govern how copy from the source document is used on the site.
