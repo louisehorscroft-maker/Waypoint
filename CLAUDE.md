@@ -17,6 +17,7 @@ Marketing site for Waypoint, built with Astro (TypeScript strict) and deployed t
 - `src/components/`: Shared components, see the component list below
 - `src/styles/global.css`: Global styles, light mode only
 - `public/images/`: Logos and the cream logo mark used faded in the page hero (`waypoint-mark-cream.webp`, cropped from the cream logo and enlarged). Photo of Wes (`wes-horscroft-480.webp` and `-960.webp`, metadata stripped) in Meet Wes on Home, a stand-in until a final photo is chosen. Logos (`waypoint-logo-blue.webp` in the header, top left, recoloured from Wes's green file, and `waypoint-logo-cream.webp` in the footer, hard right on the same row as the footer links)
+- `public/`: Favicons supplied by Lou (`favicon.svg`, `favicon.ico` with 16, 32 and 48px, `apple-touch-icon.png` 180px, `icon-192.png` and `icon-512.png` for `site.webmanifest`), the blue circle with the cream logo mark. Linked in `BaseLayout` with a blue `theme-color`
 - `content-source/`: Source copy from Wes (original .docx and the markdown conversion). Never part of the built site
 - `scripts/check-dist.mjs`: Runs after every build and fails it if source files, internal section labels or Google Drive/Notion links appear in `dist/`
 

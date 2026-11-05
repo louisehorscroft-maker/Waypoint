@@ -1,0 +1,11 @@
+{
+  "name": "Waypoint",
+  "short_name": "Waypoint",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "theme_color": "#1D5FA8",
+  "background_color": "#FFFFFF",
+  "display": "standalone"
+}
