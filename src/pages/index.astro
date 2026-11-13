@@ -12,7 +12,7 @@ import Illustration from '../components/Illustration.astro';
 import PhotoFrame from '../components/PhotoFrame.astro';
 
 // Copy: rewritten from content-source/waypoint-content-v1.md, section "1 Home".
-// Wes's WEBSITE COPY is the framework; every fact here comes from it.
+// Section straplines and text are Wes's own revised wording (November 2026 feedback).
 
 /** Meet Wes: a real photograph of Wes only (supplied by Lou, placeholder until a final photo). */
 const wesImage = {
@@ -22,8 +22,8 @@ const wesImage = {
 };
 
 const keyFacts = [
+  { label: 'Ages', value: '8–16, depending on the suitability of the place and group', icon: 'people' as const },
   { label: 'Planned hours', value: '9:00am–2:30pm', icon: 'calendar' as const },
-  { label: 'Ages', value: '8–16, depending on individual and group suitability', icon: 'people' as const },
   { label: 'Location', value: 'Shoreham-by-Sea', icon: 'pin' as const },
   { label: 'Areas', value: areasText, icon: 'map' as const },
   {
@@ -43,19 +43,28 @@ const keyFacts = [
     strapline="Hands-on, small-group learning days for young people aged 8–16."
   />
 
-  <Section id="about" title="About our alternative provision" strapline="A day of making, building and working together." drawing="building" drawingLabel="Line drawing of two stick people carrying a plank, with a toolbox">
+  <Section
+    id="about"
+    title="About our alternative provision"
+    strapline="A child's strengths aren't always found in the places we're used to looking."
+    drawing="building"
+    drawingLabel="Line drawing of two stick people carrying a plank, with a toolbox"
+  >
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          Imagine a team building a basecamp, setting off a giant chain reaction or inventing a whole village.
-          Waypoint is a new small-group provision being developed in Shoreham-by-Sea, where young people aged 8–16
-          will create, explore, solve problems and work together.
+          Making, building and solving problems together give children different ways to show what they can do. We
+          work alongside them to understand how they approach a challenge, what interests them and what helps them take
+          part.
         </p>
         <p>
-          Waypoint offers two routes. Schools can arrange a funded place for a pupil, and home-educating families can
-          enquire directly about a home education place. Whichever route a young person takes, the day is built
-          around worthwhile activities, encouragement and room for different strengths, and we look carefully at each
-          young person's needs before any place is offered.
+          We use that understanding to adapt our teaching, offer worthwhile challenges and help children recognise
+          strengths they can use again. The aim is for children to discover more about themselves, while we learn how
+          best to support their development.
+        </p>
+        <p>
+          Waypoint is a small-group alternative provision being developed in Shoreham-by-Sea for young people aged
+          8–16, with places through schools and a direct enquiry route for home-educating families.
         </p>
       </div>
       <div class="button-row">
@@ -64,65 +73,94 @@ const keyFacts = [
     </Fragment>
   </Section>
 
-  <Section id="key-facts" title="Ages, hours and areas" strapline="Small groups in Shoreham-by-Sea, for ages 8–16." drawing="map-pin" drawingLabel="Line drawing of a dotted path leading to a map pin by the sea" drawingSide="left">
+  <Section
+    id="key-facts"
+    title="Ages, hours and areas"
+    strapline="Small groups, hands-on learning and time to get to know each child."
+    drawing="map-pin"
+    drawingLabel="Line drawing of a dotted path leading to a map pin by the sea"
+    drawingSide="left"
+  >
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          Waypoint is preparing to open. This is what we are planning, and we will confirm the venue, opening date,
-          practical arrangements and available places before any start is agreed.
+          We're planning days built around practical projects, shared challenges and thoughtful adult guidance. Before
+          offering a place, we consider the young person, the group they would join and the support available.
         </p>
       </div>
     </Fragment>
     <div class="key-facts">
       <InfoPanel facts={keyFacts} />
     </div>
+    <div class="prose after">
+      <p>
+        Waypoint is preparing to open. We'll confirm the venue, opening date and practical arrangements before any start
+        is agreed.
+      </p>
+    </div>
   </Section>
 
-  <Section id="find-your-way" title="Who Waypoint is for" strapline="Schools, local authorities and families." drawing="signpost" drawingLabel="Line drawing of a stick person looking up at a signpost">
+  <Section
+    id="find-your-way"
+    title="Who Waypoint is for"
+    strapline="A different learning experience, alongside school or home education."
+    drawing="signpost"
+    drawingLabel="Line drawing of a stick person looking up at a signpost"
+  >
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          Whether you work in a school or local authority, or care for a young person, start with the route that
-          fits.
+          You might be looking for a different way for a pupil to engage with learning, or shared projects that add
+          something to your child's home education. Start with the information that fits your situation.
+        </p>
+        <p>
+          School-funded places are arranged with the school. Home-educating families can enquire directly. Both begin
+          with understanding the young person and considering whether Waypoint could be a suitable place for them.
         </p>
       </div>
     </Fragment>
     <CardGroup columns={2}>
       <RouteCard title="Schools and SENCos" href="/for-schools/">
-        See how a school-funded place works, from assessing Waypoint as a provider to considering an individual
-        pupil, with purposeful learning and regular reporting.
+        Explore what a placement could help your pupil develop, how we consider suitability and what our reporting
+        could contribute to your understanding of them.
       </RouteCard>
       <RouteCard title="Local authorities" href="/for-local-authorities/">
-        Early conversations are welcome with education and inclusion teams, commissioners and Virtual Schools about
-        what a placement could add to a young person's wider plan.
+        Discuss how a part-time placement could contribute to a young person's wider education plan, with a clear
+        purpose, agreed support and useful evidence.
       </RouteCard>
       <RouteCard title="Parents and carers" href="/parents-and-carers/">
-        Picture your child's day, meet Wes and see the two ways to explore a place, through school or as a
-        home-educating family.
+        Picture your child's day, meet Wes and understand how a place could be arranged through school or home
+        education.
       </RouteCard>
       <RouteCard title="Home education" href="/home-education/">
-        Practical enrichment, group projects and creative challenges for home-educated young people. Families can
-        enquire directly, with no school referral needed.
+        Practical projects, creative challenges and opportunities to work alongside other young people. Families can
+        enquire directly, without a school referral.
       </RouteCard>
-      <p slot="footer" class="secondary-route">
-        <a href="/for-young-people/">For young people</a>
-      </p>
+      <div slot="footer">
+        <p class="secondary-route"><a href="/for-young-people/">For young people</a></p>
+        <p class="secondary-note">See what you could make, meet Wes and find out what happens during a day at Waypoint.</p>
+      </div>
     </CardGroup>
   </Section>
 
-  <Section id="activities" title="Projects and activities" strapline="What could you make happen?">
+  <Section
+    id="activities"
+    title="Projects and activities"
+    strapline="The sort of projects children want to tell you about when they get home."
+  >
     <Fragment slot="intro">
-    <div class="prose">
-      <p>
-        Build a basecamp from ropes and materials, send a ball through a giant chain reaction or create a whole
-        Survival Village. Dream up an idea, draw the plan, build it, test it and work out what could be better.
-      </p>
-      <p>
-        The projects are fun in their own right, and along the way young people practise practical skills,
-        teamwork, communication and problem-solving. They are examples from our developing activity bank, not a
-        fixed weekly timetable.
-      </p>
-    </div>
+      <div class="prose">
+        <p>
+          Design a basecamp, build a giant chain reaction or work out what a Survival Village would need. Children can
+          put forward ideas, test them and improve what they make together.
+        </p>
+        <p>
+          One child might contribute a drawing, another a practical solution, another the suggestion that moves the
+          project on. We want them to enjoy the experience and recognise the part they played, whether that was making
+          something, solving a problem or helping someone else.
+        </p>
+        <p>These are examples from the programme we're developing, rather than a fixed weekly timetable.</p>
+      </div>
     </Fragment>
     <div class="drawings">
       <Illustration name="campfire" label="Line drawing of stick people sitting and standing round a campfire" />
@@ -134,63 +172,86 @@ const keyFacts = [
     </div>
   </Section>
 
-  <Section id="learning" title="Learning at Waypoint" strapline="The fun matters. So does the learning." drawing="idea" drawingLabel="Line drawing of a stick person with a lightbulb idea, sketching at an easel" drawingSide="left">
+  <Section
+    id="learning"
+    title="Learning at Waypoint"
+    strapline="The more we learn about a child, the better we can help them learn."
+    drawing="idea"
+    drawingLabel="Line drawing of a stick person with a lightbulb idea, sketching at an easel"
+    drawingSide="left"
+  >
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          When young people have something meaningful to make or solve, different strengths, interests and ways of
-          contributing come through. Our aim is to give every young person engaging experiences, thoughtful guidance
-          and a real part to play.
+          If a child explains an idea more easily through a sketch, that gives us another way to help them contribute.
+          If they find a clever solution to a practical problem, we can help them recognise that strength and give them
+          another opportunity to use it.
+        </p>
+        <p>
+          As we get to know a child, we adapt how we explain, encourage and challenge them. We also help them notice
+          what they enjoyed, what they contributed and what they would like to try next.
         </p>
         <h3>School-funded places</h3>
         <p>
-          We agree a small number of individual goals with the school and family, drawing on the support plans
-          already in place.
+          We connect these experiences to a small number of goals agreed with the school and family, drawing on the
+          support plans already in place.
         </p>
         <h3>Home education</h3>
         <p>
-          For young people who are home educated and want something extra in their week, Waypoint offers days of
-          hands-on projects and creative challenges alongside other young people.
+          Guided practical projects give young people opportunities to explore interests, practise skills and work with
+          others alongside their family's wider home education.
         </p>
       </div>
     </Fragment>
   </Section>
 
-  <Section id="feedback" title="Feedback for schools and families" strapline="A clear written report every week." drawing="report" drawingLabel="Line drawing of a report sheet with ticks and a pencil">
+  <Section
+    id="feedback"
+    title="Feedback for schools and families"
+    strapline="What we learn here should be useful beyond Waypoint."
+    drawing="report"
+    drawingLabel="Line drawing of a report sheet with ticks and a pencil"
+  >
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          School-funded places include a weekly report for the school and family. It tells you what the young person
-          did, what helped and what to try next.
+          For school-funded places, our planned weekly reports give schools and families a clearer picture of the
+          child's participation, what they did, the support that helped and what could be worth trying next.
+        </p>
+        <p>
+          That might be a way of explaining a task, an interest to develop or an opportunity to use a strength in a
+          different situation. We share specific observations and practical suggestions, without assuming that an
+          approach will work in every setting.
         </p>
       </div>
     </Fragment>
     <CardGroup columns={3}>
-      <Card title="What they did" icon="clipboard">
-        The activity, what the young person did and how it went.
+      <Card title="What they contributed" icon="star">
+        An idea they shared, a skill they practised, a problem they worked through or something they helped the group
+        achieve.
       </Card>
-      <Card title="What helped" icon="heart">
-        The support they had and anything they still found hard.
+      <Card title="What helped them" icon="heart">
+        The explanation, encouragement or practical support involved, alongside anything they still found difficult.
       </Card>
-      <Card title="What to try next" icon="arrow">
-        One or two realistic next steps, plus ideas the school might want to try.
+      <Card title="What we could try next" icon="arrow">
+        A useful next challenge at Waypoint and, where appropriate, an approach the school or family could explore.
       </Card>
     </CardGroup>
-    <div class="prose feedback__more">
+    <div class="prose after">
       <p>
-        We include the young person's own view of their day where we can. There is a check-in after the first two
-        sessions, then fuller reviews at around weeks 4, 8 and 12.
+        We include the child's own view wherever possible. An early check-in follows the first two sessions, with fuller
+        reviews planned around weeks 4, 8 and 12.
       </p>
     </div>
     <div class="button-row">
-      <Button href="/for-schools/#reporting">See what a report covers</Button>
+      <Button href="/for-schools/#reporting">How it works for schools</Button>
     </div>
   </Section>
 
   <Section
     id="meet-wes"
     title="Meet Wes"
-    strapline="Director of Rugby, PE teacher and GB paddler."
+    strapline="A mentor first, with each child's future in mind."
     drawingSide="left"
   >
     <PhotoFrame
@@ -207,21 +268,27 @@ const keyFacts = [
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          Waypoint is founded by Wes Horscroft, a rugby director, PE teacher and international paddler who knows how to
-          help young people learn new skills, work as a team and take on a real challenge.
+          Wes has been teaching since 2006, but describes himself first and foremost as a mentor. His experience as a
+          coach and teacher shapes how he works with young people; getting to know the child shapes what he does with
+          that experience.
         </p>
         <p>
-          Wes built the Newman Rugby Academy in Hove from the ground up and won it RFU ACE status, a place in England
-          Rugby's programme for the most promising young players. That takes years of patient coaching and getting the
-          best out of young people, which is exactly what Waypoint is about.
+          He sees the best in children and believes in a bright future for them. He takes time to understand what
+          matters to them, recognise their strengths and help them see possibilities they may not yet see for
+          themselves. He thinks about the confidence, skills and understanding they could carry into the years ahead.
         </p>
         <p>
-          At Waypoint he brings all of that to practical learning. You don't need to be sporty to join in. Designing,
-          making and trying something new all count.
+          At Waypoint, that means encouragement backed by action, giving children worthwhile challenges, helping them
+          develop their abilities and recognising what they contribute. Through those experiences and the conversations
+          around them, Wes helps children take pride in what they achieve and explore how they could use what they've
+          learned next.
         </p>
       </div>
     </Fragment>
     <CardGroup columns={3}>
+      <Card title="Coach and teacher">
+        Teaching since 2006, and coaching young people to learn new skills and work together.
+      </Card>
       <Card title="Director of Rugby">
         At Cardinal Newman Catholic School in Hove, where Wes set up the Newman Rugby Academy and gained it RFU ACE
         status.
@@ -229,20 +296,28 @@ const keyFacts = [
       <Card title="GB paddler">
         Raced for Great Britain at the 2024 IVF Va'a World Sprint Championships in Hawaii.
       </Card>
-      <Card title="Teacher and coach">
-        Teaching PE since 2007, and coaching young people to learn new skills and work together.
-      </Card>
     </CardGroup>
   </Section>
 
-  <Section id="get-in-touch" title="Get in touch" strapline="Start with a conversation." brand drawing="chat" drawingLabel="Line drawing of two stick people chatting, with speech bubbles">
+  <Section
+    id="get-in-touch"
+    title="Get in touch"
+    strapline="Let's talk about what would make their time here worthwhile."
+    brand
+    drawing="chat"
+    drawingLabel="Line drawing of two stick people chatting, with speech bubbles"
+  >
     <Fragment slot="intro">
       <div class="prose">
         <p>
-          Whether you're a SENCo considering a pupil, a parent exploring options or a home educator looking for
-          something new, you're welcome to ask us anything. We'll explain the plans, help you find the right route and be
-          clear about what is still being finalised.
+          You might have a pupil in mind, be looking for an opportunity for your child or want to add shared practical
+          experiences to your home education.
         </p>
+        <p>
+          Tell us what they enjoy, what you hope they could gain and what you'd like to know about Waypoint. We'll
+          explain the planned offer, discuss whether it might be suitable and help you understand the next step.
+        </p>
+        <p>You can begin with a general question. You don't need to have everything decided before getting in touch.</p>
       </div>
       <div class="button-row">
         <Button href="/contact/" variant="accent">Get in touch</Button>
@@ -256,12 +331,16 @@ const keyFacts = [
     margin-top: 1.5rem;
   }
 
-  .secondary-route {
-    font-weight: 600;
+  .after {
+    margin-top: 1.5rem;
   }
 
-  .feedback__more {
-    margin-top: 1.5rem;
+  .secondary-note {
+    margin: 0.25rem 0 0;
+  }
+
+  .secondary-route {
+    font-weight: 600;
   }
 
   .secondary-route a::after {
