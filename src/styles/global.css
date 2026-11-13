@@ -148,6 +148,13 @@ h3 {
   margin-bottom: 0;
 }
 
+/* Text that sits below boxes, panels or lists in a section (not in the heading area) runs the full
+   width of the page, lining up with the boxes above it */
+.section > .container > .prose,
+.section > .container > div > .prose {
+  max-width: none;
+}
+
 
 p {
   margin: 0 0 1rem;
